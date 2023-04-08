@@ -1,12 +1,18 @@
 package com.christinac.wanderoo.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -28,12 +34,25 @@ public class Activity {
 	private String Summary;
 	private String infoLink;
 	
-	//relationships:
+	// relationships:
 	// who created activity
-//	@ManyToOne(fetch=FetchType.LAZY)
-//	@JoinColumn(name="user_id")
-//	private User createdBy;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User activityCreator;
+	
 	// which trip does this activity belong to
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="trip_id")
+	private Trip trip;
+	
+	// who is attending this restaurant
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="activities_users",
+			joinColumns=@JoinColumn(name="user_id"),
+			inverseJoinColumns=@JoinColumn(name="activity_id")
+			)
+	private List<User> membersAttending;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -94,6 +113,31 @@ public class Activity {
 		this.updatedAt = updatedAt;
 	}
 	
+	// relationship getters and setters
+	public Trip getTrip() {
+		return trip;
+	}
+
+	public void setTrip(Trip trip) {
+		this.trip = trip;
+	}
+	
+	public User getActivityCreator() {
+		return activityCreator;
+	}
+
+	public void setActivityCreator(User activityCreator) {
+		this.activityCreator = activityCreator;
+	}
+	
+	public List<User> getMembersAttending() {
+		return membersAttending;
+	}
+
+	public void setMembersAttending(List<User> membersAttending) {
+		this.membersAttending = membersAttending;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

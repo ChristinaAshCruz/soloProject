@@ -1,12 +1,18 @@
 package com.christinac.wanderoo.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -39,6 +45,40 @@ public class User {
 	private Date createdAt;
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updatedAt;
+	
+	//relationships:
+	// list of trips created
+	@OneToMany(mappedBy="tripCreator", fetch=FetchType.LAZY)
+	private List<Trip> tripsCreated;
+	
+	// list of trips that user is a member of
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="trips_users",
+			joinColumns=@JoinColumn(name="trip_id"),
+			inverseJoinColumns=@JoinColumn(name="user_id")
+			)
+	private List<Trip> tripsAttending;
+
+	// list of activities created
+	@OneToMany(mappedBy="activityCreator", fetch=FetchType.LAZY)
+	private List<Activity> activitiesCreated;
+	
+	// list of restaurants created
+	@OneToMany(mappedBy="restaurantCreator", fetch=FetchType.LAZY)
+	private List<Restaurant> restaurantsCreated;
+	
+	// list of activities attending
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="activities_users",
+			joinColumns=@JoinColumn(name="activity_id"),
+			inverseJoinColumns=@JoinColumn(name="user_id")
+			)
+	private List<Activity> activitiesAttending;
+	// list of restaurants attending
+	
+	
 	//constructor
 	public User() {}
 	
@@ -90,6 +130,47 @@ public class User {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	
+	// relationship getters and setters
+	public List<Trip> getTripsCreated() {
+		return tripsCreated;
+	}
+
+	public void setTripsCreated(List<Trip> tripsCreated) {
+		this.tripsCreated = tripsCreated;
+	}
+	
+	public List<Trip> getTripsAttending() {
+		return tripsAttending;
+	}
+
+	public void setTripsAttending(List<Trip> tripsAttending) {
+		this.tripsAttending = tripsAttending;
+	}
+
+	public List<Activity> getActivitiesCreated() {
+		return activitiesCreated;
+	}
+
+	public void setActivitiesCreated(List<Activity> activitiesCreated) {
+		this.activitiesCreated = activitiesCreated;
+	}
+	
+	public List<Restaurant> getRestaurantsCreated() {
+		return restaurantsCreated;
+	}
+
+	public void setRestaurantsCreated(List<Restaurant> restaurantsCreated) {
+		this.restaurantsCreated = restaurantsCreated;
+	}
+	
+	public List<Activity> getActivitiesAttending() {
+		return activitiesAttending;
+	}
+
+	public void setActivitiesAttending(List<Activity> activitiesAttending) {
+		this.activitiesAttending = activitiesAttending;
 	}
 
 	@PrePersist

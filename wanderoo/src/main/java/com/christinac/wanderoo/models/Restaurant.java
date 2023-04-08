@@ -4,9 +4,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -29,7 +32,14 @@ public class Restaurant {
 	
 	//relationships:
 	// who created restaurant
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User restaurantCreator;
+	
 	// which trip does this restaurant belong to
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="trip_id")
+	private Trip trip;
 	
 	
 	@Column(updatable=false)
@@ -106,6 +116,24 @@ public class Restaurant {
 		this.updatedAt = updatedAt;
 	}
 	
+	
+	//relationship getters and setters:
+	public Trip getTrip() {
+		return trip;
+	}
+
+	public void setTrip(Trip trip) {
+		this.trip = trip;
+	}
+	
+	public User getRestaurantCreator() {
+		return restaurantCreator;
+	}
+
+	public void setRestaurantCreator(User restaurantCreator) {
+		this.restaurantCreator = restaurantCreator;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();

@@ -1,12 +1,19 @@
 package com.christinac.wanderoo.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -29,10 +36,26 @@ public class Trip {
 	//relationships:
 	
 	// who created this trip
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User tripCreator;
+	
 	// list of trip members
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="trips_users",
+			joinColumns=@JoinColumn(name="user_id"),
+			inverseJoinColumns=@JoinColumn(name="trip_id")
+			)
+	private List<User> tripMembers;
 	
 	// list of trip's activities
+	@OneToMany(mappedBy="trip", fetch=FetchType.LAZY)
+	private List<Activity> tripActivities;
+	
 	// list of trip's restaurants
+	@OneToMany(mappedBy="trip", fetch=FetchType.LAZY)
+	private List<Restaurant> tripRestaurants;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -87,6 +110,42 @@ public class Trip {
 		this.updatedAt = updatedAt;
 	}
 	
+	// relationship getters and setters:
+	public User getTripCreator() {
+		return tripCreator;
+	}
+
+	public void setTripCreator(User tripCreator) {
+		this.tripCreator = tripCreator;
+	}
+	
+	public List<User> getTripMembers() {
+		return tripMembers;
+	}
+
+	public void setTripMembers(List<User> tripMembers) {
+		this.tripMembers = tripMembers;
+	}
+	
+	
+	
+	public List<Activity> getTripActivities() {
+		return tripActivities;
+	}
+
+	public void setTripActivities(List<Activity> tripActivities) {
+		this.tripActivities = tripActivities;
+	}
+	
+
+	public List<Restaurant> getTripRestaurants() {
+		return tripRestaurants;
+	}
+
+	public void setTripRestaurants(List<Restaurant> tripRestaurants) {
+		this.tripRestaurants = tripRestaurants;
+	}
+
 	@PrePersist
 	protected void onCreate() {
 		this.createdAt = new Date();
