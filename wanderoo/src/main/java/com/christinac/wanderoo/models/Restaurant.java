@@ -1,6 +1,7 @@
 package com.christinac.wanderoo.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -41,6 +44,14 @@ public class Restaurant {
 	@JoinColumn(name="trip_id")
 	private Trip trip;
 	
+	// who is attending this activity
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="restaurants_users",
+			joinColumns=@JoinColumn(name="user_id"),
+			inverseJoinColumns=@JoinColumn(name="restaurant_id")
+			)
+	private List<User> membersAttending;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -132,6 +143,14 @@ public class Restaurant {
 
 	public void setRestaurantCreator(User restaurantCreator) {
 		this.restaurantCreator = restaurantCreator;
+	}
+	
+	public List<User> getMembersAttending() {
+		return membersAttending;
+	}
+
+	public void setMembersAttending(List<User> membersAttending) {
+		this.membersAttending = membersAttending;
 	}
 
 	@PrePersist

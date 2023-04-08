@@ -77,7 +77,13 @@ public class User {
 			)
 	private List<Activity> activitiesAttending;
 	// list of restaurants attending
-	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="restaurants_users",
+			joinColumns=@JoinColumn(name="restaurant_id"),
+			inverseJoinColumns=@JoinColumn(name="user_id")
+			)
+	private List<Restaurant> restaurantsAttending;
 	
 	//constructor
 	public User() {}
