@@ -1,9 +1,16 @@
 package com.christinac.wanderoo.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -32,6 +39,18 @@ public class Activity {
 	private String summary;
 	private String extraNotes;
 	
+	// relationship: user who created activity
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="creator_id")
+	private User activityCreatedBy;
+	
+	// relationship: trip where activity belongs to
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="trip_id")
+	private Trip trip;
+	
+	@OneToMany(mappedBy="activityAttendedBy", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<User> membersAttending;
 	//notes for tomorrow
 		// add relation mapping connecting each activity to what trip it belongs to
 		// add relation mapping connecting ea. activity to user who created it

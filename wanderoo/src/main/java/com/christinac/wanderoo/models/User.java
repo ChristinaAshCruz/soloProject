@@ -10,6 +10,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -41,6 +44,16 @@ public class User {
 	// relationship to other models
 	@OneToMany(mappedBy="createdBy", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	private List<Trip> trips;
+	
+	
+		// relationship: list of group trips that user is attending
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+				name="trips_users",
+				joinColumns=@JoinColumn(name="trip_id"),
+				inverseJoinColumns=@JoinColumn(name="user_id")
+			)
+	private List<Trip> groupTripsAttending;
 
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")

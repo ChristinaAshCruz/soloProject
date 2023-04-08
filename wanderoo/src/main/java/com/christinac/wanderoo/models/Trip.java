@@ -3,6 +3,7 @@ package com.christinac.wanderoo.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -45,6 +47,8 @@ public class Trip {
 	@JoinColumn(name="creator_id")
 	private User createdBy;
 	
+		// relationship: list of users that are attending trip
+			// will contain list of user_ids of members
 	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(
 				name="trips_users",
@@ -53,6 +57,12 @@ public class Trip {
 			)
 	private List<User> tripMembers;
 	
+	// creating activity list for 1 trip
+	@OneToMany(mappedBy="activityCreatedBy", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Activity> tripActivities;
+	// creating restaurant list for 1 trip
+	@OneToMany(mappedBy="restaurantCreatedBy", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Restaurant> tripRestaurants;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
