@@ -1,19 +1,12 @@
 package com.christinac.wanderoo.models;
 
 import java.util.Date;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -40,50 +33,6 @@ public class User {
 	private String password;
 	@Transient
 	private String confirmPass;
-	
-	// relationship to other models
-	@OneToMany(mappedBy="tripCreator", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Trip> trips;
-	
-	
-		// relationship: list of group trips that user is attending
-			// will contain trip_ids from those trips that user is a member of
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-				name="trips_users",
-				joinColumns=@JoinColumn(name="trip_id"),
-				inverseJoinColumns=@JoinColumn(name="user_id")
-			)
-	private List<Trip> groupTripsAttending;
-	
-	// list of activities created by user
-	@OneToMany(mappedBy="activityCreator", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Activity> activitiesCreated;
-	
-	// list of restaurants created by user
-	@OneToMany(mappedBy="restaurantCreator", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
-	private List<Restaurant> restaurantsCreated;
-
-	// list of activities user is attending
-//	@ManyToMany(fetch=FetchType.LAZY)
-//	@JoinTable(
-//			//name middle table
-//			name="restaurants_users",
-//			joinColumns=@JoinColumn(name="user_id"),
-//			inverseJoinColumns =@JoinColumn(name="restaurant_id")
-//			)
-//	private List<Restaurant> restaurantsAttending; 
-//	
-//	@ManyToMany(fetch=FetchType.LAZY)
-//	@JoinTable(
-//				name="activities_users",
-//				joinColumns=@JoinColumn(name="user_id"),
-//				inverseJoinColumns=@JoinColumn(name="activity_id")
-//			)
-//	private List<Activity> activitesAttending;
-	
-	
-	// list of restaurants is attending
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -142,56 +91,6 @@ public class User {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-	public List<Trip> getTrips() {
-		return trips;
-	}
-
-	public void setTrips(List<Trip> trips) {
-		this.trips = trips;
-	}
-
-	public List<Trip> getGroupTripsAttending() {
-		return groupTripsAttending;
-	}
-
-	public void setGroupTripsAttending(List<Trip> groupTripsAttending) {
-		this.groupTripsAttending = groupTripsAttending;
-	}
-
-	public List<Activity> getActivitiesCreated() {
-		return activitiesCreated;
-	}
-
-	public void setActivitiesCreated(List<Activity> activitiesCreated) {
-		this.activitiesCreated = activitiesCreated;
-	}
-
-	public List<Restaurant> getRestaurantsCreated() {
-		return restaurantsCreated;
-	}
-
-	public void setRestaurantsCreated(List<Restaurant> restaurantsCreated) {
-		this.restaurantsCreated = restaurantsCreated;
-	}
-	
-	
-
-//	public List<Restaurant> getRestaurantsAttending() {
-//		return restaurantsAttending;
-//	}
-//
-//	public void setRestaurantsAttending(List<Restaurant> restaurantsAttending) {
-//		this.restaurantsAttending = restaurantsAttending;
-//	}
-//
-//	public List<Activity> getActivitesAttending() {
-//		return activitesAttending;
-//	}
-//
-//	public void setActivitesAttending(List<Activity> activitesAttending) {
-//		this.activitesAttending = activitesAttending;
-//	}
 
 	@PrePersist
 	protected void onCreate() {
