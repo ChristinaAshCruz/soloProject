@@ -32,7 +32,7 @@ pageEncoding="UTF-8"%>
       class="d-flex justify-content-between align-items-end mb-3"
       id="header"
     >
-      <h3 id="logo" class="my-0">LOGO HERE.</h3>
+      <h3 id="logo" class="my-0">Wanderoo.</h3>
       <div class="d-flex align-items-end">
         <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
         <a href="/" class="btn btn-primary me-2">+ New Trip</a>
@@ -40,27 +40,48 @@ pageEncoding="UTF-8"%>
       </div>
     </div>
     <hr />
-    <div class="d-flex p-4">
-      <div class="card col-3 me-5 trip_card">
-        <img
-          src="https://i.pinimg.com/originals/74/1c/55/741c555176bd57789559b6ec6eb12ad7.jpg"
-          class="img-fluid"
-          alt="..."
-        />
-        <div class="card-body">
-          <h1>Card</h1>
-          <h5>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus eos
-            nemo autem pariatur, animi tempora necessitatibus voluptatum
-            voluptatem dolore voluptate quam nam minima ipsa repellendus quo
-            accusamus mollitia quis ad!
-          </h5>
+    <h1 class="ms-3 my-0">Your Trips</h1>
+    <div class="d-flex p-4 px-5">
+      <a href="/" class="col-3 me-5 trip_card">
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/originals/74/1c/55/741c555176bd57789559b6ec6eb12ad7.jpg"
+            class="img-fluid"
+            alt="..."
+          />
+          <div class="card-body">
+            <h1>Card</h1>
+            <h5>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              eos nemo autem pariatur, animi tempora necessitatibus voluptatum
+              voluptatem dolore voluptate quam nam minima ipsa repellendus quo
+              accusamus mollitia quis ad!
+            </h5>
+          </div>
         </div>
-      </div>
-      <a href="/" class="col-3 trip_card">
+      </a>
+      <a href="/" class="col-3 me-5 trip_card">
         <div class="card">
           <img
             src="https://i.pinimg.com/564x/08/9d/25/089d25d194b153424945fee3a0a335e7.jpg"
+            class="img-fluid"
+            alt="..."
+          />
+          <div class="card-body">
+            <h1>Card</h1>
+            <h5>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
+              eos nemo autem pariatur, animi tempora necessitatibus voluptatum
+              voluptatem dolore voluptate quam nam minima ipsa repellendus quo
+              accusamus mollitia quis ad!
+            </h5>
+          </div>
+        </div>
+      </a>
+      <a href="/" class="col-3 trip_card">
+        <div class="card">
+          <img
+            src="https://i.pinimg.com/564x/8d/c3/11/8dc3114132d0c28e075baca43649befe.jpg"
             class="img-fluid"
             alt="..."
           />
