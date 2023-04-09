@@ -8,3 +8,27 @@ body {
 h1 {
 	font-family: 'Syne', sans-serif;
 }
+
+#logo{
+	font-family: 'Syne', sans-serif;
+}
+
+.img-fluid{
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.card {
+	border-radius: 15px;
+}
+.trip_card{
+	text-decoration: none;
+	color:black;
+	transition: all 200ms ease;
+	border-radius: 15px;
+}
+
+.trip_card:hover {
+	text-decoration: none;
+	color:black;
+	box-shadow: 16px 16px 17px rgba(0, 0, 0, 0.2);
+}
