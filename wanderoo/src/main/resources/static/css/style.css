@@ -3,6 +3,7 @@
 body {
 	margin: 40px;
 	font-family: 'Montserrat', sans-serif;
+	background-color: #fcf8f2;
 }
 
 h1 {
@@ -12,13 +13,14 @@ h1 {
 #logo{
 	font-family: 'Syne', sans-serif;
 }
-
 .img-fluid{
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
 .card {
+	border: 2px solid #DEA754;
 	border-radius: 15px;
+	background-color: #fcf8f2;
 }
 .trip_card{
 	text-decoration: none;
@@ -32,3 +34,11 @@ h1 {
 	color:black;
 	box-shadow: 16px 16px 17px rgba(0, 0, 0, 0.2);
 }
+.travel-tag{
+	border: 2px solid black;
+	border-radius: 28px;
+	padding:10px 15px;
+}
+img {
+ 	height: 100px;
+ }

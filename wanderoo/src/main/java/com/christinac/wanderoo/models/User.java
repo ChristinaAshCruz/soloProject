@@ -178,6 +178,16 @@ public class User {
 	public void setActivitiesAttending(List<Activity> activitiesAttending) {
 		this.activitiesAttending = activitiesAttending;
 	}
+	
+	
+	
+	public List<Restaurant> getRestaurantsAttending() {
+		return restaurantsAttending;
+	}
+
+	public void setRestaurantsAttending(List<Restaurant> restaurantsAttending) {
+		this.restaurantsAttending = restaurantsAttending;
+	}
 
 	@PrePersist
 	protected void onCreate() {

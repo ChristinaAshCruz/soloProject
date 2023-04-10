@@ -33,24 +33,25 @@ pageEncoding="UTF-8"%>
       id="header"
     >
       <h3 id="logo" class="my-0">Wanderoo.</h3>
-      <div class="d-flex align-items-end">
+      <div class="d-flex flex-sm-row align-items-end">
         <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
         <a href="/" class="btn btn-primary me-2">+ New Trip</a>
         <a href="/" class="btn btn-primary">Logout</a>
       </div>
     </div>
     <hr />
-    <h1 class="ms-3 my-0">Your Trips</h1>
-    <div class="d-flex p-4 px-5">
-      <a href="/" class="col-3 me-5 trip_card">
-        <div class="card">
-          <img
-            src="https://i.pinimg.com/originals/74/1c/55/741c555176bd57789559b6ec6eb12ad7.jpg"
-            class="img-fluid"
-            alt="..."
-          />
+    <h1 class="mt-0 mb-3">Your Trips</h1>
+    <div class="d-flex flex-sm-row justify-content-center mx-5 trip-row">
+      <a href="/" class="trip_card col me-4">
+        <div class="card vh-75">
+          <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
           <div class="card-body">
-            <h1>Card</h1>
+            <div
+              class="d-flex justify-content-between align-items-end card-title"
+            >
+              <h1>Card</h1>
+              <p class="travel-tag">SOLO</p>
+            </div>
             <h5>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
               eos nemo autem pariatur, animi tempora necessitatibus voluptatum
@@ -60,15 +61,16 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
       </a>
-      <a href="/" class="col-3 me-5 trip_card">
-        <div class="card">
-          <img
-            src="https://i.pinimg.com/564x/08/9d/25/089d25d194b153424945fee3a0a335e7.jpg"
-            class="img-fluid"
-            alt="..."
-          />
+      <a href="/" class="trip_card col me-4">
+        <div class="card vh-75">
+          <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
           <div class="card-body">
-            <h1>Card</h1>
+            <div
+              class="d-flex justify-content-between align-items-end card-title"
+            >
+              <h1>Card</h1>
+              <p class="travel-tag">SOLO</p>
+            </div>
             <h5>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
               eos nemo autem pariatur, animi tempora necessitatibus voluptatum
@@ -78,15 +80,16 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
       </a>
-      <a href="/" class="col-3 trip_card">
-        <div class="card">
-          <img
-            src="https://i.pinimg.com/564x/8d/c3/11/8dc3114132d0c28e075baca43649befe.jpg"
-            class="img-fluid"
-            alt="..."
-          />
+      <a href="/" class="trip_card col">
+        <div class="card vh-75">
+          <img src="/images/groupTrip.png" class="img-fluid" alt="..." />
           <div class="card-body">
-            <h1>Card</h1>
+            <div
+              class="d-flex justify-content-between align-items-end card-title"
+            >
+              <h1>Card</h1>
+              <p class="travel-tag">SOLO</p>
+            </div>
             <h5>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
               eos nemo autem pariatur, animi tempora necessitatibus voluptatum
