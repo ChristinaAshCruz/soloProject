@@ -51,6 +51,9 @@ pageEncoding="UTF-8"%>
               class="d-flex justify-content-between align-items-center card-title"
             >
               <h1>Graduation Trip</h1>
+              <h3>
+                <img src="/images/creator.png" alt="" class="icons me-2" />
+              </h3>
             </div>
             <div class="d-flex align-items-baseline mb-3">
               <img src="/images/marker.png" alt="" class="icons me-2" />
@@ -68,32 +71,7 @@ pageEncoding="UTF-8"%>
         </div>
         <div class="row g-3">
           <div class="col-sm">
-            <a href="/trip/1" class="trip_card">
-              <div class="card">
-                <img
-                  src="/images/restaurantImg.png"
-                  class="img-fluid"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-end card-title"
-                  >
-                    <h1>Restaurants</h1>
-                    <p class="amount-tag">5</p>
-                  </div>
-                  <h5>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ducimus eos nemo autem pariatur, animi tempora
-                    necessitatibus voluptatum voluptatem dolore voluptate quam
-                    nam minima ipsa repellendus quo accusamus mollitia quis ad!
-                  </h5>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-sm">
-            <a href="/trip/1" class="trip_card">
+            <a href="/activity/list" class="trip_card">
               <div class="card">
                 <img
                   src="/images/activityImg.png"
@@ -106,6 +84,31 @@ pageEncoding="UTF-8"%>
                   >
                     <h1>Activities</h1>
                     <p class="amount-tag">4</p>
+                  </div>
+                  <h5>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ducimus eos nemo autem pariatur, animi tempora
+                    necessitatibus voluptatum voluptatem dolore voluptate quam
+                    nam minima ipsa repellendus quo accusamus mollitia quis ad!
+                  </h5>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-sm">
+            <a href="/restaurant/list" class="trip_card">
+              <div class="card">
+                <img
+                  src="/images/restaurantImg.png"
+                  class="img-fluid"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <div
+                    class="d-flex justify-content-between align-items-end card-title"
+                  >
+                    <h1>Restaurants</h1>
+                    <p class="amount-tag">5</p>
                   </div>
                   <h5>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

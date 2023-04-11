@@ -28,85 +28,133 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <div
-      class="d-flex justify-content-between align-items-end mb-3"
-      id="header"
-    >
-      <h3 id="logo" class="my-0">Wanderoo.</h3>
-      <div class="d-flex flex-sm-row align-items-end">
-        <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-        <a href="/" class="btn btn-primary me-2">+ New Trip</a>
-        <a href="/" class="btn btn-primary">Logout</a>
-      </div>
-    </div>
-    <hr />
-    <h1 class="mt-0 mb-3">Your Trips</h1>
     <div class="container">
-      <div class="row g-3">
-        <div class="col-sm">
+      <div
+        class="d-flex justify-content-between align-items-end mb-3"
+        id="header"
+      >
+        <h3 id="logo" class="my-0">Wanderoo.</h3>
+        <div class="d-flex flex-sm-row align-items-end">
+          <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
+          <a href="/" class="btn btn-primary me-2">+ New Trip</a>
+          <a href="/" class="btn btn-primary">Logout</a>
+        </div>
+      </div>
+      <hr />
+      <div class="row">
+        <h1 class="mb-3">Your Trips</h1>
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
           <a href="/trip/1" class="trip_card">
             <div class="card">
-              <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
+              <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <div
-                  class="d-flex justify-content-between align-items-end card-title"
+                  class="d-flex justify-content-between align-items-center card-title"
                 >
-                  <h1>Card</h1>
+                  <h5 class="flex-grow-1">Tokyo</h5>
                   <p class="travel-tag">SOLO</p>
                 </div>
-                <h5>
+                <p class="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Ducimus eos nemo autem pariatur, animi tempora necessitatibus
                   voluptatum voluptatem dolore voluptate quam nam minima ipsa
                   repellendus quo accusamus mollitia quis ad!
-                </h5>
+                </p>
               </div>
             </div>
           </a>
         </div>
-        <div class="col-sm">
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
           <a href="/" class="trip_card">
             <div class="card">
-              <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
+              <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <div
-                  class="d-flex justify-content-between align-items-end card-title"
+                  class="d-flex justify-content-between align-items-center card-title"
                 >
-                  <h1>Card</h1>
+                  <h5 class="flex-grow-1">Graduation Trip</h5>
                   <p class="travel-tag">SOLO</p>
                 </div>
-                <h5>
+                <p class="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Ducimus eos nemo autem pariatur, animi tempora necessitatibus
                   voluptatum voluptatem dolore voluptate quam nam minima ipsa
                   repellendus quo accusamus mollitia quis ad!
-                </h5>
+                </p>
               </div>
             </div>
           </a>
         </div>
-        <div class="col-sm">
+        <div class="col-md-4 mb-4 d-flex align-items-stretch">
           <a href="/" class="trip_card">
             <div class="card">
-              <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
+              <img src="/images/groupTrip.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <div
-                  class="d-flex justify-content-between align-items-end card-title"
+                  class="d-flex justify-content-between align-items-center card-title"
                 >
-                  <h1>Card</h1>
-                  <p class="travel-tag">SOLO</p>
+                  <h5 class="flex-grow-1">Tokyo</h5>
+                  <div class="col d-flex">
+                    <p class="travel-tag me-2">GROUP</p>
+                    <p class="travel-tag">4</p>
+                  </div>
                 </div>
-                <h5>
+                <p class="card-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Ducimus eos nemo autem pariatur, animi tempora necessitatibus
                   voluptatum voluptatem dolore voluptate quam nam minima ipsa
                   repellendus quo accusamus mollitia quis ad!
-                </h5>
+                </p>
               </div>
             </div>
           </a>
         </div>
       </div>
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <div class="card">
+              <img src="..." class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Molestiae eaque animi nobis aliquam, corrupti eum, numquam,
+                  officia commodi tempora sit iure cupiditate dicta aspernatur
+                  soluta ullam quis? Tempora, id? Blanditiis.
+                </p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
   </body>
 </html>
