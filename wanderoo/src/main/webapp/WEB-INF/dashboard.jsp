@@ -41,64 +41,72 @@ pageEncoding="UTF-8"%>
     </div>
     <hr />
     <h1 class="mt-0 mb-3">Your Trips</h1>
-    <div class="d-flex flex-sm-row justify-content-center mx-5 trip-row">
-      <a href="/" class="trip_card col me-4">
-        <div class="card vh-75">
-          <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
-          <div class="card-body">
-            <div
-              class="d-flex justify-content-between align-items-end card-title"
-            >
-              <h1>Card</h1>
-              <p class="travel-tag">SOLO</p>
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-sm">
+          <a href="/trip/1" class="trip_card">
+            <div class="card">
+              <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-end card-title"
+                >
+                  <h1>Card</h1>
+                  <p class="travel-tag">SOLO</p>
+                </div>
+                <h5>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Ducimus eos nemo autem pariatur, animi tempora necessitatibus
+                  voluptatum voluptatem dolore voluptate quam nam minima ipsa
+                  repellendus quo accusamus mollitia quis ad!
+                </h5>
+              </div>
             </div>
-            <h5>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              eos nemo autem pariatur, animi tempora necessitatibus voluptatum
-              voluptatem dolore voluptate quam nam minima ipsa repellendus quo
-              accusamus mollitia quis ad!
-            </h5>
-          </div>
+          </a>
         </div>
-      </a>
-      <a href="/" class="trip_card col me-4">
-        <div class="card vh-75">
-          <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
-          <div class="card-body">
-            <div
-              class="d-flex justify-content-between align-items-end card-title"
-            >
-              <h1>Card</h1>
-              <p class="travel-tag">SOLO</p>
+        <div class="col-sm">
+          <a href="/" class="trip_card">
+            <div class="card">
+              <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-end card-title"
+                >
+                  <h1>Card</h1>
+                  <p class="travel-tag">SOLO</p>
+                </div>
+                <h5>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Ducimus eos nemo autem pariatur, animi tempora necessitatibus
+                  voluptatum voluptatem dolore voluptate quam nam minima ipsa
+                  repellendus quo accusamus mollitia quis ad!
+                </h5>
+              </div>
             </div>
-            <h5>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              eos nemo autem pariatur, animi tempora necessitatibus voluptatum
-              voluptatem dolore voluptate quam nam minima ipsa repellendus quo
-              accusamus mollitia quis ad!
-            </h5>
-          </div>
+          </a>
         </div>
-      </a>
-      <a href="/" class="trip_card col">
-        <div class="card vh-75">
-          <img src="/images/groupTrip.png" class="img-fluid" alt="..." />
-          <div class="card-body">
-            <div
-              class="d-flex justify-content-between align-items-end card-title"
-            >
-              <h1>Card</h1>
-              <p class="travel-tag">SOLO</p>
+        <div class="col-sm">
+          <a href="/" class="trip_card">
+            <div class="card">
+              <img src="/images/soloTrip.png" class="img-fluid" alt="..." />
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-end card-title"
+                >
+                  <h1>Card</h1>
+                  <p class="travel-tag">SOLO</p>
+                </div>
+                <h5>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Ducimus eos nemo autem pariatur, animi tempora necessitatibus
+                  voluptatum voluptatem dolore voluptate quam nam minima ipsa
+                  repellendus quo accusamus mollitia quis ad!
+                </h5>
+              </div>
             </div>
-            <h5>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-              eos nemo autem pariatur, animi tempora necessitatibus voluptatum
-              voluptatem dolore voluptate quam nam minima ipsa repellendus quo
-              accusamus mollitia quis ad!
-            </h5>
-          </div>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
   </body>
 </html>

@@ -13,6 +13,22 @@ h1 {
 #logo{
 	font-family: 'Syne', sans-serif;
 }
+.btn {
+	background-color: #DEA754;
+	border:2px solid#DEA754;
+	border-radius: 15px;
+	transition: all 200ms ease;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+.btn:hover {
+	background-color:#fcf8f2;
+	color:black;
+	border:2px solid#DEA754;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	
+}
 .img-fluid{
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
@@ -21,6 +37,7 @@ h1 {
 	border: 2px solid #DEA754;
 	border-radius: 15px;
 	background-color: #fcf8f2;
+	transition: all 200ms ease;
 }
 .trip_card{
 	text-decoration: none;
@@ -29,16 +46,46 @@ h1 {
 	border-radius: 15px;
 }
 
-.trip_card:hover {
+.card:hover {
 	text-decoration: none;
 	color:black;
-	box-shadow: 16px 16px 17px rgba(0, 0, 0, 0.2);
+	box-shadow: 16px 16px 17px rgba(0, 0, 0, 0.1);
 }
 .travel-tag{
-	border: 2px solid black;
+	border: 2px solid #DEA754;
 	border-radius: 28px;
 	padding:10px 15px;
+	background-color: #DEA754;
+	color: #fcf8f2;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
 }
-img {
- 	height: 100px;
- }
+.amount-tag{
+	border: 2px solid #DEA754;
+	border-radius: 50%;
+	padding: 5px 12px;
+	background-color: #DEA754;
+	color: #fcf8f2;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+.travel-tag-trip-detail{
+	border: 2px solid #DEA754;
+	border-radius: 28px;
+	background-color: #DEA754;
+	color: #fcf8f2;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	
+}
+.trip-detail-card{
+	background-image: url(/images/tripDetailCard.png);
+	display:block;
+	background-repeat: no-repeat;
+	background-size: 400px;
+	background-position: top left;
+}
+
+.icons {
+	height: 24px;
+}
