@@ -31,7 +31,7 @@ public class Trip {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@NotEmpty(message="A trip name is required!")
-	private String name;
+	private String tripName;
 	@NotEmpty(message="Destination is required!")
 	private String destination;
 	@NotNull(message="A trip length is required!")
@@ -80,12 +80,15 @@ public class Trip {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	
+	public String getTripName() {
+		return tripName;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setTripName(String tripName) {
+		this.tripName = tripName;
 	}
+
 	public String getDestination() {
 		return destination;
 	}
@@ -143,6 +146,8 @@ public class Trip {
 	public void setTripActivities(List<Activity> tripActivities) {
 		this.tripActivities = tripActivities;
 	}
+	
+	
 	
 
 	public List<Restaurant> getTripRestaurants() {

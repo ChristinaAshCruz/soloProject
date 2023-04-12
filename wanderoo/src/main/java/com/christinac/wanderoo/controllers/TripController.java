@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -80,26 +81,39 @@ public class TripController {
 		return "redirect:/dashboard";
 	}
 		// editTrip
-	@GetMapping("/{id}/edit")
 	// path variable(for id) + model(for current user and trip name) + session(get current user) + RedirectAttributes(user has to be logged in)
+	@GetMapping("/{id}/edit")
 	public String editTrip(@PathVariable("id") Long id, Model model, HttpSession session, RedirectAttributes redirect) {
 		if(session.getAttribute("userId") == null) {
-			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			redirect.addFlashAttribute("error", "You must be logged in!");
 			return "redirect:/";
 		} else {
-			// define trip by id
 			Trip trip = tripServ.findById(id);
-			String tripName = trip.getName();
-			// add that trip as model for trip.name
-			model.addAttribute("tripName", tripName);
-			// get user id 
+			model.addAttribute("trip", trip);
+			model.addAttribute("tripName", tripServ.findById(id).getTripName());
 			Long userId = (Long) session.getAttribute("userId");
 			User user = userServ.findById(userId);
-			// add user as model
 			model.addAttribute("user", user);
-			// return jsp
 			return "editTrip.jsp";
-			
+		}
+	}
+	
+	@PutMapping("/{id}/update")
+	public String updateTrip(@Valid @ModelAttribute("trip") Trip trip, BindingResult result, @PathVariable("id") Long id, HttpSession session, Model model) {
+		if (result.hasErrors()) {
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			model.addAttribute("user", user);
+			model.addAttribute("tripName", tripServ.findById(id).getTripName());
+			return "editTable.jsp";
+		} else {
+			// keep staffer the same
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			trip.setTripCreator(user);
+			// update table
+			tripServ.update(trip);
+			return "redirect:/trip/" + id;
 		}
 	}
 		// deleteTrip

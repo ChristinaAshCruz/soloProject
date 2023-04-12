@@ -47,14 +47,14 @@ pageEncoding="UTF-8"%>
            <!-- column -->
           <div class="col-md-4 mb-4 d-flex align-items-stretch">
             <!-- trip card -->
-            <a href="/trip/1" class="trip_card card">
+            <a href="/trip/${trip.id}" class="trip_card card">
               <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <div
                   class="d-flex justify-content-between align-items-center card-title mb-0"
                 >
                   <h4 class="flex-grow-1 trip_name">
-                    <c:out value="${trip.name}"></c:out> Trip
+                    <c:out value="${trip.tripName}"></c:out> Trip
                   </h4>
                   <p class="travel-tag">SOLO</p>
                 </div>

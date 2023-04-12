@@ -50,11 +50,16 @@ pageEncoding="UTF-8"%>
           modelAttribute="newTrip"
         >
           <div class="mb-3">
-            <form:label for="name" path="name" class="form-label col-2"
+            <form:label for="tripName" path="tripName" class="form-label col-2"
               >Name:</form:label
             >
-            <input type="text" class="form-control" path="name" name="name" />
-            <form:errors path="name"></form:errors>
+            <input
+              type="text"
+              class="form-control"
+              path="tripName"
+              name="tripName"
+            />
+            <form:errors path="tripName"></form:errors>
           </div>
           <div class="mb-3">
             <form:label

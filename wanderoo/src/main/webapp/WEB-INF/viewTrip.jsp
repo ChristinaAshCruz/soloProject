@@ -53,7 +53,7 @@ pageEncoding="UTF-8"%>
             <div
               class="d-flex justify-content-between align-items-end card-title mb-0"
             >
-              <h1><c:out value="${trip.name}"></c:out> Trip</h1>
+              <h1><c:out value="${trip.tripName}"></c:out> Trip</h1>
               <div>
                 <div class="d-flex align-items-center mb-3">
                   <img src="/images/creator.png" alt="" class="icons me-2" />
