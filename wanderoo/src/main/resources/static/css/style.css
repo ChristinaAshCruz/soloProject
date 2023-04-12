@@ -61,9 +61,10 @@ h1 {
 	font-weight: 500;
 }
 .amount-tag{
+	text-align:center;
 	border: 2px solid #DEA754;
 	border-radius: 50%;
-	padding: 5px 12px;
+	padding: 10px 15px;
 	background-color: #DEA754;
 	color: #fcf8f2;
 	font-family: 'Montserrat', sans-serif;

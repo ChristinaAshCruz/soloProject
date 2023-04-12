@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
         <h3 id="logo" class="my-0">Wanderoo.</h3>
         <div class="d-flex flex-sm-row align-items-end">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/" class="btn btn-primary me-2">+ New Trip</a>
+          <a href="/trip/new" class="btn btn-primary me-2">+ New Trip</a>
           <a href="/" class="btn btn-primary">Logout</a>
         </div>
       </div>

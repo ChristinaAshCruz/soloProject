@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%>
           <a href="/" class="btn btn-primary">Logout</a>
         </div>
       </div>
-      <hr class="mb-3" />
+      <hr class="mb-3 mt-3" />
       <div class="main mx-4">
         <div class="card col-sm trip-detail-card mb-3">
           <div class="d-flex justify-content-end px-3 pt-3 mb-0">
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
         </div>
         <div class="row g-3">
           <div class="col-sm">
-            <a href="/activity/list" class="trip_card">
+            <a href="/activity/list/1" class="trip_card">
               <div class="card">
                 <img
                   src="/images/activityImg.png"
