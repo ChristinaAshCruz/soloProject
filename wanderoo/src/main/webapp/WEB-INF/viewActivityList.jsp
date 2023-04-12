@@ -48,7 +48,12 @@ pageEncoding="UTF-8"%>
           <div class="flex-grow-1">
             <h1 class="mb-0">Activities</h1>
           </div>
-          <a href="/activity/1/new" class="btn btn-primary">+ New Activity</a>
+          <div>
+            <a href="/activity/1/new" class="btn btn-primary me-2"
+              >+ New Activity</a
+            >
+            <a href="/trip/1" class="btn btn-primary">Back To Trip</a>
+          </div>
         </div>
         <div class="activity mb-3">
           <a href="/activty/1/1" class="trip_card">

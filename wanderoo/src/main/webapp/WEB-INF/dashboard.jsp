@@ -44,35 +44,33 @@ pageEncoding="UTF-8"%>
       <h1 class="mb-3">Your Trips</h1>
       <div class="row mx-4">
         <c:forEach var="trip" items="${user.tripsCreated}">
+           <!-- column -->
           <div class="col-md-4 mb-4 d-flex align-items-stretch">
-            <a href="/trip/1" class="trip_card">
-              <div class="card">
-                <img
-                  src="/images/soloTrip.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <div
-                    class="d-flex justify-content-between align-items-center card-title mb-0"
-                  > 
-                    <h4 class="flex-grow-1 trip_name"><c:out value="${trip.name}"></c:out> Trip</h4>
-                    <p class="travel-tag">SOLO</p>
+            <!-- trip card -->
+            <a href="/trip/1" class="trip_card card">
+              <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center card-title mb-0"
+                >
+                  <h4 class="flex-grow-1 trip_name">
+                    <c:out value="${trip.name}"></c:out> Trip
+                  </h4>
+                  <p class="travel-tag">SOLO</p>
+                </div>
+                <div class="card-text mb-0">
+                  <div class="d-flex align-items-center mb-3">
+                    <img src="/images/creator.png" alt="" class="icons me-2" />
+                    <h6 class="m-0">Jane Doe</h6>
                   </div>
-                  <div class="card-text mb-0">
-                    <div class="d-flex align-items-center mb-3">
-                      <img src="/images/creator.png" alt="" class="icons me-2" />
-                      <h6 class="m-0">Jane Doe</h6>
-                    </div>
-                    <div class="d-flex align-items-center mb-3">
-                      <img src="/images/marker.png" alt="" class="icons me-2" />
-                      <h6 class="m-0 me-2">Destination:</h6>
-                      <h6 class="m-0 fst-italic">Italy</h6>
-                    </div>
-                    <p>
-                      <c:out value="${trip.summary}"></c:out>
-                    </p>
+                  <div class="d-flex align-items-center mb-3">
+                    <img src="/images/marker.png" alt="" class="icons me-2" />
+                    <h6 class="m-0 me-2">Destination:</h6>
+                    <h6 class="m-0 fst-italic">Italy</h6>
                   </div>
+                  <p>
+                    <c:out value="${trip.summary}"></c:out>
+                  </p>
                 </div>
               </div>
             </a>

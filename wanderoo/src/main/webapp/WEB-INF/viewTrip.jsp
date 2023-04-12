@@ -28,6 +28,7 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
+    <!-- main container -->
     <div class="container px-4">
       <div
         class="d-flex justify-content-between align-items-end mb-3"
@@ -36,12 +37,14 @@ pageEncoding="UTF-8"%>
         <h3 id="logo" class="my-0">Wanderoo.</h3>
         <div class="d-flex flex-sm-row align-items-center">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/dashboard" class="me-2 btn btn-primary">Back to Home</a>
-          <a href="/" class="btn btn-primary">Logout</a>
+          <a href="/dashboard" class="me-2 btn">Back to Home</a>
+          <a href="/" class="btn">Logout</a>
         </div>
       </div>
       <hr class="mb-3 mt-3" />
+      <!-- content container -->
       <div class="main mx-4">
+        <!-- trip card -->
         <div class="card col-sm trip-detail-card mb-3 p-1">
           <div class="d-flex justify-content-end px-3 pt-3 mb-0">
             <p class="travel-tag">SOLO</p>
@@ -68,61 +71,71 @@ pageEncoding="UTF-8"%>
               </div>
             </div>
             <h4>Trip Summary</h4>
-            <p class="mb-0">
+            <p>
               <c:out value="${trip.summary}"></c:out>
             </p>
+            <a href="/trip/${trip.id}/edit" class="btn">Edit Trip</a>
           </div>
         </div>
-        <div class="row g-3">
-          <div class="col-sm">
-            <a href="/activity/list/1" class="trip_card">
-              <div class="trip_card card">
+        <!-- list row -->
+        <div class="row">
+          <!-- column -->
+          <div class="col-md-6 mb-3 d-flex align-items-stretch">
+            <!-- activity list -->
+            <div class="card trip_card">
+              <a
+                href="/trip/${trip.id}/activitiy/list"
+                class="text-decoration-none"
+              >
                 <img
                   src="/images/activityImg.png"
-                  class="img-fluid"
+                  class="card-img-top"
                   alt="..."
                 />
-                <div class="card-body px-4 pb-4">
-                  <div
-                    class="d-flex justify-content-between align-items-end card-title"
-                  >
-                    <h1>Activities</h1>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-end">
+                    <h1 class="card-title">Activities</h1>
                     <p class="amount-tag">4</p>
                   </div>
-                  <h5>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ducimus eos nemo autem pariatur, animi tempora
-                    necessitatibus voluptatum voluptatem dolore voluptate quam
-                    nam minima ipsa repellendus quo accusamus mollitia quis ad!
-                  </h5>
+                  <p class="card-text mb-3">
+                    A collection of activities and places to see during your
+                    trip
+                  </p>
+                  <a href="/trip/${trip.id}/activitiy/list" class="btn"
+                    >View List</a
+                  >
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
-          <div class="col-sm">
-            <a href="/restaurant/list" class="trip_card">
-              <div class="trip_card card">
+          <!-- column -->
+          <div class="col-md-6 mb-3 d-flex align-items-stretch">
+            <!-- restaurant list -->
+            <div class="card trip_card">
+              <a
+                href="/trip/${trip.id}/restaurant/list"
+                class="text-decoration-none"
+              >
                 <img
                   src="/images/restaurantImg.png"
-                  class="img-fluid"
+                  class="card-img-top"
                   alt="..."
                 />
-                <div class="card-body px-4 pb-4">
-                  <div
-                    class="d-flex justify-content-between align-items-end card-title"
-                  >
-                    <h1>Restaurants</h1>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-end">
+                    <h1 class="card-title">Restaurants</h1>
                     <p class="amount-tag">5</p>
                   </div>
-                  <h5>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Ducimus eos nemo autem pariatur, animi tempora
-                    necessitatibus voluptatum voluptatem dolore voluptate quam
-                    nam minima ipsa repellendus quo accusamus mollitia quis ad!
-                  </h5>
+                  <p class="card-text mb-3">
+                    A collection of restaurants and cafés to visit during your
+                    trip
+                  </p>
+                  <a href="/trip/${trip.id}/restaurant/list" class="btn"
+                    >View List</a
+                  >
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         </div>
       </div>
