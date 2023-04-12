@@ -13,13 +13,12 @@ import com.christinac.wanderoo.models.User;
 import com.christinac.wanderoo.services.UserService;
 
 @Controller
-@RequestMapping("/restaurant")
 public class RestaurantController {
 	
 	@Autowired
 	private UserService userServ;
 	
-	@GetMapping("/list")
+	@GetMapping("/trip/{tripId}/restaurant/list")
 	public String viewRestaurantList(Model model, HttpSession session, RedirectAttributes redirect) {
 		if(session.getAttribute("userId") == null) {
 			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");

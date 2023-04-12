@@ -80,5 +80,7 @@ public class TripController {
 		return "redirect:/dashboard";
 	}
 		// editTrip
+//	@GetMapping("/{id}/edit")
+//	public String editTrip()
 		// deleteTrip
 }

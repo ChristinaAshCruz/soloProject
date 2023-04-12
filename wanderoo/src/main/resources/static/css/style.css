@@ -20,6 +20,7 @@ h1 {
 	transition: all 200ms ease;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 400;
+	color: #fcf8f2;
 }
 .btn:hover {
 	background-color:#fcf8f2;
@@ -45,7 +46,15 @@ h1 {
 	transition: all 200ms ease;
 	border-radius: 15px;
 }
-
+.trip_card a {
+	color:black;
+}
+.trip_card .btn {
+	color:#fcf8f2;
+}
+.trip_card .btn:hover {
+	color:black;
+}
 .trip_card:hover {
 	text-decoration: none;
 	color:black;
@@ -54,7 +63,7 @@ h1 {
 .travel-tag{
 	border: 2px solid #DEA754;
 	border-radius: 28px;
-	padding:10px 15px;
+	padding:5px 10px;
 	background-color: #DEA754;
 	color: #fcf8f2;
 	font-family: 'Montserrat', sans-serif;
