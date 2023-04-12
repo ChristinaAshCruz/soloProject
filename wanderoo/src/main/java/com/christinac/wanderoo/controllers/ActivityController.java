@@ -19,7 +19,7 @@ public class ActivityController {
 	@Autowired
 	private UserService userServ;
 	
-	@GetMapping("/list")
+	@GetMapping("/list/1")
 	public String viewActivityList(Model model, HttpSession session, RedirectAttributes redirect) {
 		if(session.getAttribute("userId") == null) {
 			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
@@ -31,4 +31,10 @@ public class ActivityController {
 			return "viewActivityList.jsp";
 		}
 	}
+	
+	// functions to add:
+		// viewActivity
+		// createActivity
+		// deleteActivity
+		// editActivty
 }

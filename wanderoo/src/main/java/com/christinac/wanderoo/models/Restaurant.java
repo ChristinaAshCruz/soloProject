@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -26,10 +27,13 @@ public class Restaurant {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+	@NotEmpty(message="A restuarant name is required!")
 	private String name;
+	@NotEmpty(message="A distance from your stay is required!")
 	private Double distanceFromStay;
+	@NotEmpty(message="An activity type is required!")
 	private String activityType;
+	@NotEmpty(message="A short summary is required!")
 	private String Summary;
 	private String infoLink;
 	

@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,10 +29,14 @@ public class Trip {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+	@NotEmpty(message="A trip name is required!")
 	private String name;
+	@NotEmpty(message="Destination is required!")
 	private String destination;
+	@NotEmpty(message="A trip length is required!")
+	@Min(value=0)
 	private Integer lengthOfTrip;
+	@NotEmpty(message="A short trip summary is required!")
 	private String summary;
 	
 	//relationships:

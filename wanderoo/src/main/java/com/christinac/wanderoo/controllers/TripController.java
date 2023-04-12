@@ -31,4 +31,21 @@ public class TripController {
 			return "viewTrip.jsp";
 		}
 	}
+	
+	// functions to add:
+		// createTrip
+	@GetMapping("/new")
+	public String newTrip(Model model, HttpSession session, RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			Long userId = (Long) session.getAttribute("userId");
+			User loggedUser = userServ.findById(userId);
+			model.addAttribute("user", loggedUser);
+			return "newTrip.jsp";
+		}
+	}
+		// editTrip
+		// deleteTrip
 }

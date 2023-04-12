@@ -31,4 +31,9 @@ public class RestaurantController {
 			return "viewRestaurantList.jsp";
 		}
 	}
+// functions to add: 
+	// viewRestaurant
+	// createRestaurant
+	// deleteRestaurant
+	// editRestaurant
 }
