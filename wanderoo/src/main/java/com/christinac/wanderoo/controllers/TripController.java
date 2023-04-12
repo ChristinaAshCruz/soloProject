@@ -80,7 +80,27 @@ public class TripController {
 		return "redirect:/dashboard";
 	}
 		// editTrip
-//	@GetMapping("/{id}/edit")
-//	public String editTrip()
+	@GetMapping("/{id}/edit")
+	// path variable(for id) + model(for current user and trip name) + session(get current user) + RedirectAttributes(user has to be logged in)
+	public String editTrip(@PathVariable("id") Long id, Model model, HttpSession session, RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			// define trip by id
+			Trip trip = tripServ.findById(id);
+			String tripName = trip.getName();
+			// add that trip as model for trip.name
+			model.addAttribute("tripName", tripName);
+			// get user id 
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			// add user as model
+			model.addAttribute("user", user);
+			// return jsp
+			return "editTrip.jsp";
+			
+		}
+	}
 		// deleteTrip
 }
