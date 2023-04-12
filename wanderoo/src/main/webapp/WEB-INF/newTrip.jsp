@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
         <h3 id="logo" class="my-0">Wanderoo.</h3>
         <div class="d-flex flex-sm-row align-items-end">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/" class="btn btn-primary me-2">+ New Trip</a>
+          <a href="/dashboard" class="btn btn-primary me-2">Back to Home</a>
           <a href="/" class="btn btn-primary">Logout</a>
         </div>
       </div>
@@ -49,14 +49,14 @@ pageEncoding="UTF-8"%>
           method="POST"
           modelAttribute="newTrip"
         >
-          <div class="d-flex mb-3 align-items-center">
+          <div class="mb-3">
             <form:label for="name" path="name" class="form-label col-2"
               >Name:</form:label
             >
             <input type="text" class="form-control" path="name" name="name" />
             <form:errors path="name"></form:errors>
           </div>
-          <div class="d-flex mb-3 align-items-center">
+          <div class="mb-3">
             <form:label
               for="destination"
               path="destination"
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
             />
             <form:errors path="destination"></form:errors>
           </div>
-          <div class="d-flex mb-3 align-items-center">
+          <div class="mb-3">
             <form:label
               for="lengthOfTrip"
               path="lengthOfTrip"
@@ -86,23 +86,23 @@ pageEncoding="UTF-8"%>
             />
             <form:errors path="lengthOfTrip"></form:errors>
           </div>
-          <div class="d-flex mb-3 align-items-center">
-            <form:label
-              for="confirmPass"
-              path="confirmPass"
-              class="form-label col-2"
-              >Confirm Password:</form:label
+          <div class="mb-3">
+            <form:label for="summary" class="mb-2" path="summary"
+              >Trip Summary:</form:label
             >
-            <form:input
-              type="password"
+            <form:textarea
               class="form-control"
-              path="confirmPass"
-              name="confirmPass"
-            />
-            <form:errors path="confirmPass"></form:errors>
+              placeholder="Write a short trip summary here..."
+              name="summary"
+              path="summary"
+              style="height: 100px"
+            ></form:textarea>
+          </div>
+          <div class="mb-3">
+            <form:errors path="summary" class="text-danger mb-3"></form:errors>
           </div>
           <div class="d-flex justify-content-end">
-            <button class="btn btn-primary px-4">Register</button>
+            <button class="btn btn-primary px-4">Create Trip</button>
           </div>
         </form:form>
       </div>

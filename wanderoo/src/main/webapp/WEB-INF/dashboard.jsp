@@ -41,30 +41,44 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
       <hr />
-      <div class="row">
-        <h1 class="mb-3">Your Trips</h1>
-        <div class="col-md-4 mb-4 d-flex align-items-stretch">
-          <a href="/trip/1" class="trip_card">
-            <div class="card">
-              <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center card-title"
-                >
-                  <h5 class="flex-grow-1">Tokyo</h5>
-                  <p class="travel-tag">SOLO</p>
+      <h1 class="mb-3">Your Trips</h1>
+      <div class="row mx-4">
+        <c:forEach var="trip" items="${user.tripsCreated}">
+          <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            <a href="/trip/1" class="trip_card">
+              <div class="card">
+                <img
+                  src="/images/soloTrip.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <div
+                    class="d-flex justify-content-between align-items-center card-title mb-0"
+                  > 
+                    <h4 class="flex-grow-1 trip_name"><c:out value="${trip.name}"></c:out> Trip</h4>
+                    <p class="travel-tag">SOLO</p>
+                  </div>
+                  <div class="card-text mb-0">
+                    <div class="d-flex align-items-center mb-3">
+                      <img src="/images/creator.png" alt="" class="icons me-2" />
+                      <h6 class="m-0">Jane Doe</h6>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <img src="/images/marker.png" alt="" class="icons me-2" />
+                      <h6 class="m-0 me-2">Destination:</h6>
+                      <h6 class="m-0 fst-italic">Italy</h6>
+                    </div>
+                    <p>
+                      <c:out value="${trip.summary}"></c:out>
+                    </p>
+                  </div>
                 </div>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ducimus eos nemo autem pariatur, animi tempora necessitatibus
-                  voluptatum voluptatem dolore voluptate quam nam minima ipsa
-                  repellendus quo accusamus mollitia quis ad!
-                </p>
               </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4 d-flex align-items-stretch">
+            </a>
+          </div>
+        </c:forEach>
+        <!-- <div class="col-md-4 mb-4 d-flex align-items-stretch">
           <a href="/" class="trip_card">
             <div class="card">
               <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
@@ -109,7 +123,7 @@ pageEncoding="UTF-8"%>
             </div>
           </a>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="container">
         <div class="row">
           <div class="col-md-4 mb-4 d-flex align-items-stretch">

@@ -41,34 +41,81 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
       <hr class="mb-3 mt-3" />
-      <h5 class="sub-title">Graduation Trip</h5>
-      <div class="body-header d-flex align-items-center mb-2">
-        <div class="flex-grow-1">
-          <h1 class="mb-0">Activities</h1>
+
+      <div class="activities mx-3">
+        <h5 class="sub-title">Graduation Trip</h5>
+        <div class="body-header d-flex align-items-center mb-2">
+          <div class="flex-grow-1">
+            <h1 class="mb-0">Activities</h1>
+          </div>
+          <a href="/activity/1/new" class="btn btn-primary">+ New Activity</a>
         </div>
-        <a href="/activity/1/new" class="btn btn-primary">+ New Activity</a>
-      </div>
-      <div class="trip_card">
-        <a href="/activty/1/1">
-          <div class="card">
-            <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
-            <div class="card-body">
-              <div class="d-flex">
-                <div class="flex-grow-1">
-                  <h2>Activity Name</h2>
-                  <h6>summary here...</h6>
-                </div>
-                <div>
-                  <div class="d-flex align-items-center mb-3">
-                    <img src="/images/marker.png" alt="" class="icons me-2" />
-                    <p class="p-0 m-0">4.2 miles</p>
+        <div class="activity mb-3">
+          <a href="/activty/1/1" class="trip_card">
+            <div class="trip_card card">
+              <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
+              <div class="card-body">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h2>Activity Name</h2>
+                    <h6>activity summary here...</h6>
                   </div>
-                  <p class="travel-tag text-center mb-0">sightseeing</p>
+                  <div>
+                    <div class="d-flex align-items-center mb-3">
+                      <img src="/images/marker.png" alt="" class="icons me-2" />
+                      <p class="p-0 m-0">4.2 miles</p>
+                    </div>
+                    <p class="travel-tag text-center mb-0">sightseeing</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </a>
+          </a>
+        </div>
+        <div class="activity mb-3">
+          <a href="/activty/1/1" class="trip_card">
+            <div class="trip_card card">
+              <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
+              <div class="card-body">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h2>Activity Name</h2>
+                    <h6>activity summary here...</h6>
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center mb-3">
+                      <img src="/images/marker.png" alt="" class="icons me-2" />
+                      <p class="p-0 m-0">4.2 miles</p>
+                    </div>
+                    <p class="travel-tag text-center mb-0">sightseeing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="activity mb-3">
+          <a href="/activty/1/1" class="trip_card">
+            <div class="trip_card card">
+              <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
+              <div class="card-body">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <h2>Activity Name</h2>
+                    <h6>activity summary here...</h6>
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center mb-3">
+                      <img src="/images/marker.png" alt="" class="icons me-2" />
+                      <p class="p-0 m-0">4.2 miles</p>
+                    </div>
+                    <p class="travel-tag text-center mb-0">sightseeing</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </body>

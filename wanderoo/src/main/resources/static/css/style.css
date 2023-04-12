@@ -46,7 +46,7 @@ h1 {
 	border-radius: 15px;
 }
 
-.card:hover {
+.trip_card:hover {
 	text-decoration: none;
 	color:black;
 	box-shadow: 16px 16px 17px rgba(0, 0, 0, 0.1);
@@ -86,7 +86,9 @@ h1 {
 	background-size: 400px;
 	background-position: top left;
 }
-
+.trip_name {
+	font-family: 'Syne', sans-serif;
+}
 .icons {
 	height: 24px;
 }

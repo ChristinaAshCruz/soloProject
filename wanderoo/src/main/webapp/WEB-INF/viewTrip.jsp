@@ -42,43 +42,47 @@ pageEncoding="UTF-8"%>
       </div>
       <hr class="mb-3 mt-3" />
       <div class="main mx-4">
-        <div class="card col-sm trip-detail-card mb-3">
+        <div class="card col-sm trip-detail-card mb-3 p-1">
           <div class="d-flex justify-content-end px-3 pt-3 mb-0">
             <p class="travel-tag">SOLO</p>
           </div>
-          <div class="card-body mt-2 pt-0">
+          <div class="card-body">
             <div
-              class="d-flex justify-content-between align-items-center card-title"
+              class="d-flex justify-content-between align-items-end card-title mb-0"
             >
-              <h1>Graduation Trip</h1>
-              <h3>
-                <img src="/images/creator.png" alt="" class="icons me-2" />
-              </h3>
-            </div>
-            <div class="d-flex align-items-baseline mb-3">
-              <img src="/images/marker.png" alt="" class="icons me-2" />
-              <h4 class="m-0 me-2">Destination:</h4>
-              <h4 class="m-0 fst-italic">Italy</h4>
+              <h1><c:out value="${trip.name}"></c:out> Trip</h1>
+              <div>
+                <div class="d-flex align-items-center mb-3">
+                  <img src="/images/creator.png" alt="" class="icons me-2" />
+                  <h6 class="m-0">
+                    <c:out value="${trip.tripCreator.name}"></c:out>
+                  </h6>
+                </div>
+                <div class="d-flex align-items-center">
+                  <img src="/images/marker.png" alt="" class="icons me-2" />
+                  <h6 class="m-0 me-2">Destination:</h6>
+                  <h6 class="m-0 fst-italic">
+                    <c:out value="${trip.destination}"></c:out>
+                  </h6>
+                </div>
+              </div>
             </div>
             <h4>Trip Summary</h4>
             <p class="mb-0">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit
-              adipisci cumque architecto autem mollitia iste ut corporis.
-              Explicabo sit natus, libero officiis eum, laborum beatae ipsum,
-              enim accusamus odit quidem.
+              <c:out value="${trip.summary}"></c:out>
             </p>
           </div>
         </div>
         <div class="row g-3">
           <div class="col-sm">
             <a href="/activity/list/1" class="trip_card">
-              <div class="card">
+              <div class="trip_card card">
                 <img
                   src="/images/activityImg.png"
                   class="img-fluid"
                   alt="..."
                 />
-                <div class="card-body">
+                <div class="card-body px-4 pb-4">
                   <div
                     class="d-flex justify-content-between align-items-end card-title"
                   >
@@ -97,13 +101,13 @@ pageEncoding="UTF-8"%>
           </div>
           <div class="col-sm">
             <a href="/restaurant/list" class="trip_card">
-              <div class="card">
+              <div class="trip_card card">
                 <img
                   src="/images/restaurantImg.png"
                   class="img-fluid"
                   alt="..."
                 />
-                <div class="card-body">
+                <div class="card-body px-4 pb-4">
                   <div
                     class="d-flex justify-content-between align-items-end card-title"
                   >

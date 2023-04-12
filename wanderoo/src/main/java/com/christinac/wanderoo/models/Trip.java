@@ -19,6 +19,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -33,7 +34,7 @@ public class Trip {
 	private String name;
 	@NotEmpty(message="Destination is required!")
 	private String destination;
-	@NotEmpty(message="A trip length is required!")
+	@NotNull(message="A trip length is required!")
 	@Min(value=0)
 	private Integer lengthOfTrip;
 	@NotEmpty(message="A short trip summary is required!")
