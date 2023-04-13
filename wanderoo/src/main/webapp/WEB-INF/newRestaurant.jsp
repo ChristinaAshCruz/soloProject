@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Wanderoo | Edit Trip</title>
+    <title>Wanderoo | New Trip</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- change to match your file/naming structure -->
@@ -46,50 +46,55 @@ pageEncoding="UTF-8"%>
       <!-- trip name -->
       <h5 class="sub-title"><c:out value="${tripName}"></c:out> Trip</h5>
       <!-- form heading -->
-      <h1>Edit <c:out value="${tripName}"></c:out> Trip</h1>
+      <h1 class="flex-grow-1">Create a New Restaurant</h1>
       <!-- form card -->
       <div class="card p-3">
         <form:form
-          action="/trip/${trip.id}/update"
+          action="/trip/${tripId}/restaurant/new"
           class="mt-2"
           method="POST"
-          modelAttribute="trip"
+          modelAttribute="newRestaurant"
         >
-          <input type="hidden" name="_method" value="PUT" />
           <!-- name -->
           <div class="mb-3">
-            <form:label path="tripName" class="form-label col-2"
-              >Name:</form:label
-            >
-            <form:input type="text" class="form-control" path="tripName" />
-            <form:errors path="tripName"></form:errors>
+            <form:label path="name" class="form-label">Name:</form:label>
+            <form:input type="text" class="form-control" path="name" />
+            <form:errors path="name"></form:errors>
           </div>
-          <!-- destination -->
+          <!-- distance from stay -->
           <div class="mb-3">
-            <form:label path="destination" class="form-label col-2"
-              >Destination:</form:label
-            >
-            <form:input type="text" class="form-control" path="destination" />
-            <form:errors path="destination"></form:errors>
-          </div>
-          <!-- length of trip -->
-          <div class="mb-3">
-            <form:label path="lengthOfTrip" class="form-label col-2"
-              >Trip Length:</form:label
+            <form:label path="distanceFromStay" class="form-label"
+              >Distance From Stay (miles):</form:label
             >
             <form:input
               type="number"
               class="form-control"
-              path="lengthOfTrip"
+              path="distanceFromStay"
             />
-            <form:errors path="lengthOfTrip"></form:errors>
+            <form:errors path="distanceFromStay"></form:errors>
+          </div>
+          <!-- cuisine type -->
+          <div class="mb-3">
+            <form:label path="cuisineType" class="form-label"
+              >Cuisine Type:</form:label
+            >
+            <form:input
+              type="text"
+              class="form-control"
+              path="cuisineType"
+              name="cuisineType"
+            />
+            <form:errors path="cuisineType"></form:errors>
           </div>
           <!-- summary -->
           <div class="mb-3">
-            <form:label class="mb-2" path="summary">Trip Summary:</form:label>
+            <form:label for="summary" class="mb-2" path="summary"
+              >Summary:</form:label
+            >
             <form:textarea
               class="form-control"
-              placeholder="Write a short trip summary here..."
+              placeholder="Write a short summary here..."
+              name="summary"
               path="summary"
               style="height: 100px"
             ></form:textarea>
@@ -97,9 +102,24 @@ pageEncoding="UTF-8"%>
           <div class="mb-3">
             <form:errors path="summary" class="text-danger mb-3"></form:errors>
           </div>
+          <!-- info link -->
+          <div class="mb-3">
+            <form:label path="infoLink" class="form-label"
+              >🔎 Link for more info:</form:label
+            >
+            <form:input
+              type="text"
+              class="form-control"
+              path="infoLink"
+              name="infoLink"
+            />
+            <form:errors path="infoLink"></form:errors>
+          </div>
           <div class="d-flex justify-content-end">
-            <a href="/trip/${tripId}" class="btn me-2">Cancel</a>
-            <button class="btn btn-primary px-4">Edit Trip</button>
+            <a href="/trip/${tripId}/restaurant/list" class="btn me-2"
+              >Cancel</a
+            >
+            <button class="btn btn-primary px-4">Create Restaurant</button>
           </div>
         </form:form>
       </div>

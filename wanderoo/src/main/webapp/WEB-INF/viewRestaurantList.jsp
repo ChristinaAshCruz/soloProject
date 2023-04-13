@@ -41,8 +41,74 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
       <hr class="mb-3" />
-      <h5 class="sub-title">Graduation Trip</h5>
-      <h1>Restaurants</h1>
+      <!-- content container -->
+      <div class="activities mx-3">
+        <!-- trip name -->
+        <h5 class="sub-title"><c:out value="${trip.tripName}"></c:out> Trip</h5>
+        <!-- header row -->
+        <div class="body-header d-flex align-items-center mb-2">
+          <div class="flex-grow-1">
+            <h1 class="my-0">Restaurants</h1>
+          </div>
+          <!-- buttons -->
+          <div>
+            <a
+              href="/trip/${trip.id}/restaurant/new"
+              class="btn btn-primary me-2 my-0"
+              >+ New Restaurant</a
+            >
+            <a href="/trip/1" class="btn my-0">Back To Trip</a>
+          </div>
+        </div>
+        <!-- if list is empty -->
+        <c:if test="${listSize == 0}">
+          <div class="trip_card card text-center p-3">
+            <h5 class="m-0">🥲 No restaurants added yet...</h5>
+          </div>
+        </c:if>
+        <!-- if list is NOT empty -->
+        <c:if test="${listSize > 0}">
+          <c:forEach var="restaurant" items="${trip.tripRestaurants}">
+            <!-- activity card -->
+            <div class="activity mb-3">
+              <a href="/activty/1/1" class="trip_card">
+                <div class="trip_card card">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="flex-grow-1">
+                        <!-- restaurant name -->
+                        <h2><c:out value="${restaurant.name}"></c:out></h2>
+                        <!-- restaurant summary -->
+                        <h6><c:out value="${restaurant.summary}"></c:out></h6>
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center mb-3">
+                          <img
+                            src="/images/marker.png"
+                            alt=""
+                            class="icons me-2"
+                          />
+                          <!-- distance from stay -->
+                          <p class="p-0 m-0">
+                            <c:out
+                              value="${restaurant.distanceFromStay}"
+                            ></c:out>
+                            miles
+                          </p>
+                        </div>
+                        <!-- activity type -->
+                        <p class="travel-tag text-center mb-0">
+                          <c:out value="${restaurant.cuisineType}"></c:out>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </c:forEach>
+        </c:if>
+      </div>
     </div>
   </body>
 </html>

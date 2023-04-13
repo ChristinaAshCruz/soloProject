@@ -41,13 +41,16 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
       <hr class="mb-3 mt-3" />
-
+      <!-- content container -->
       <div class="activities mx-3">
-        <h5 class="sub-title">Graduation Trip</h5>
+        <!-- trip name -->
+        <h5 class="sub-title"><c:out value="${trip.tripName}"></c:out> Trip</h5>
+        <!-- header row -->
         <div class="body-header d-flex align-items-center mb-2">
           <div class="flex-grow-1">
             <h1 class="mb-0">Activities</h1>
           </div>
+          <!-- buttons -->
           <div>
             <a href="/activity/1/new" class="btn btn-primary me-2"
               >+ New Activity</a
@@ -55,10 +58,10 @@ pageEncoding="UTF-8"%>
             <a href="/trip/1" class="btn btn-primary">Back To Trip</a>
           </div>
         </div>
+        <!-- activity card -->
         <div class="activity mb-3">
           <a href="/activty/1/1" class="trip_card">
             <div class="trip_card card">
-              <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
               <div class="card-body">
                 <div class="d-flex">
                   <div class="flex-grow-1">
@@ -77,10 +80,10 @@ pageEncoding="UTF-8"%>
             </div>
           </a>
         </div>
+        <!-- activity card -->
         <div class="activity mb-3">
           <a href="/activty/1/1" class="trip_card">
             <div class="trip_card card">
-              <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
               <div class="card-body">
                 <div class="d-flex">
                   <div class="flex-grow-1">
@@ -99,10 +102,10 @@ pageEncoding="UTF-8"%>
             </div>
           </a>
         </div>
+        <!-- activity card -->
         <div class="activity mb-3">
           <a href="/activty/1/1" class="trip_card">
             <div class="trip_card card">
-              <!-- <img src="/images/restaurantImg.png" class="img-fluid" alt="..." /> -->
               <div class="card-body">
                 <div class="d-flex">
                   <div class="flex-grow-1">

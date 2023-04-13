@@ -51,12 +51,12 @@ pageEncoding="UTF-8"%>
               <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
               <div class="card-body">
                 <div
-                  class="d-flex justify-content-between align-items-center card-title mb-0"
+                  class="d-flex justify-content-between align-items-center card-title mb-2"
                 >
-                  <h4 class="flex-grow-1 trip_name">
-                    <c:out value="${trip.tripName}"></c:out> Trip
+                  <h4 class="flex-grow-1 trip_name my-0">
+                    <c:out value="${trip.tripName}"></c:out>
                   </h4>
-                  <p class="travel-tag">SOLO</p>
+                  <p class="travel-tag my-0">SOLO</p>
                 </div>
                 <div class="card-text mb-0">
                   <div class="d-flex align-items-center mb-3">
@@ -65,7 +65,6 @@ pageEncoding="UTF-8"%>
                   </div>
                   <div class="d-flex align-items-center mb-3">
                     <img src="/images/marker.png" alt="" class="icons me-2" />
-                    <h6 class="m-0 me-2">Destination:</h6>
                     <h6 class="m-0 fst-italic">Italy</h6>
                   </div>
                   <p>
@@ -76,6 +75,7 @@ pageEncoding="UTF-8"%>
             </a>
           </div>
         </c:forEach>
+        
         <!-- <div class="col-md-4 mb-4 d-flex align-items-stretch">
           <a href="/" class="trip_card">
             <div class="card">
