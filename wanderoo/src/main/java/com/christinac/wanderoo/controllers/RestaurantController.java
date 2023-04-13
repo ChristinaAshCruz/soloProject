@@ -52,6 +52,24 @@ public class RestaurantController {
 	}
 // functions to add: 
 	// viewRestaurant
+	@GetMapping("/trip/{tripId}/restaurant/{restaurantId}")
+	public String viewRestaurant(@PathVariable("tripId") Long tripId, @PathVariable("restaurantId") Long restaurantId, Model model, HttpSession session, RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			// get user info
+			Long userId = (Long) session.getAttribute("userId");
+			User loggedUser = userServ.findById(userId);
+			model.addAttribute("user", loggedUser);
+			// get trip info
+			Trip trip = tripServ.findById(tripId);
+			model.addAttribute("trip", trip);
+			Restaurant restaurant = restaurantServ.findById(restaurantId);
+			model.addAttribute("restaurant", restaurant);
+			return "viewRestaurant.jsp";
+		}
+	}
 	// createRestaurant
 	@GetMapping("/trip/{tripId}/restaurant/new")
 	public String newRestaurant(@ModelAttribute("newRestaurant") Restaurant restaurant, @PathVariable("tripId") Long tripId, Model model, HttpSession session, RedirectAttributes redirect) {
