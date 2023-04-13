@@ -71,7 +71,10 @@ pageEncoding="UTF-8"%>
           <c:forEach var="restaurant" items="${trip.tripRestaurants}">
             <!-- activity card -->
             <div class="activity mb-3">
-              <a href="/activty/1/1" class="trip_card">
+              <a
+                href="/trip/${trip.id}/restaurant/${restaurant.id}"
+                class="trip_card"
+              >
                 <div class="trip_card card">
                   <div class="card-body">
                     <div class="d-flex">

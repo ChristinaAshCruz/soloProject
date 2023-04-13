@@ -37,7 +37,7 @@ pageEncoding="UTF-8"%>
         <div class="d-flex flex-sm-row align-items-end">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
           <a href="/dashboard" class="btn btn-primary me-2">Back to Home</a>
-          <a href="/" class="btn btn-primary">Logout</a>
+          <a href="/logout" class="btn btn-primary">Logout</a>
         </div>
       </div>
       <hr />

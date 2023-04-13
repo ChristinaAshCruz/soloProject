@@ -28,16 +28,16 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <div class="container">
+    <div class="container px-4">
       <div
         class="d-flex justify-content-between align-items-end mb-3"
         id="header"
       >
         <h3 id="logo" class="my-0">Wanderoo.</h3>
-        <div class="d-flex flex-sm-row align-items-end">
+        <div class="d-flex flex-sm-row align-items-center">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/trip/new" class="btn btn-primary me-2">+ New Trip</a>
-          <a href="/" class="btn btn-primary">Logout</a>
+          <a href="/trip/new" class="me-2 btn">+ New Trip</a>
+          <a href="/logout" class="btn">Logout</a>
         </div>
       </div>
       <hr />

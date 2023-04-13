@@ -39,12 +39,10 @@ pageEncoding="UTF-8"%>
         <div class="d-flex flex-sm-row align-items-end">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
           <a href="/dashboard" class="btn btn-primary me-2">Back to Home</a>
-          <a href="/" class="btn btn-primary">Logout</a>
+          <a href="/logout" class="btn btn-primary">Logout</a>
         </div>
       </div>
       <hr />
-      <!-- trip name -->
-      <h5 class="sub-title"><c:out value="${tripName}"></c:out> Trip</h5>
       <!-- form heading -->
       <h1>Edit <c:out value="${tripName}"></c:out> Trip</h1>
       <!-- form card -->

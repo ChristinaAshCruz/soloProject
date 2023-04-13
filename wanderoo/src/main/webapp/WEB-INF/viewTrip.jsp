@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Trip: {destination here!}</title>
+    <title><c:out value="${trip.tripName}"></c:out> Trip</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- change to match your file/naming structure -->
@@ -38,7 +38,7 @@ pageEncoding="UTF-8"%>
         <div class="d-flex flex-sm-row align-items-center">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
           <a href="/dashboard" class="me-2 btn">Back to Home</a>
-          <a href="/" class="btn">Logout</a>
+          <a href="/logout" class="btn">Logout</a>
         </div>
       </div>
       <hr class="mb-3 mt-3" />
@@ -78,7 +78,7 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
         <!-- list row -->
-        <div class="row">
+        <div class="row gx-3">
           <!-- column -->
           <div class="col-md-6 mb-3 d-flex align-items-stretch">
             <!-- activity list -->
