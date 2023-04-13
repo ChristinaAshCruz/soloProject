@@ -35,7 +35,7 @@ public class Activity {
 	@NotEmpty(message="An activity type is required!")
 	private String activityType;
 	@NotEmpty(message="An short summary is required!")
-	private String Summary;
+	private String summary;
 	private String infoLink;
 	
 	// relationships:
@@ -92,12 +92,15 @@ public class Activity {
 	public void setActivityType(String activityType) {
 		this.activityType = activityType;
 	}
+
 	public String getSummary() {
-		return Summary;
+		return summary;
 	}
+
 	public void setSummary(String summary) {
-		Summary = summary;
+		this.summary = summary;
 	}
+
 	public String getInfoLink() {
 		return infoLink;
 	}

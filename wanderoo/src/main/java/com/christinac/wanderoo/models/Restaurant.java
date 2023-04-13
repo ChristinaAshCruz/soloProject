@@ -16,7 +16,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,12 +31,13 @@ public class Restaurant {
 	private Long id;
 	@NotEmpty(message="A restuarant name is required!")
 	private String name;
-	@NotEmpty(message="A distance from your stay is required!")
+	@NotNull(message="A distance from your stay is required!")
+	@Min(value=0)
 	private Double distanceFromStay;
-	@NotEmpty(message="An activity type is required!")
-	private String activityType;
+	@NotEmpty(message="An cuisine type is required!")
+	private String cuisineType;
 	@NotEmpty(message="A short summary is required!")
-	private String Summary;
+	private String summary;
 	private String infoLink;
 	
 	//relationships:
@@ -90,21 +93,23 @@ public class Restaurant {
 	public void setDistanceFromStay(Double distanceFromStay) {
 		this.distanceFromStay = distanceFromStay;
 	}
+	
+	
 
-	public String getActivityType() {
-		return activityType;
+	public String getCuisineType() {
+		return cuisineType;
 	}
 
-	public void setActivityType(String activityType) {
-		this.activityType = activityType;
+	public void setCuisineType(String cuisineType) {
+		this.cuisineType = cuisineType;
 	}
 
 	public String getSummary() {
-		return Summary;
+		return summary;
 	}
 
 	public void setSummary(String summary) {
-		Summary = summary;
+		this.summary = summary;
 	}
 
 	public String getInfoLink() {

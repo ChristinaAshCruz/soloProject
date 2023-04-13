@@ -90,6 +90,7 @@ public class TripController {
 		} else {
 			Trip trip = tripServ.findById(id);
 			model.addAttribute("trip", trip);
+			model.addAttribute("tripId", id);
 			model.addAttribute("tripName", tripServ.findById(id).getTripName());
 			Long userId = (Long) session.getAttribute("userId");
 			User user = userServ.findById(userId);
