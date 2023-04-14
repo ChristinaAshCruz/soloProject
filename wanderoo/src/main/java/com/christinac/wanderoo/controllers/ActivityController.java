@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.christinac.wanderoo.models.Activity;
-import com.christinac.wanderoo.models.Restaurant;
 import com.christinac.wanderoo.models.Trip;
 import com.christinac.wanderoo.models.User;
 import com.christinac.wanderoo.services.ActivityService;
@@ -42,7 +42,10 @@ public class ActivityController {
 			Long userId = (Long) session.getAttribute("userId");
 			User loggedUser = userServ.findById(userId);
 			model.addAttribute("user", loggedUser);
+
 			Trip trip = tripServ.findById(tripId);
+			Integer listSize = trip.getTripActivities().size();
+			model.addAttribute("listSize", listSize);
 			model.addAttribute("trip", trip);
 			return "viewActivityList.jsp";
 		}
@@ -117,6 +120,64 @@ public class ActivityController {
 		return "redirect:/trip/" + tripId +"/activity/list";
 	}
 	
+	@GetMapping("/trip/{tripId}/activity/{activityId}/edit")
+	public String editActivity(@PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId, Model model, HttpSession session, RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in!");
+			return "redirect:/";
+		} else {
+			// find trip info
+			Trip trip = tripServ.findById(tripId);
+			model.addAttribute("trip", trip);
+			model.addAttribute("tripId", tripId);
+			model.addAttribute("tripName", trip.getTripName());
+			// find user info
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			model.addAttribute("user", user);
+			// find activity info
+			Activity activity =  activityServ.findById(activityId);
+			String activityName = activity.getName();
+			model.addAttribute("activity", activity);
+			model.addAttribute("activityId", activityId);
+			model.addAttribute("activityName", activityName);
+			return "editActivity.jsp";
+		}
+	}
+	
+	@PutMapping("/trip/{tripId}/activity/{activityId}/edit")
+	public String updateActivity(@Valid @ModelAttribute("activity") Activity activity, BindingResult result, @PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId, HttpSession session, Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("tripId", tripId);
+			model.addAttribute("tripName", tripServ.findById(tripId).getTripName());
+			// find user info
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			model.addAttribute("user", user);
+			// find activity info
+			String activityName = activityServ.findById(activityId).getName();
+			model.addAttribute("activityId", activityId);
+			model.addAttribute("activityName", activityName);
+			return "editActivity.jsp";
+		} else {
+			// keep activity creator the same
+			activity.setId(activityId);
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			activity.setActivityCreator(user);
+			// keep trip that it belongs to
+			Trip trip = tripServ.findById(tripId);
+			activity.setTrip(trip);
+			// remove activity from trip list
+			List<Activity> tripActivities = trip.getTripActivities();
+			tripActivities.remove(activityServ.findById(activityId));
+			// adding updated activity to list
+			tripActivities.add(activity);
+			// update activity
+			activityServ.update(activity);
+			return "redirect:/trip/" + tripId +"/activity/" + activityId;
+		}
+	}
 		// deleteActivity
 		// editActivty
 }

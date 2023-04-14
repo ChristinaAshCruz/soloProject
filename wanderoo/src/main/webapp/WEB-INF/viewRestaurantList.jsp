@@ -88,25 +88,29 @@ pageEncoding="UTF-8"%>
                         <h6><c:out value="${restaurant.summary}"></c:out></h6>
                       </div>
                       <!-- RIGHT column -->
-                      <div>
-                        <div class="d-flex align-items-center mb-3">
-                          <img
-                            src="/images/marker.png"
-                            alt=""
-                            class="icons me-2"
-                          />
-                          <!-- distance from stay -->
-                          <p class="p-0 m-0">
-                            <c:out
-                              value="${restaurant.distanceFromStay}"
-                            ></c:out>
-                            miles
-                          </p>
-                        </div>
+                      <div class="col-md-2">
                         <!-- activity type -->
-                        <p class="travel-tag text-center mb-0">
+                        <p class="list_tag text-center mb-3">
                           <c:out value="${restaurant.cuisineType}"></c:out>
                         </p>
+                        <div class="d-flex align-items-center">
+                          <!-- distance from stay -->
+                          <div>
+                            <img
+                              src="/images/marker.png"
+                              alt=""
+                              class="icons"
+                            />
+                          </div>
+                          <div class="flex-grow-1">
+                            <p class="p-0 m-0 ms-2">
+                              <c:out
+                                value="${restaurant.distanceFromStay}"
+                              ></c:out>
+                              miles
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

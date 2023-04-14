@@ -67,6 +67,15 @@ h1 {
 	background-color: #DEA754;
 	color: #fcf8f2;
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+}
+.list_tag{
+	border: 3px solid #DEA754;
+	border-radius: 28px;
+	padding:5px 10px;
+	background-color: #fcf8f2;
+	color: #DEA754;
+	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
 }
 .amount-tag{
@@ -81,7 +90,7 @@ h1 {
 }
 .travel-tag-trip-detail{
 	border: 2px solid #DEA754;
-	border-radius: 28px;
+	border-radius: 28px; 
 	background-color: #DEA754;
 	color: #fcf8f2;
 	font-family: 'Montserrat', sans-serif;
@@ -89,10 +98,17 @@ h1 {
 	
 }
 .trip-detail-card{
-	background-image: url(/images/tripDetailCard.png);
+	background-image: url(/images/cardBackground.png);
 	display:block;
 	background-repeat: no-repeat;
-	background-size: 400px;
+	background-size: 420px;
+	background-position: top left;
+}
+.activity-detail-card{
+	background-image: url(/images/cardBackground_activity.png);
+	display:block;
+	background-repeat: no-repeat;
+	background-size: 450px;
 	background-position: top left;
 }
 .trip_name {

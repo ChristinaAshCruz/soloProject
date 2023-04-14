@@ -60,45 +60,54 @@ pageEncoding="UTF-8"%>
         </div>
         <!-- if list of activities are empty -->
         <!-- if list IS NOT empty -->
-        <c:forEach var="activity" items="${trip.tripActivities}">
-          <!-- activity card -->
-          <div class="activity mb-3">
-            <a
-              href="/trip/${trip.id}/activity/${activity.id}"
-              class="trip_card"
-            >
-              <div class="trip_card card">
-                <div class="card-body">
-                  <div class="d-flex">
-                    <div class="col-md-10">
-                      <h2><c:out value="${activity.name}"></c:out></h2>
-                      <h6><c:out value="${activity.summary}"></c:out></h6>
-                    </div>
-                    <!-- RIGHT column -->
-                    <div class="col-md-2">
-                      <div class="d-flex align-items-center mb-3">
-                        <div class="">
-                          <img src="/images/marker.png" alt="" class="icons" />
-                        </div>
-                        <!-- distance from stay -->
-                        <div class="flex-grow-1">
-                          <p class="p-0 m-0 ms-2">
-                            <c:out value="${activity.distanceFromStay}"></c:out>
-                            miles
-                          </p>
+        <c:if test="${listSize == 0}"> Welp </c:if>
+        <c:if test="${listSize > 0}">
+          <c:forEach var="activity" items="${trip.tripActivities}">
+            <!-- activity card -->
+            <div class="activity mb-3">
+              <a
+                href="/trip/${trip.id}/activity/${activity.id}"
+                class="trip_card"
+              >
+                <div class="trip_card card">
+                  <div class="card-body">
+                    <div class="d-flex">
+                      <div class="col-md-10">
+                        <h2><c:out value="${activity.name}"></c:out></h2>
+                        <h6><c:out value="${activity.summary}"></c:out></h6>
+                      </div>
+                      <!-- RIGHT column -->
+                      <div class="col-md-2">
+                        <!-- activity type -->
+                        <p class="list_tag text-center mb-3">
+                          <c:out value="${activity.activityType}"></c:out>
+                        </p>
+                        <div class="d-flex align-items-center">
+                          <!-- distance from stay -->
+                          <div>
+                            <img
+                              src="/images/marker.png"
+                              alt=""
+                              class="icons"
+                            />
+                          </div>
+                          <div class="flex-grow-1">
+                            <p class="p-0 m-0 ms-2">
+                              <c:out
+                                value="${activity.distanceFromStay}"
+                              ></c:out>
+                              miles
+                            </p>
+                          </div>
                         </div>
                       </div>
-                      <!-- activity type -->
-                      <p class="travel-tag text-center mb-0">
-                        <c:out value="${activity.activityType}"></c:out>
-                      </p>
                     </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          </div>
-        </c:forEach>
+              </a>
+            </div>
+          </c:forEach>
+        </c:if>
       </div>
     </div>
   </body>

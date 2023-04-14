@@ -28,5 +28,8 @@ public class ActivityService {
 		return activityRepo.save(activity);
 	}
 	// update
+	public Activity update(Activity activity) {
+		return activityRepo.save(activity);
+	}
 	// delete
 }

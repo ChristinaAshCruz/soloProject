@@ -29,7 +29,10 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
     />
     <!-- icon -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css"
+    />
   </head>
   <body>
     <!-- main container -->
@@ -46,42 +49,59 @@ pageEncoding="UTF-8"%>
         </div>
       </div>
       <hr class="mb-3" />
+      <!-- content container -->
       <div class="activity mx-3">
         <!-- trip name -->
-        <h5 class="sub-title">
-          <c:out value="${trip.tripName}"></c:out> Trip > Activities
-        </h5>
-        <!-- header row -->
-        <h1><c:out value="${activity.name}"></c:out></h1>
-        <!-- trip card -->
-        <div class="card col-sm trip-detail-card mb-3 p-1">
+        <div class="body-header d-flex align-items-baseline mb-2">
+          <div class="flex-grow-1">
+            <!-- <h1 class="mb-0">Activities</h1> -->
+            <h5 class="sub-title p-0 m-0">
+              <c:out value="${trip.tripName}"></c:out> Trip > Activities >
+              <c:out value="${activity.name}"></c:out>
+            </h5>
+          </div>
+          <!-- buttons -->
+
+          <a href="/trip/1" class="btn btn-primary">Back To Trip</a>
+        </div>
+
+        <!-- activity card -->
+        <div class="card col-sm activity-detail-card mb-3 p-1">
           <div class="d-flex justify-content-end px-3 pt-3 mb-0">
-            <p class="travel-tag">SOLO</p>
+            <!-- activity type tag -->
+            <p class="list_tag">
+              <c:out value="${activity.activityType}"></c:out>
+            </p>
           </div>
           <div class="card-body">
             <div
               class="d-flex justify-content-between align-items-end card-title mb-0"
             >
-            <!-- activity name -->
+              <!-- activity name -->
               <h1><c:out value="${activity.name}"></c:out></h1>
               <div>
                 <!-- activity creator row -->
                 <div class="d-flex align-items-center mb-3">
                   <img src="/images/creator.png" alt="" class="icons me-2" />
                   <h6 class="m-0">
-                    <c:if test="${activity.activityCreator.id == sessionScope.userId}">
-                        <i>You</i>
+                    <c:if
+                      test="${activity.activityCreator.id == sessionScope.userId}"
+                    >
+                      <i>You</i>
                     </c:if>
-                    <c:if test="${activity.activityCreator.id != sessionScope.userId}">
-                        <c:out value="${activity.activityCreator.name}"></c:out>
+                    <c:if
+                      test="${activity.activityCreator.id != sessionScope.userId}"
+                    >
+                      <c:out value="${activity.activityCreator.name}"></c:out>
                     </c:if>
                   </h6>
                 </div>
                 <!-- distance from stay row -->
                 <div class="d-flex align-items-center">
                   <img src="/images/marker.png" alt="" class="icons me-2" />
-                  <h6 class="m-0 me-2"><c:out value="${activity.distanceFromStay}"></c:out> miles away</h6>
-                    
+                  <h6 class="m-0 me-2">
+                    <c:out value="${activity.distanceFromStay}"></c:out> miles
+                    away
                   </h6>
                 </div>
               </div>
@@ -90,15 +110,25 @@ pageEncoding="UTF-8"%>
             <p>
               <c:out value="${activity.summary}"></c:out>
             </p>
-            <div class="d-flex justify-content-end">
+            <!-- activity card: button row -->
+            <div class="d-flex justify-content-between">
+              <div class="flex-grow-1">
+                <a href="#" class="btn pt-2">{Attend activity}</a>
+              </div>
+              <div>
                 <a href="${activity.infoLink}" class="btn me-2 info_link">
-                    <!-- Want more info? -->
-                    <div class="d-flex align-items-center">
-                        <i class="fi fi-br-link-alt me-2"></i>
-                        <p class="pb-1 m-0">more info</p>
-                    </div>
+                  <!-- Want more info? -->
+                  <div class="d-flex align-items-center">
+                    <i class="fi fi-br-link-alt me-2"></i>
+                    <p class="pb-1 m-0">more info</p>
+                  </div>
                 </a>
-                <a href="/trip/${trip.id}/activity/${activity.id}/edit" class="btn pt-2">Edit Activity</a>
+                <a
+                  href="/trip/${trip.id}/activity/${activity.id}/edit"
+                  class="btn pt-2"
+                  >Edit Activity</a
+                >
+              </div>
             </div>
           </div>
         </div>

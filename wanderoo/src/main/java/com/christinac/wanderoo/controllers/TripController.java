@@ -106,7 +106,7 @@ public class TripController {
 			User user = userServ.findById(userId);
 			model.addAttribute("user", user);
 			model.addAttribute("tripName", tripServ.findById(id).getTripName());
-			return "editTable.jsp";
+			return "editTrip.jsp";
 		} else {
 			// keep staffer the same
 			Long userId = (Long) session.getAttribute("userId");
