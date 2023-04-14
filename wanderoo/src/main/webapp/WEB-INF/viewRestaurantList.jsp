@@ -12,7 +12,9 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Wanderoo | Graduation Trip: Restaurants</title>
+    <title>
+      Wanderoo | <c:out value="${trip.tripName}"></c:out> Trip: Restaurants
+    </title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- change to match your file/naming structure -->
@@ -42,7 +44,7 @@ pageEncoding="UTF-8"%>
       </div>
       <hr class="mb-3" />
       <!-- content container -->
-      <div class="activities mx-3">
+      <div class="restaurants mx-3">
         <!-- trip name -->
         <h5 class="sub-title"><c:out value="${trip.tripName}"></c:out> Trip</h5>
         <!-- header row -->
@@ -78,12 +80,14 @@ pageEncoding="UTF-8"%>
                 <div class="trip_card card">
                   <div class="card-body">
                     <div class="d-flex">
+                      <!-- LEFT column -->
                       <div class="flex-grow-1">
                         <!-- restaurant name -->
                         <h2><c:out value="${restaurant.name}"></c:out></h2>
                         <!-- restaurant summary -->
                         <h6><c:out value="${restaurant.summary}"></c:out></h6>
                       </div>
+                      <!-- RIGHT column -->
                       <div>
                         <div class="d-flex align-items-center mb-3">
                           <img

@@ -104,3 +104,9 @@ h1 {
 .sub-title {
 	font-family: 'Syne', sans-serif;
 }
+.info_link{
+	background-color: #AF7E43;
+	border: 2px solid #AF7E43;
+	padding:8px 10px;
+	padding-bottom: 4px;
+}

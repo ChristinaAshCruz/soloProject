@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <!-- change to match your file/naming structure -->
-       <!-- FONTS -->
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -43,10 +43,12 @@ pageEncoding="UTF-8"%>
       <hr class="mb-3" />
       <div class="restaurant mx-3">
         <!-- trip name -->
-        <h5 class="sub-title"><c:out value="${trip.tripName}"></c:out> Trip > Restaurants</h5>
+        <h5 class="sub-title">
+          <c:out value="${trip.tripName}"></c:out> Trip > Restaurants
+        </h5>
         <!-- header row -->
         <h1><c:out value="${restaurant.name}"></c:out></h1>
+      </div>
     </div>
-    
   </body>
 </html>

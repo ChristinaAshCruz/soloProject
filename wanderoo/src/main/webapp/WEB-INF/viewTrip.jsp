@@ -84,7 +84,7 @@ pageEncoding="UTF-8"%>
             <!-- activity list -->
             <div class="card trip_card">
               <a
-                href="/trip/${trip.id}/activitiy/list"
+                href="/trip/${trip.id}/activity/list"
                 class="text-decoration-none"
               >
                 <img
@@ -101,7 +101,7 @@ pageEncoding="UTF-8"%>
                     A collection of activities and places to see during your
                     trip
                   </p>
-                  <a href="/trip/${trip.id}/activitiy/list" class="btn"
+                  <a href="/trip/${trip.id}/activity/list" class="btn"
                     >View List</a
                   >
                 </div>

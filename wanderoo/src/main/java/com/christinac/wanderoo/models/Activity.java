@@ -17,6 +17,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -30,7 +31,7 @@ public class Activity {
 	private Long id;
 	@NotEmpty(message="An activity name is required!")
 	private String name;
-	@NotEmpty(message="A distance from your stay is required!")
+	@NotNull(message="A distance from your stay is required!")
 	private Double distanceFromStay;
 	@NotEmpty(message="An activity type is required!")
 	private String activityType;

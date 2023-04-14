@@ -52,78 +52,53 @@ pageEncoding="UTF-8"%>
           </div>
           <!-- buttons -->
           <div>
-            <a href="/activity/1/new" class="btn btn-primary me-2"
+            <a href="/trip/${trip.id}/activity/new" class="btn btn-primary me-2"
               >+ New Activity</a
             >
             <a href="/trip/1" class="btn btn-primary">Back To Trip</a>
           </div>
         </div>
-        <!-- activity card -->
-        <div class="activity mb-3">
-          <a href="/activty/1/1" class="trip_card">
-            <div class="trip_card card">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-grow-1">
-                    <h2>Activity Name</h2>
-                    <h6>activity summary here...</h6>
-                  </div>
-                  <div>
-                    <div class="d-flex align-items-center mb-3">
-                      <img src="/images/marker.png" alt="" class="icons me-2" />
-                      <p class="p-0 m-0">4.2 miles</p>
+        <!-- if list of activities are empty -->
+        <!-- if list IS NOT empty -->
+        <c:forEach var="activity" items="${trip.tripActivities}">
+          <!-- activity card -->
+          <div class="activity mb-3">
+            <a
+              href="/trip/${trip.id}/activity/${activity.id}"
+              class="trip_card"
+            >
+              <div class="trip_card card">
+                <div class="card-body">
+                  <div class="d-flex">
+                    <div class="col-md-10">
+                      <h2><c:out value="${activity.name}"></c:out></h2>
+                      <h6><c:out value="${activity.summary}"></c:out></h6>
                     </div>
-                    <p class="travel-tag text-center mb-0">sightseeing</p>
+                    <!-- RIGHT column -->
+                    <div class="col-md-2">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="">
+                          <img src="/images/marker.png" alt="" class="icons" />
+                        </div>
+                        <!-- distance from stay -->
+                        <div class="flex-grow-1">
+                          <p class="p-0 m-0 ms-2">
+                            <c:out value="${activity.distanceFromStay}"></c:out>
+                            miles
+                          </p>
+                        </div>
+                      </div>
+                      <!-- activity type -->
+                      <p class="travel-tag text-center mb-0">
+                        <c:out value="${activity.activityType}"></c:out>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </a>
-        </div>
-        <!-- activity card -->
-        <div class="activity mb-3">
-          <a href="/activty/1/1" class="trip_card">
-            <div class="trip_card card">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-grow-1">
-                    <h2>Activity Name</h2>
-                    <h6>activity summary here...</h6>
-                  </div>
-                  <div>
-                    <div class="d-flex align-items-center mb-3">
-                      <img src="/images/marker.png" alt="" class="icons me-2" />
-                      <p class="p-0 m-0">4.2 miles</p>
-                    </div>
-                    <p class="travel-tag text-center mb-0">sightseeing</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <!-- activity card -->
-        <div class="activity mb-3">
-          <a href="/activty/1/1" class="trip_card">
-            <div class="trip_card card">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-grow-1">
-                    <h2>Activity Name</h2>
-                    <h6>activity summary here...</h6>
-                  </div>
-                  <div>
-                    <div class="d-flex align-items-center mb-3">
-                      <img src="/images/marker.png" alt="" class="icons me-2" />
-                      <p class="p-0 m-0">4.2 miles</p>
-                    </div>
-                    <p class="travel-tag text-center mb-0">sightseeing</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
+            </a>
+          </div>
+        </c:forEach>
       </div>
     </div>
   </body>
