@@ -160,8 +160,9 @@ public class ActivityController {
 			model.addAttribute("activityName", activityName);
 			return "editActivity.jsp";
 		} else {
-			// keep activity creator the same
+			// replacing current id with updated info
 			activity.setId(activityId);
+			// keep activity creator the same
 			Long userId = (Long) session.getAttribute("userId");
 			User user = userServ.findById(userId);
 			activity.setActivityCreator(user);
