@@ -38,25 +38,28 @@ pageEncoding="UTF-8"%>
         <h3 id="logo" class="my-0">Wanderoo.</h3>
         <div class="d-flex flex-sm-row align-items-center">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/dashboard" class="me-2 btn btn-primary">Back to Home</a>
-          <a href="/" class="btn btn-primary">Logout</a>
+          <a href="/dashboard" class="me-2 btn">Back to Home</a>
+          <a href="/" class="btn">Logout</a>
         </div>
       </div>
       <hr class="mb-3" />
       <!-- content container -->
       <div class="restaurants mx-3">
         <!-- trip name -->
-        <h5 class="sub-title"><c:out value="${trip.tripName}"></c:out> Trip</h5>
+        <h5 class="sub-title">
+          <c:out value="${trip.tripName}"></c:out> Trip > Restaurants
+        </h5>
         <!-- header row -->
-        <div class="body-header d-flex align-items-center mb-2">
+        <div
+          class="d-flex align-items-center justify-content-between mb-2 flex-wrap"
+        >
+          <!-- header: LEFT -->
           <div class="flex-grow-1">
             <h1 class="my-0">Restaurants</h1>
           </div>
-          <!-- buttons -->
-          <div>
-            <a
-              href="/trip/${trip.id}/restaurant/new"
-              class="btn btn-primary me-2 my-0"
+          <!-- header: right (buttons) -->
+          <div class="flex-shrink-0">
+            <a href="/trip/${trip.id}/restaurant/new" class="btn me-2 my-0"
               >+ New Restaurant</a
             >
             <a href="/trip/1" class="btn my-0">Back To Trip</a>
@@ -64,20 +67,17 @@ pageEncoding="UTF-8"%>
         </div>
         <!-- if list is empty -->
         <c:if test="${listSize == 0}">
-          <div class="trip_card card text-center p-3">
+          <div class="card text-center p-3">
             <h5 class="m-0">🥲 No restaurants added yet...</h5>
           </div>
         </c:if>
         <!-- if list is NOT empty -->
         <c:if test="${listSize > 0}">
           <c:forEach var="restaurant" items="${trip.tripRestaurants}">
-            <!-- activity card -->
-            <div class="activity mb-3">
-              <a
-                href="/trip/${trip.id}/restaurant/${restaurant.id}"
-                class="trip_card"
-              >
-                <div class="trip_card card">
+            <!-- restaurant card -->
+            <div class="restaurant mb-3 trip_card">
+              <a href="/trip/${trip.id}/restaurant/${restaurant.id}">
+                <div class="list_card card">
                   <div class="card-body">
                     <div class="d-flex">
                       <!-- LEFT column -->
@@ -88,7 +88,7 @@ pageEncoding="UTF-8"%>
                         <h6><c:out value="${restaurant.summary}"></c:out></h6>
                       </div>
                       <!-- RIGHT column -->
-                      <div class="col-md-2">
+                      <div class="flex-shrink-0">
                         <!-- activity type -->
                         <p class="list_tag text-center mb-3">
                           <c:out value="${restaurant.cuisineType}"></c:out>

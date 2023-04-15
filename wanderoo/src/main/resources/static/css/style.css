@@ -13,6 +13,9 @@ h1 {
 #logo{
 	font-family: 'Syne', sans-serif;
 }
+.card-title{
+	font-family: 'Syne', sans-serif;
+}
 .btn {
 	background-color: #DEA754;
 	border:2px solid#DEA754;
@@ -30,24 +33,29 @@ h1 {
 	font-weight: 400;
 	
 }
+.info_link{
+	background-color: #AF7E43;
+	border: 2px solid #AF7E43;
+}
+.delete{
+	background-color: #b76431;
+	border: 2px solid #b76431;
+}
 .img-fluid{
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 }
 .card {
-	border: 2px solid #DEA754;
+	border: 3px solid #DEA754;
 	border-radius: 15px;
 	background-color: #fcf8f2;
 	transition: all 200ms ease;
-}
-.trip_card{
-	text-decoration: none;
 	color:black;
-	transition: all 200ms ease;
-	border-radius: 15px;
+	
 }
 .trip_card a {
 	color:black;
+	text-decoration: none;
 }
 .trip_card .btn {
 	color:#fcf8f2;
@@ -55,10 +63,10 @@ h1 {
 .trip_card .btn:hover {
 	color:black;
 }
-.trip_card:hover {
+.card:hover {
 	text-decoration: none;
 	color:black;
-	box-shadow: 16px 16px 17px rgba(0, 0, 0, 0.1);
+	box-shadow: 16px 16px 17px rgba(175, 126, 67, 0.1);
 }
 .travel-tag{
 	border: 2px solid #DEA754;
@@ -111,6 +119,21 @@ h1 {
 	background-size: 450px;
 	background-position: top left;
 }
+.restaurant-detail-card{
+	background-image: url(/images/cardBackground_restaurant.png);
+	display:block;
+	background-repeat: no-repeat;
+	background-size: 420px;
+	background-position: top left;
+}
+.list_card{
+	background-image: url(/images/cardBackground_list.png);
+	display:block;
+	background-repeat: no-repeat;
+	background-size: 420px;
+	background-position: top left;
+
+}
 .trip_name {
 	font-family: 'Syne', sans-serif;
 }
@@ -120,9 +143,9 @@ h1 {
 .sub-title {
 	font-family: 'Syne', sans-serif;
 }
-.info_link{
-	background-color: #AF7E43;
-	border: 2px solid #AF7E43;
-	padding:8px 10px;
-	padding-bottom: 4px;
+
+
+
+.trip_row{
+	gap:18px;
 }

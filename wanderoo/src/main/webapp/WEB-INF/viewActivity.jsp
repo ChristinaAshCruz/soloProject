@@ -74,9 +74,7 @@ pageEncoding="UTF-8"%>
             </p>
           </div>
           <div class="card-body">
-            <div
-              class="d-flex justify-content-between align-items-end card-title mb-0"
-            >
+            <div class="d-flex justify-content-between align-items-end mb-0">
               <!-- activity name -->
               <h1><c:out value="${activity.name}"></c:out></h1>
               <div>
@@ -112,26 +110,56 @@ pageEncoding="UTF-8"%>
             </p>
             <!-- activity card: button row -->
             <div class="d-flex justify-content-between">
+              <!-- left col -->
               <div class="flex-grow-1">
-                <a href="#" class="btn pt-2">{Attend activity}</a>
+                <c:if test="${ activity.infoLink == null}">
+                  <a href="${activity.infoLink}" class="btn info_link me-1">
+                    <!-- Want more info? -->
+                    <p class="p-0 m-0 me-2">
+                      <i class="fi fi-br-link-alt me-2 p-0 icon"></i>more info
+                    </p>
+                  </a>
+                </c:if>
+                <c:if test="${ attendStatus == false}">
+                  <a
+                    href="/trip/${trip.id}/activity/${activity.id}/member-attend"
+                    class="btn"
+                    >Interested in going?</a
+                  >
+                </c:if>
+                <c:if test="${ attendStatus == true}">
+                  <p>You're attending this event! 😎</p>
+                </c:if>
               </div>
+              <!-- right col -->
               <div>
-                <a href="${activity.infoLink}" class="btn me-2 info_link">
-                  <!-- Want more info? -->
-                  <div class="d-flex align-items-center">
-                    <i class="fi fi-br-link-alt me-2"></i>
-                    <p class="pb-1 m-0">more info</p>
-                  </div>
-                </a>
-                <a
-                  href="/trip/${trip.id}/activity/${activity.id}/edit"
-                  class="btn pt-2"
-                  >Edit Activity</a
+                <c:if
+                  test="${activity.activityCreator.id == sessionScope.userId
+              }"
                 >
+                  <a
+                    href="/trip/${trip.id}/activity/${activity.id}/edit"
+                    class="btn pt-2 me-1"
+                    >Edit</a
+                  >
+                  <a
+                    href="/trip/${trip.id}/activity/${activity.id}/delete"
+                    class="btn delete pt-2"
+                    >Delete</a
+                  >
+                </c:if>
               </div>
             </div>
           </div>
         </div>
+        <c:if test="${ attendStatus == false || attendStatus == true}">
+          <div class="card p-3">
+            <c:forEach var="member" items="${activity.membersAttending}">
+              <h5>Members Attending this event:</h5>
+              <li><c:out value="${member.name}"></c:out></li>
+            </c:forEach>
+          </div>
+        </c:if>
       </div>
     </div>
   </body>

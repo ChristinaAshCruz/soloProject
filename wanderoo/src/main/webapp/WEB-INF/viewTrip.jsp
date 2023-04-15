@@ -123,8 +123,8 @@ pageEncoding="UTF-8"%>
                 />
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-end">
-                    <h1 class="card-title">Restaurants</h1>
-                    <p class="amount-tag">5</p>
+                    <h2 class="card-title">Restaurants</h2>
+                    <p class="amount-tag">4</p>
                   </div>
                   <p class="card-text mb-3">
                     A collection of restaurants and cafés to visit during your

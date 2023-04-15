@@ -28,7 +28,7 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <div class="container px-4">
+    <div class="container">
       <div
         class="d-flex justify-content-between align-items-end mb-3"
         id="header"
@@ -42,131 +42,44 @@ pageEncoding="UTF-8"%>
       </div>
       <hr />
       <h1 class="mb-3">Your Trips</h1>
-      <div class="row mx-4">
+      <!-- TRIP ROW -->
+      <div class="d-flex flex-wrap trip_row mx-3">
         <c:forEach var="trip" items="${user.tripsCreated}">
-           <!-- column -->
-          <div class="col-md-4 mb-4 d-flex align-items-stretch">
-            <!-- trip card -->
-            <a href="/trip/${trip.id}" class="trip_card card">
-              <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center card-title mb-2"
-                >
-                  <h4 class="flex-grow-1 trip_name my-0">
-                    <c:out value="${trip.tripName}"></c:out>
-                  </h4>
-                  <p class="travel-tag my-0">SOLO</p>
-                </div>
-                <div class="card-text mb-0">
-                  <div class="d-flex align-items-center mb-3">
-                    <img src="/images/creator.png" alt="" class="icons me-2" />
-                    <h6 class="m-0">Jane Doe</h6>
-                  </div>
-                  <div class="d-flex align-items-center mb-3">
-                    <img src="/images/marker.png" alt="" class="icons me-2" />
-                    <h6 class="m-0 fst-italic">Italy</h6>
-                  </div>
-                  <p>
-                    <c:out value="${trip.summary}"></c:out>
-                  </p>
-                </div>
+          <!-- trip card -->
+        <div class="trip_card card" style="width: 23rem;">
+          <!-- link wrapper -->
+          <a href="/trip/${trip.id}" >
+            <!-- trip card background -->
+            <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
+            <!-- main card content -->
+            <div class="card-body">
+              <!-- trip row: trip name + travel tag -->
+              <div class="d-flex align-items-center justify-content-between">
+                <h4 class="flex-flex-1 trip_name"><c:out value="${trip.tripName}"></c:out></h4>
+                <!-- need to add c:if here! -->
+                  <!-- ex: test=${tripMembersSize > 0} -> show 'GROUP' -->
+                <p class="travel-tag flex-shrink-0">SOLO</p>
               </div>
-            </a>
+              <!-- trip attributes: trip creator + destination -->
+              <div class="card-text">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="/images/creator.png" alt="" class="icons me-2" />
+                  <h6 class="m-0"><c:out value="${trip.tripCreator.name}"></c:out></h6>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                  <img src="/images/marker.png" alt="" class="icons me-2" />
+                  <h6 class="m-0 fst-italic"><c:out value="${trip.destination}"></c:out></h6>
+                </div>
+                <!-- trip summary -->
+                <p>
+                  <c:out value="${trip.summary}"></c:out>
+                </p>
+              </div>
+              <a href="/trip/${trip.id}" class="btn btn-primary">View Trip</a>
+            </div>
           </div>
         </c:forEach>
-        
-        <!-- <div class="col-md-4 mb-4 d-flex align-items-stretch">
-          <a href="/" class="trip_card">
-            <div class="card">
-              <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center card-title"
-                >
-                  <h5 class="flex-grow-1">Graduation Trip</h5>
-                  <p class="travel-tag">SOLO</p>
-                </div>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ducimus eos nemo autem pariatur, animi tempora necessitatibus
-                  voluptatum voluptatem dolore voluptate quam nam minima ipsa
-                  repellendus quo accusamus mollitia quis ad!
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4 mb-4 d-flex align-items-stretch">
-          <a href="/" class="trip_card">
-            <div class="card">
-              <img src="/images/groupTrip.png" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-center card-title"
-                >
-                  <h5 class="flex-grow-1">Tokyo</h5>
-                  <div class="col d-flex">
-                    <p class="travel-tag me-2">GROUP</p>
-                    <p class="travel-tag">4</p>
-                  </div>
-                </div>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Ducimus eos nemo autem pariatur, animi tempora necessitatibus
-                  voluptatum voluptatem dolore voluptate quam nam minima ipsa
-                  repellendus quo accusamus mollitia quis ad!
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div> -->
-      <!-- <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-4 d-flex align-items-stretch">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4 d-flex align-items-stretch">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4 d-flex align-items-stretch">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Molestiae eaque animi nobis aliquam, corrupti eum, numquam,
-                  officia commodi tempora sit iure cupiditate dicta aspernatur
-                  soluta ullam quis? Tempora, id? Blanditiis.
-                </p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      </div>
     </div>
   </body>
 </html>

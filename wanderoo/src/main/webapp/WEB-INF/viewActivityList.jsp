@@ -44,40 +44,43 @@ pageEncoding="UTF-8"%>
       <!-- content container -->
       <div class="activities mx-3">
         <!-- trip name -->
-        <h5 class="sub-title"><c:out value="${trip.tripName}"></c:out> Trip</h5>
+        <h5 class="sub-title">
+          <c:out value="${trip.tripName}"></c:out> Trip > Activities
+        </h5>
         <!-- header row -->
-        <div class="body-header d-flex align-items-center mb-2">
+        <div
+          class="d-flex align-items-center justify-content-between mb-2 flex-wrap"
+        >
+          <!-- header: LEFT -->
           <div class="flex-grow-1">
-            <h1 class="mb-0">Activities</h1>
+            <h1 class="my-0">Activities</h1>
           </div>
-          <!-- buttons -->
-          <div>
-            <a href="/trip/${trip.id}/activity/new" class="btn btn-primary me-2"
-              >+ New Activity</a
+          <!-- header: right (buttons) -->
+          <div class="flex-shrink-0">
+            <a href="/trip/${trip.id}/activity/new" class="btn me-2 my-0"
+              >+ New activity</a
             >
-            <a href="/trip/1" class="btn btn-primary">Back To Trip</a>
+            <a href="/trip/1" class="btn my-0">Back To Trip</a>
           </div>
         </div>
         <!-- if list of activities are empty -->
         <!-- if list IS NOT empty -->
-        <c:if test="${listSize == 0}"> Welp </c:if>
+        <c:if test="${listSize == 0}"> No activities added yet 🥲 </c:if>
         <c:if test="${listSize > 0}">
           <c:forEach var="activity" items="${trip.tripActivities}">
             <!-- activity card -->
-            <div class="activity mb-3">
-              <a
-                href="/trip/${trip.id}/activity/${activity.id}"
-                class="trip_card"
-              >
-                <div class="trip_card card">
+            <div class="activity mb-3 trip_card">
+              <a href="/trip/${trip.id}/activity/${activity.id}">
+                <div class="card list_card">
                   <div class="card-body">
                     <div class="d-flex">
-                      <div class="col-md-10">
+                      <!-- LEFT column -->
+                      <div class="flex-grow-1">
                         <h2><c:out value="${activity.name}"></c:out></h2>
                         <h6><c:out value="${activity.summary}"></c:out></h6>
                       </div>
                       <!-- RIGHT column -->
-                      <div class="col-md-2">
+                      <div class="flex-shrink-0">
                         <!-- activity type -->
                         <p class="list_tag text-center mb-3">
                           <c:out value="${activity.activityType}"></c:out>

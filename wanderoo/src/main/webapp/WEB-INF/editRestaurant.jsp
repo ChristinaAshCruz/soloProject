@@ -19,6 +19,13 @@ pageEncoding="UTF-8"%>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <!-- change to match your file/naming structure -->
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- main container -->
@@ -43,7 +50,7 @@ pageEncoding="UTF-8"%>
       <!-- form card -->
       <div class="card p-3">
         <form:form
-          action="/trip/${tripId}/restaurant/${activityId}"
+          action="/trip/${tripId}/restaurant/${restaurantId}/edit"
           class="mt-2"
           method="POST"
           modelAttribute="restaurant"
@@ -113,7 +120,7 @@ pageEncoding="UTF-8"%>
             <a href="/trip/${tripId}/restaurant/list" class="btn me-2"
               >Cancel</a
             >
-            <button class="btn btn-primary px-4">Create Restaurant</button>
+            <button class="btn btn-primary px-4">Update Restaurant</button>
           </div>
         </form:form>
       </div>

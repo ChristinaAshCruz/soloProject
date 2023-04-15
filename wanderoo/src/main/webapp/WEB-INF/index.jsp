@@ -97,7 +97,7 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="mb-3"></div>
             <div class="d-flex justify-content-end">
-              <button class="btn btn-primary px-4">Register</button>
+              <button class="btn px-4">Register</button>
             </div>
           </form:form>
         </div>
@@ -142,7 +142,7 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="mb-3"></div>
             <div class="d-flex justify-content-end">
-              <button class="btn btn-primary px-4">Login</button>
+              <button class="btn px-4">Login</button>
             </div>
           </form:form>
         </div>

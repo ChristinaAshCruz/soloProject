@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.christinac.wanderoo.models.Restaurant;
@@ -60,13 +61,20 @@ public class RestaurantController {
 		} else {
 			// get user info
 			Long userId = (Long) session.getAttribute("userId");
-			User loggedUser = userServ.findById(userId);
-			model.addAttribute("user", loggedUser);
+			User user = userServ.findById(userId);
+			model.addAttribute("user", user);
 			// get trip info
 			Trip trip = tripServ.findById(tripId);
 			model.addAttribute("trip", trip);
 			Restaurant restaurant = restaurantServ.findById(restaurantId);
 			model.addAttribute("restaurant", restaurant);
+			if(trip.getTripMembers().size() > 1) {
+				if(restaurant.getMembersAttending().contains(user)) {
+					model.addAttribute("attendStatus", true);
+				} else {
+					model.addAttribute("attendStatus", false);
+				}
+			}
 			return "viewRestaurant.jsp";
 		}
 	}
@@ -136,10 +144,71 @@ public class RestaurantController {
 			// get restaurant info
 			Restaurant restaurant = restaurantServ.findById(restaurantId);
 			String restaurantName = restaurant.getName();
-			model.addAttribute("restaurant", restaurantId);
+			model.addAttribute("restaurant", restaurant);
 			model.addAttribute("restaurantName", restaurantName);
 			model.addAttribute("restaurantId", restaurantId);
 			return "editRestaurant.jsp";
+		}
+	}
+	
+	@PutMapping("/trip/{tripId}/restaurant/{restaurantId}/edit")
+	public String updateRestaurant(@Valid @ModelAttribute("restaurant") Restaurant restaurant, BindingResult result, @PathVariable("tripId") Long tripId, @PathVariable("restaurantId") Long restaurantId, HttpSession session, Model model) {
+		if (result.hasErrors()) {
+			model.addAttribute("tripId", tripId);
+			model.addAttribute("tripName", tripServ.findById(tripId).getTripName());
+			// find user info
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			model.addAttribute("user", user);
+			// find activity info
+			String restaurantName = restaurantServ.findById(restaurantId).getName();
+			model.addAttribute("restaurantId", restaurantId);
+			model.addAttribute("restaurantName", restaurantName);
+			return "editActivity.jsp";
+		} else {
+			// remove old restaurant from tripRestaurants
+			Trip trip = tripServ.findById(tripId);
+			List<Restaurant> tripRestaurants = trip.getTripRestaurants();
+			tripRestaurants.remove(restaurantServ.findById(restaurantId));
+			// set restaurant id to current id
+			restaurant.setId(restaurantId);
+			// set restaurant creator to one in session
+			Long userId = (Long) session.getAttribute("userId");
+			User user = userServ.findById(userId);
+			restaurant.setRestaurantCreator(user);
+			// keep restaurant in same trip (add updated restaurant to list)
+			restaurant.setTrip(trip);
+			tripRestaurants.add(restaurant);
+			// update restaurant in db
+			restaurantServ.update(restaurant);
+			// redirect back to restaurant list
+			return "redirect:/trip/" + tripId + "/restaurant/" + restaurantId;
+		}
+	}
+	
+	// add member to membersAttending
+	@GetMapping("/trip/{tripId}/restaurant/{restaurantId}/member-attend")
+	public String memberAttendRestaurant(@PathVariable("tripId") Long tripId, @PathVariable("restaurantId") Long restaurantId, HttpSession session, RedirectAttributes redirect, Model model) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			// need to write out member attend code here...
+			// need user and restaurantId
+			Long userId = (Long) session.getAttribute("userId");
+			restaurantServ.addMemberAttending(userId, restaurantId);
+			Restaurant restaurant = restaurantServ.findById(restaurantId);
+			User user = userServ.findById(userId);
+			// checking if group is larger than 0 in order to show attendance button
+			Trip trip = tripServ.findById(tripId);
+			if(trip.getTripMembers().size() > 1) {
+				if(restaurant.getMembersAttending().contains(user)) {
+					model.addAttribute("attendStatus", true);
+				} else {
+					model.addAttribute("attendStatus", false);
+				}
+			}
+			return "redirect:/trip/" + tripId + "/restaurant/" + restaurantId;
 		}
 	}
 	// deleteRestaurant

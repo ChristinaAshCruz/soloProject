@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.christinac.wanderoo.models.Activity;
+import com.christinac.wanderoo.models.Restaurant;
 import com.christinac.wanderoo.models.Trip;
 import com.christinac.wanderoo.models.User;
 import com.christinac.wanderoo.services.ActivityService;
@@ -53,21 +54,29 @@ public class ActivityController {
 	
 	// functions to add:
 		// viewActivity
-	@GetMapping("/trip/{tripId}/activity/{activitiyId}")
-	public String viewActivity(@PathVariable("tripId") Long tripId, @PathVariable("activitiyId") Long activitiyId, Model model, HttpSession session, RedirectAttributes redirect) {
+	@GetMapping("/trip/{tripId}/activity/{activityId}")
+	public String viewActivity(@PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId, Model model, HttpSession session, RedirectAttributes redirect) {
 		if(session.getAttribute("userId") == null) {
 			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
 			return "redirect:/";
 		} else {
 			// get user info
 			Long userId = (Long) session.getAttribute("userId");
-			User loggedUser = userServ.findById(userId);
-			model.addAttribute("user", loggedUser);
+			User user = userServ.findById(userId);
+			model.addAttribute("user", user);
 			// get trip info
 			Trip trip = tripServ.findById(tripId);
 			model.addAttribute("trip", trip);
-			Activity activity = activityServ.findById(activitiyId);
+			Activity activity = activityServ.findById(activityId);
 			model.addAttribute("activity", activity);
+			// checking if trip is a solo or group trip
+			if(trip.getTripMembers().size() > 1) {
+				if(activity.getMembersAttending().contains(user)) {
+					model.addAttribute("attendStatus", true);
+				} else {
+					model.addAttribute("attendStatus", false);
+				}
+			}
 			return "viewActivity.jsp";
 		}
 	}
@@ -181,4 +190,29 @@ public class ActivityController {
 	}
 		// deleteActivity
 		// editActivty
+	// add members to attendance
+	@GetMapping("/trip/{tripId}/activity/{activityId}/member-attend")
+	public String memberAttendActivity(@PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId, HttpSession session, RedirectAttributes redirect, Model model) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			// need to write out member attend code here...
+			// need user and activityId
+			Long userId = (Long) session.getAttribute("userId");
+			activityServ.addMemberAttending(userId, activityId);
+			Activity activity = activityServ.findById(activityId);
+			User user = userServ.findById(userId);
+			Trip trip = tripServ.findById(tripId);
+			if(trip.getTripMembers().size() > 1) {
+				if(activity.getMembersAttending().contains(user)) {
+					model.addAttribute("attendStatus", true);
+				} else {
+					model.addAttribute("attendStatus", false);
+				}
+			}
+			return "redirect:/trip/" + tripId + "/activity/" + activityId;
+		}
+	}
+	
 }
