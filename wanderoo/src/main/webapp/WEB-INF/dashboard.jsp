@@ -29,6 +29,7 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
     <div class="container">
+      <!-- header -->
       <div
         class="d-flex justify-content-between align-items-end mb-3"
         id="header"
@@ -42,41 +43,80 @@ pageEncoding="UTF-8"%>
       </div>
       <hr />
       <h1 class="mb-3">Your Trips</h1>
-      <!-- TRIP ROW -->
       <div class="d-flex flex-wrap trip_row mx-3">
-        <c:forEach var="trip" items="${user.tripsCreated}">
+        <c:forEach var="trip" items="${user.tripsAttending}">
           <!-- trip card -->
-        <div class="trip_card card" style="width: 23rem;">
-          <!-- link wrapper -->
-          <a href="/trip/${trip.id}" >
-            <!-- trip card background -->
-            <img src="/images/soloTrip.png" class="card-img-top" alt="..." />
-            <!-- main card content -->
-            <div class="card-body">
-              <!-- trip row: trip name + travel tag -->
-              <div class="d-flex align-items-center justify-content-between">
-                <h4 class="flex-flex-1 trip_name"><c:out value="${trip.tripName}"></c:out></h4>
-                <!-- need to add c:if here! -->
-                  <!-- ex: test=${tripMembersSize > 0} -> show 'GROUP' -->
-                <p class="travel-tag flex-shrink-0">SOLO</p>
-              </div>
-              <!-- trip attributes: trip creator + destination -->
-              <div class="card-text">
-                <div class="d-flex align-items-center mb-3">
-                  <img src="/images/creator.png" alt="" class="icons me-2" />
-                  <h6 class="m-0"><c:out value="${trip.tripCreator.name}"></c:out></h6>
+          <div class="trip_card card" style="width: 19rem">
+            <a href="/trip/${trip.id}">
+              <c:if test="${trip.tripMembers.size() == 1}">
+                <img
+                  src="/images/soloTrip.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </c:if>
+              <c:if test="${trip.tripMembers.size() != 1}">
+                <img
+                  src="/images/groupTrip.png"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </c:if>
+              <div class="card-body">
+                <div class="d-flex flex-column">
+                  <div
+                    class="d-flex align-items-center justify-content-between"
+                  >
+                    <h4 class="flex-flex-1 trip_name">
+                      <c:out value="${trip.tripName}"></c:out> Trip
+                    </h4>
+                    <!-- need to add c:if here! -->
+                    <c:if test="${trip.tripMembers.size() == 1}">
+                      <p class="travel-tag flex-shrink-0">SOLO</p>
+                    </c:if>
+                    <c:if test="${trip.tripMembers.size() != 1}">
+                      <p class="travel-tag flex-shrink-0">GROUP</p>
+                    </c:if>
+                  </div>
+                  <div class="card-text">
+                    <div class="d-flex align-items-center mb-3">
+                      <img
+                        src="/images/creator.png"
+                        alt=""
+                        class="icons me-2"
+                      />
+                      <h6 class="m-0">
+                        <c:out value="${trip.tripCreator.name}"></c:out>
+                      </h6>
+                    </div>
+                    <div class="d-flex align-items-center mb-3">
+                      <img src="/images/marker.png" alt="" class="icons me-2" />
+                      <h6 class="m-0 fst-italic">
+                        <c:out value="${trip.destination}"></c:out>
+                      </h6>
+                    </div>
+                    <!-- trip summary -->
+                    <p class="mb-0">
+                      <c:out value="${trip.summary}"></c:out>
+                    </p>
+                  </div>
                 </div>
-                <div class="d-flex align-items-center mb-3">
-                  <img src="/images/marker.png" alt="" class="icons me-2" />
-                  <h6 class="m-0 fst-italic"><c:out value="${trip.destination}"></c:out></h6>
-                </div>
-                <!-- trip summary -->
-                <p>
-                  <c:out value="${trip.summary}"></c:out>
-                </p>
               </div>
-              <a href="/trip/${trip.id}" class="btn btn-primary">View Trip</a>
-            </div>
+              <c:if test="${trip.tripCreator.id != sessionScope.userId}">
+                <a href="/trip/${trip.id}" class="btn mt-auto m-3 mt-0"
+                  >View Trip</a
+                >
+              </c:if>
+              <c:if test="${trip.tripCreator.id == sessionScope.userId}">
+                <a href="/trip/${trip.id}" class="btn mt-auto m-3 my-0"
+                  >View Trip</a
+                >
+                <d class="d-flex flex-wrap m-3 mt-2">
+                  <a href="/trip/${trip.id}/edit" class="btn col me-2">Edit</a>
+                  <a href="/trip/${trip.id}/delete" class="btn col">Delete</a>
+                </d>
+              </c:if>
+            </a>
           </div>
         </c:forEach>
       </div>

@@ -58,7 +58,7 @@ pageEncoding="UTF-8"%>
             <h1 class="my-0">Restaurants</h1>
           </div>
           <!-- header: right (buttons) -->
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0 mb-2">
             <a href="/trip/${trip.id}/restaurant/new" class="btn me-2 my-0"
               >+ New Restaurant</a
             >
@@ -68,7 +68,7 @@ pageEncoding="UTF-8"%>
         <!-- if list is empty -->
         <c:if test="${listSize == 0}">
           <div class="card text-center p-3">
-            <h5 class="m-0">🥲 No restaurants added yet...</h5>
+            <h6 class="m-0">🥲 No restaurants added yet...</h6>
           </div>
         </c:if>
         <!-- if list is NOT empty -->

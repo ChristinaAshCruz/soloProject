@@ -56,7 +56,7 @@ pageEncoding="UTF-8"%>
             <h1 class="my-0">Activities</h1>
           </div>
           <!-- header: right (buttons) -->
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0 mb-2">
             <a href="/trip/${trip.id}/activity/new" class="btn me-2 my-0"
               >+ New activity</a
             >
@@ -65,7 +65,11 @@ pageEncoding="UTF-8"%>
         </div>
         <!-- if list of activities are empty -->
         <!-- if list IS NOT empty -->
-        <c:if test="${listSize == 0}"> No activities added yet 🥲 </c:if>
+        <c:if test="${listSize == 0}">
+          <div class="card text-center p-3">
+            <h6 class="m-0">🥲 No activities added yet...</h6>
+          </div>
+        </c:if>
         <c:if test="${listSize > 0}">
           <c:forEach var="activity" items="${trip.tripActivities}">
             <!-- activity card -->

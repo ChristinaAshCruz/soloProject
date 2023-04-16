@@ -45,6 +45,8 @@ public class TripController {
 			model.addAttribute("trip", trip);
 			List<User> allUsers = userServ.findAll();
 			model.addAttribute("allUsers", allUsers);
+			Integer tripMemberSize = trip.getTripMembers().size();
+			model.addAttribute("tripMemberSize", tripMemberSize);
 			return "viewTrip.jsp";
 		}
 	}
@@ -80,7 +82,9 @@ public class TripController {
 		// set Trip creator to user
 		trip.setTripCreator(user);
 		// and then create trip + save in db
+		user.getTripsAttending().add(trip);
 		tripServ.create(trip);
+		userServ.update(user);
 		return "redirect:/dashboard";
 	}
 		// editTrip
@@ -120,7 +124,6 @@ public class TripController {
 			return "redirect:/trip/" + id;
 		}
 	}
-		// deleteTrip
 	@PostMapping("/{tripId}/add-members")
 	public String addMember(@RequestParam(value="userId") Long userId, @PathVariable("tripId") Long tripId) {
 		Trip trip = tripServ.findById(tripId);
@@ -130,9 +133,17 @@ public class TripController {
 		trip.getTripMembers().add(user);
 //		category.getProducts().add(product);
 		tripServ.update(trip);
-//		categoryService.updateCategory(category);
-//		return "redirect:/categories/"+id;
 		return "redirect:/trip/" + tripId;
 	}
-	
+	// deleteTrip
+	@GetMapping("/{tripId}/delete")
+	public String deleteTrip(@PathVariable("tripId") Long tripId, HttpSession session, RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in!");
+			return "redirect:/";
+		} else {
+		tripServ.deleteById(tripId);
+		return "redirect:/dashboard";
+		}
+	}
 }
