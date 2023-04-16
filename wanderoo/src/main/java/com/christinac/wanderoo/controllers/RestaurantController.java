@@ -212,4 +212,14 @@ public class RestaurantController {
 		}
 	}
 	// deleteRestaurant
+	@GetMapping("/trip/{tripId}/restaurant/{restaurantId}/delete")
+	public String deleteRestaurant(@PathVariable("tripId") Long tripId, @PathVariable("restaurantId") Long restaurantId, HttpSession session, RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+		restaurantServ.deleteById(restaurantId);
+		return "redirect:/trip/" + tripId + "/restaurant/list";
+		}
+	}
 }

@@ -51,4 +51,9 @@ public class RestaurantService {
 		userServ.update(user);
 		update(restaurant);
 	}
+	
+	// delete restaurant
+	public void deleteById(Long restaurantId) {
+		restaurantRepo.deleteById(restaurantId);
+	}
 }

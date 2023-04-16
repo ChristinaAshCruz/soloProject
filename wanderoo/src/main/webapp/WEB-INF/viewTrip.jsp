@@ -74,7 +74,42 @@ pageEncoding="UTF-8"%>
             <p>
               <c:out value="${trip.summary}"></c:out>
             </p>
-            <a href="/trip/${trip.id}/edit" class="btn">Edit Trip</a>
+            <!-- button row on main trip card -->
+            <div class="d-flex flex-wrap justify-content-between">
+              <!-- edit button -->
+              <div>
+                <a href="/trip/${trip.id}/edit" class="btn">Edit Trip</a>
+              </div>
+              <!-- add trip members form -->
+              <div></div>
+              <div class="d-flex">
+                <form
+                  action="/trip/${trip.id}/add-members"
+                  method="POST"
+                  modelAttribute="unaddedMembers"
+                >
+                  <select name="userId" id="userId" class="form-select me-2">
+                    <option>Add Trip Members</option>
+                    <c:forEach var="user" items="${allUsers}">
+                      <c:if
+                        test="${!trip.tripMembers.contains(user) && user.id != sessionScope.userId}"
+                      >
+                        <option value="${user.id}">
+                          <c:out value="${user.name}"></c:out>
+                        </option>
+                      </c:if>
+                    </c:forEach>
+                  </select>
+                  <button class="btn">Add</button>
+                </form>
+              </div>
+              <ul>
+                <p>Trip Members:</p>
+                <c:forEach var="member" items="${trip.tripMembers}">
+                  <li><c:out value="${member.name}"></c:out></li>
+                </c:forEach>
+              </ul>
+            </div>
           </div>
         </div>
         <!-- list row -->

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.christinac.wanderoo.models.Trip;
@@ -42,6 +43,8 @@ public class TripController {
 			model.addAttribute("user", loggedUser);
 			Trip trip = tripServ.findById(id);
 			model.addAttribute("trip", trip);
+			List<User> allUsers = userServ.findAll();
+			model.addAttribute("allUsers", allUsers);
 			return "viewTrip.jsp";
 		}
 	}
@@ -108,14 +111,28 @@ public class TripController {
 			model.addAttribute("tripName", tripServ.findById(id).getTripName());
 			return "editTrip.jsp";
 		} else {
-			// keep staffer the same
+			// keep creator the same
 			Long userId = (Long) session.getAttribute("userId");
 			User user = userServ.findById(userId);
 			trip.setTripCreator(user);
-			// update table
+			// update table	
 			tripServ.update(trip);
 			return "redirect:/trip/" + id;
 		}
 	}
 		// deleteTrip
+	@PostMapping("/{tripId}/add-members")
+	public String addMember(@RequestParam(value="userId") Long userId, @PathVariable("tripId") Long tripId) {
+		Trip trip = tripServ.findById(tripId);
+//		Category category = categoryService.findById(id);
+		User user = userServ.findById(userId);
+//		Product product = productService.findById(productId);
+		trip.getTripMembers().add(user);
+//		category.getProducts().add(product);
+		tripServ.update(trip);
+//		categoryService.updateCategory(category);
+//		return "redirect:/categories/"+id;
+		return "redirect:/trip/" + tripId;
+	}
+	
 }

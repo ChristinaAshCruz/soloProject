@@ -67,4 +67,14 @@ public class HomeController {
 		}
 	}
 	
+	@GetMapping("/logout")
+	public String logout(HttpSession session,  RedirectAttributes redirect) {
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			session.setAttribute("userId", null);
+			return "redirect:/";
+		}
+	}
 }
