@@ -37,6 +37,10 @@ public class ActivityService {
 		return activityRepo.save(activity);
 	}
 	// delete
+	public void deleteActivityById(Long id) {
+		activityRepo.deleteById(id);
+	}
+	
 	
 	//add member attendance
 	public void addMemberAttending(Long userId, Long activityId) {

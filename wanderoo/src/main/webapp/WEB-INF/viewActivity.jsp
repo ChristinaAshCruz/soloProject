@@ -44,8 +44,8 @@ pageEncoding="UTF-8"%>
         <h3 id="logo" class="my-0">Wanderoo.</h3>
         <div class="d-flex flex-sm-row align-items-center">
           <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/dashboard" class="me-2 btn btn-primary">Back to Home</a>
-          <a href="/logout" class="btn btn-primary">Logout</a>
+          <a href="/dashboard" class="me-2 btn">Back to Home</a>
+          <a href="/logout" class="btn">Logout</a>
         </div>
       </div>
       <hr class="mb-3" />
@@ -62,7 +62,9 @@ pageEncoding="UTF-8"%>
           </div>
           <!-- buttons -->
 
-          <a href="/trip/1" class="btn btn-primary">Back To Trip</a>
+          <a href="/trip/${trip.id}/activity/list" class="btn"
+            >Back To Activities</a
+          >
         </div>
 
         <!-- activity card -->
@@ -152,14 +154,25 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
         </div>
-        <c:if test="${ attendStatus == false || attendStatus == true}">
-          <div class="card p-3">
+        <!-- this code block only appears if trip is a group trip -->
+        <div class="card p-3">
+          <c:if test="${activity.membersAttending.size() > 0}">
             <c:forEach var="member" items="${activity.membersAttending}">
               <h5>Members Attending this event:</h5>
-              <li><c:out value="${member.name}"></c:out></li>
+              <c:if test="${member.id == sessionScope.userId}">
+                <li>You</li>
+              </c:if>
+              <c:if test="${member.id != sessionScope.userId}">
+                <li>You</li>
+              </c:if>
             </c:forEach>
-          </div>
-        </c:if>
+          </c:if>
+          <c:if test="${activity.membersAttending.size() == 0}">
+            <h6 class="text-center my-0">
+              No one is currently interested in this activity 😕
+            </h6>
+          </c:if>
+        </div>
       </div>
     </div>
   </body>

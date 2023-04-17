@@ -48,20 +48,21 @@ pageEncoding="UTF-8"%>
       <!-- form heading -->
       <h1 class="flex-grow-1">Create a New Restaurant</h1>
       <!-- form card -->
-      <div class="card p-3">
-        <form:form
-          action="/trip/${tripId}/restaurant/${restaurantId}/edit"
-          class="mt-2"
-          method="POST"
-          modelAttribute="restaurant"
-        >
-          <input type="hidden" name="_method" value="PUT" />
+      <form:form
+        action="/trip/${tripId}/restaurant/${restaurantId}/edit"
+        class="mt-2"
+        method="POST"
+        modelAttribute="restaurant"
+      >
+        <input type="hidden" name="_method" value="PUT" />
+        <div class="card form-card p-3">
           <!-- name -->
           <div class="mb-3">
             <form:label path="name" class="form-label">Name:</form:label>
             <form:input type="text" class="form-control" path="name" />
-            <form:errors path="name"></form:errors>
           </div>
+          <!-- error: name -->
+          <form:errors path="name" class="mb-3 alert alert-danger" />
           <!-- distance from stay -->
           <div class="mb-3">
             <form:label path="distanceFromStay" class="form-label"
@@ -72,8 +73,11 @@ pageEncoding="UTF-8"%>
               class="form-control"
               path="distanceFromStay"
             />
-            <form:errors path="distanceFromStay"></form:errors>
           </div>
+          <form:errors
+            path="distanceFromStay"
+            class="mb-3 alert alert-danger"
+          ></form:errors>
           <!-- cuisine type -->
           <div class="mb-3">
             <form:label path="cuisineType" class="form-label"
@@ -85,8 +89,11 @@ pageEncoding="UTF-8"%>
               path="cuisineType"
               name="cuisineType"
             />
-            <form:errors path="cuisineType"></form:errors>
           </div>
+          <form:errors
+            path="cuisineType"
+            class="mb-3 alert alert-danger"
+          ></form:errors>
           <!-- summary -->
           <div class="mb-3">
             <form:label for="summary" class="mb-2" path="summary"
@@ -100,9 +107,10 @@ pageEncoding="UTF-8"%>
               style="height: 100px"
             ></form:textarea>
           </div>
-          <div class="mb-3">
-            <form:errors path="summary" class="text-danger mb-3"></form:errors>
-          </div>
+          <form:errors
+            path="summary"
+            class="mb-3 alert alert-danger"
+          ></form:errors>
           <!-- info link -->
           <div class="mb-3">
             <form:label path="infoLink" class="form-label"
@@ -114,16 +122,21 @@ pageEncoding="UTF-8"%>
               path="infoLink"
               name="infoLink"
             />
-            <form:errors path="infoLink"></form:errors>
           </div>
+          <form:errors
+            path="infoLink"
+            class="mb-3 alert alert-danger"
+          ></form:errors>
           <div class="d-flex justify-content-end">
-            <a href="/trip/${tripId}/restaurant/list" class="btn me-2"
+            <a
+              href="/trip/${tripId}/restaurant/${restaurant.id}"
+              class="btn me-2"
               >Cancel</a
             >
             <button class="btn btn-primary px-4">Update Restaurant</button>
           </div>
-        </form:form>
-      </div>
+        </div>
+      </form:form>
     </div>
   </body>
 </html>

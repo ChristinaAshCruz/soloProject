@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-	margin: 40px;
+	margin:40px;
 	font-family: 'Montserrat', sans-serif;
 	background-color: #fcf8f2;
 }
@@ -9,7 +9,17 @@ body {
 h1 {
 	font-family: 'Syne', sans-serif;
 }
-
+.footer-btn {
+	text-decoration: none;
+	color:#AF7E43;
+	font-weight: 700;
+	transition: all 200ms ease;
+	
+}
+.footer-btn:hover {
+	text-decoration: none;
+	color:#212529;
+}
 #logo{
 	font-family: 'Syne', sans-serif;
 }
@@ -146,7 +156,9 @@ h1 {
 }
 
 
-
+.header_row{
+	gap:10px;
+}
 .trip_row{
 	gap:18px;
 }

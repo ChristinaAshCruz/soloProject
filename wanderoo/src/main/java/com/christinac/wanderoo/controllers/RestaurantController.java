@@ -164,7 +164,7 @@ public class RestaurantController {
 			String restaurantName = restaurantServ.findById(restaurantId).getName();
 			model.addAttribute("restaurantId", restaurantId);
 			model.addAttribute("restaurantName", restaurantName);
-			return "editActivity.jsp";
+			return "editRestaurant.jsp";
 		} else {
 			// remove old restaurant from tripRestaurants
 			Trip trip = tripServ.findById(tripId);

@@ -72,9 +72,7 @@ pageEncoding="UTF-8"%>
             </p>
           </div>
           <div class="card-body">
-            <div
-              class="d-flex justify-content-between align-items-end card-title mb-0"
-            >
+            <div class="d-flex justify-content-between align-items-end mb-0">
               <!-- restaurant name -->
               <h1><c:out value="${restaurant.name}"></c:out></h1>
               <div>
@@ -115,7 +113,7 @@ pageEncoding="UTF-8"%>
               <!-- left col -->
               <div class="d-flex flex-grow-1 align-items-baseline">
                 <c:if test="${ activity.infoLink == null}">
-                  <a href="${restaurant.infoLink}" class="btn info_link me-1">
+                  <a href="${restaurant.infoLink}" class="btn info_link me-2">
                     <!-- Want more info? -->
                     <p class="p-0 m-0 me-2">
                       <i class="fi fi-br-link-alt me-2 p-0 icon"></i>more info
@@ -156,14 +154,24 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
         </div>
-        <c:if test="${ attendStatus == false || attendStatus == true}">
-          <div class="card p-3">
+        <div class="card p-3">
+          <c:if test="${restaurant.membersAttending.size() > 0}">
             <c:forEach var="member" items="${restaurant.membersAttending}">
               <h5>Members Attending this event:</h5>
-              <li><c:out value="${member.name}"></c:out></li>
+              <c:if test="${member.id == sessionScope.userId}">
+                <li>You</li>
+              </c:if>
+              <c:if test="${member.id != sessionScope.userId}">
+                <li>You</li>
+              </c:if>
             </c:forEach>
-          </div>
-        </c:if>
+          </c:if>
+          <c:if test="${restaurant.membersAttending.size() == 0}">
+            <h6 class="text-center my-0">
+              No one is currently interested in this activity 😕
+            </h6>
+          </c:if>
+        </div>
       </div>
     </div>
   </body>

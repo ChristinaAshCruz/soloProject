@@ -128,7 +128,7 @@ public class ActivityController {
 		activityServ.create(activity);
 		return "redirect:/trip/" + tripId +"/activity/list";
 	}
-	
+	// EDIT ACTIVITY
 	@GetMapping("/trip/{tripId}/activity/{activityId}/edit")
 	public String editActivity(@PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId, Model model, HttpSession session, RedirectAttributes redirect) {
 		if(session.getAttribute("userId") == null) {
@@ -189,7 +189,13 @@ public class ActivityController {
 		}
 	}
 		// deleteActivity
-		// editActivty
+	@GetMapping("/trip/{tripId}/activity/{activityId}/delete")
+	public String deleteActivity(@PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId) {
+//		Trip trip = tripServ.findById(tripId);
+//		Activity activity = activityServ.findById(activityId);
+		activityServ.deleteActivityById(activityId);
+		return "redirect:/trip/" + tripId + "/activity/list";
+	}
 	// add members to attendance
 	@GetMapping("/trip/{tripId}/activity/{activityId}/member-attend")
 	public String memberAttendActivity(@PathVariable("tripId") Long tripId, @PathVariable("activityId") Long activityId, HttpSession session, RedirectAttributes redirect, Model model) {

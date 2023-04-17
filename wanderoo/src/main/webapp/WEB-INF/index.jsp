@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Project Name here</title>
+    <title>Wanderoo</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- change to match your file/naming structure -->
@@ -48,8 +48,8 @@ pageEncoding="UTF-8"%>
                 >Name:</form:label
               >
               <input type="text" class="form-control" path="name" name="name" />
-              <form:errors path="name"></form:errors>
             </div>
+            <form:errors path="name"></form:errors>
             <div class="mb-3"></div>
             <div class="d-flex mb-3 align-items-center">
               <form:label for="email" path="email" class="form-label col-2"
