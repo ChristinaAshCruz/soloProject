@@ -121,7 +121,9 @@ pageEncoding="UTF-8"%>
                     <a href="/trip/${trip.id}/edit" class="btn col me-2"
                       >Edit</a
                     >
-                    <a href="/trip/${trip.id}/delete" class="btn col">Delete</a>
+                    <a href="/trip/${trip.id}/delete" class="btn col delete"
+                      >Delete</a
+                    >
                   </d>
                 </c:if>
               </a>

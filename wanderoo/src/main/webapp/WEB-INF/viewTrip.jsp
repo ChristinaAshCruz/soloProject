@@ -86,28 +86,44 @@ pageEncoding="UTF-8"%>
                   <a href="/trip/${trip.id}/edit" class="btn">Edit Trip</a>
                 </div>
                 <!-- add trip members form -->
-                <form
-                  action="/trip/${trip.id}/add-members"
-                  method="POST"
-                  modelAttribute="unaddedMembers"
-                >
-                  <div class="d-flex">
-                    <select name="userId" id="userId" class="form-select me-2">
-                      <option>Add Trip Members</option>
-                      <c:forEach var="user" items="${allUsers}">
-                        <!-- options will only show if it's not the user in session + is already a trip member -->
+                <!-- this feature only appears if tripCreator is in session -->
+                <c:if test="${trip.tripCreator.id == sessionScope.userId}">
+                  <form
+                    action="/trip/${trip.id}/add-members"
+                    method="POST"
+                    modelAttribute="unaddedMembers"
+                  >
+                    <div class="d-flex">
+                      <select
+                        name="userId"
+                        id="userId"
+                        class="form-select me-2"
+                      >
                         <c:if
-                          test="${!trip.tripMembers.contains(user) && user.id != sessionScope.userId}"
+                          test="${allUsers.size() == trip.tripMembers.size()}"
                         >
-                          <option value="${user.id}">
-                            <c:out value="${user.name}"></c:out>
-                          </option>
+                          <option>All users are added!</option>
                         </c:if>
-                      </c:forEach>
-                    </select>
-                    <button class="btn">Add</button>
-                  </div>
-                </form>
+                        <c:if
+                          test="${allUsers.size() != trip.tripMembers.size()}"
+                        >
+                          <option>Add Trip Members</option>
+                          <c:forEach var="user" items="${allUsers}">
+                            <!-- options will only show if it's not the user in session + is already a trip member -->
+                            <c:if
+                              test="${!trip.tripMembers.contains(user) && user.id != sessionScope.userId}"
+                            >
+                              <option value="${user.id}">
+                                <c:out value="${user.name}"></c:out>
+                              </option>
+                            </c:if>
+                          </c:forEach>
+                        </c:if>
+                      </select>
+                      <button class="btn">Add</button>
+                    </div>
+                  </form>
+                </c:if>
               </div>
             </div>
           </div>

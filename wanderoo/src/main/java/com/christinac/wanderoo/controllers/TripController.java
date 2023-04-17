@@ -72,7 +72,7 @@ public class TripController {
 			Long userId = (Long) session.getAttribute("userId");
 			User user = userServ.findById(userId);
 			model.addAttribute("user", user);
-			return "newTable.jsp";
+			return "newTrip.jsp";
 		}
 		Long userId = (Long) session.getAttribute("userId");
 		User user = userServ.findById(userId);
@@ -113,6 +113,7 @@ public class TripController {
 			User user = userServ.findById(userId);
 			model.addAttribute("user", user);
 			model.addAttribute("tripName", tripServ.findById(id).getTripName());
+			model.addAttribute("tripId", id);
 			return "editTrip.jsp";
 		} else {
 			// keep creator the same

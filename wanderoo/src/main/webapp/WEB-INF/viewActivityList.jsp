@@ -60,7 +60,7 @@ pageEncoding="UTF-8"%>
             <a href="/trip/${trip.id}/activity/new" class="btn me-2 my-0"
               >+ New activity</a
             >
-            <a href="/trip/1" class="btn my-0">Back To Trip</a>
+            <a href="/trip/${trip.id}" class="btn my-0">Back To Trip</a>
           </div>
         </div>
         <!-- if list of activities are empty -->

@@ -32,7 +32,7 @@ public class Trip {
 	private Long id;
 	@NotEmpty(message="A trip name is required!")
 	private String tripName;
-	@NotEmpty(message="Destination is required!")
+	@NotEmpty(message="A destination is required!")
 	private String destination;
 	@NotNull(message="A trip length is required!")
 	@Min(value=0)

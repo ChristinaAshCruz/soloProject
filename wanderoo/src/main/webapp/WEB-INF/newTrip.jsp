@@ -42,75 +42,73 @@ pageEncoding="UTF-8"%>
       </div>
       <hr />
       <h1>Create a New Trip</h1>
-      <div class="card p-3">
-        <form:form
-          action="/trip/new"
-          class="mt-2"
-          method="POST"
-          modelAttribute="newTrip"
-        >
+      <form:form
+        action="/trip/${trip.id}/update"
+        class="mt-2"
+        method="POST"
+        modelAttribute="newTrip"
+      >
+        <div class="card p-3">
+          <input type="hidden" name="_method" value="PUT" />
+          <!-- name -->
           <div class="mb-3">
-            <form:label for="tripName" path="tripName" class="form-label col-2"
-              >Name:</form:label
-            >
-            <input
-              type="text"
-              class="form-control"
-              path="tripName"
-              name="tripName"
-            />
-            <form:errors path="tripName"></form:errors>
+            <form:label path="tripName" class="form-label">Name:</form:label>
+            <form:input type="text" class="form-control" path="tripName" />
           </div>
+          <!-- error: name -->
+          <form:errors
+            path="tripName"
+            class="py-1 alert alert-danger"
+          ></form:errors>
+          <!-- destination -->
           <div class="mb-3">
-            <form:label
-              for="destination"
-              path="destination"
-              class="form-label col-2"
+            <form:label path="destination" class="form-label"
               >Destination:</form:label
             >
-            <form:input
-              type="text"
-              class="form-control"
-              path="destination"
-              name="destination"
-            />
-            <form:errors path="destination"></form:errors>
+            <form:input type="text" class="form-control" path="destination" />
           </div>
+          <!-- error: destination -->
+          <form:errors
+            path="destination"
+            class="py-1 alert alert-danger"
+          ></form:errors>
+          <!-- length of trip -->
           <div class="mb-3">
-            <form:label
-              for="lengthOfTrip"
-              path="lengthOfTrip"
-              class="form-label col-2"
-              >Trip Length:</form:label
+            <form:label path="lengthOfTrip" class="form-label"
+              >Trip Length (# of days):</form:label
             >
-            <input
+            <form:input
               type="number"
               class="form-control"
               path="lengthOfTrip"
-              name="lengthOfTrip"
             />
-            <form:errors path="lengthOfTrip"></form:errors>
           </div>
+          <!-- error: lengthOfTrip -->
+          <form:errors
+            path="lengthOfTrip"
+            class="py-1 alert alert-danger"
+          ></form:errors>
+          <!-- summary -->
           <div class="mb-3">
-            <form:label for="summary" class="mb-2" path="summary"
-              >Trip Summary:</form:label
-            >
+            <form:label class="mb-2" path="summary">Trip Summary:</form:label>
             <form:textarea
               class="form-control"
               placeholder="Write a short trip summary here..."
-              name="summary"
               path="summary"
               style="height: 100px"
             ></form:textarea>
           </div>
-          <div class="mb-3">
-            <form:errors path="summary" class="text-danger mb-3"></form:errors>
-          </div>
+          <!-- error: trip summary -->
+          <form:errors
+            path="summary"
+            class="py-1 alert alert-danger"
+          ></form:errors>
           <div class="d-flex justify-content-end">
-            <button class="btn btn-primary px-4">Create Trip</button>
+            <a href="/dashboard" class="btn me-2">Cancel</a>
+            <button class="btn btn-primary px-4">Edit Trip</button>
           </div>
-        </form:form>
-      </div>
+        </div>
+      </form:form>
     </div>
   </body>
 </html>
