@@ -50,19 +50,23 @@ pageEncoding="UTF-8"%>
       <!-- form heading -->
       <h1 class="flex-grow-1">Create a New Activity</h1>
       <!-- form card -->
-      <div class="card p-3">
-        <form:form
-          action="/trip/${tripId}/activity/new"
-          class="mt-2"
-          method="POST"
-          modelAttribute="newActivity"
-        >
+      <form:form
+        action="/trip/${tripId}/activity/new"
+        class="mt-2"
+        method="POST"
+        modelAttribute="newActivity"
+      >
+        <div class="card p-3">
           <!-- name -->
           <div class="mb-3">
             <form:label path="name" class="form-label">Name:</form:label>
             <form:input type="text" class="form-control" path="name" />
-            <form:errors path="name"></form:errors>
           </div>
+          <!-- error: name -->
+          <form:errors
+            path="name"
+            class="py-1 alert alert-danger"
+          ></form:errors>
           <!-- distance from stay -->
           <div class="mb-3">
             <form:label path="distanceFromStay" class="form-label"
@@ -73,8 +77,12 @@ pageEncoding="UTF-8"%>
               class="form-control"
               path="distanceFromStay"
             />
-            <form:errors path="distanceFromStay"></form:errors>
           </div>
+          <!-- error: distanceFromStay -->
+          <form:errors
+            path="distanceFromStay"
+            class="py-1 alert alert-danger"
+          ></form:errors>
           <!-- activty type -->
           <div class="mb-3">
             <form:label path="activityType" class="form-label"
@@ -86,8 +94,12 @@ pageEncoding="UTF-8"%>
               path="activityType"
               name="activityType"
             />
-            <form:errors path="activityType"></form:errors>
           </div>
+          <!-- error: activityType -->
+          <form:errors
+            path="activityType"
+            class="py-1 alert alert-danger"
+          ></form:errors>
           <!-- summary -->
           <div class="mb-3">
             <form:label for="summary" class="mb-2" path="summary"
@@ -101,9 +113,11 @@ pageEncoding="UTF-8"%>
               style="height: 100px"
             ></form:textarea>
           </div>
-          <div class="mb-3">
-            <form:errors path="summary" class="text-danger mb-3"></form:errors>
-          </div>
+          <!-- error: summary -->
+          <form:errors
+            path="summary"
+            class="py-1 alert alert-danger"
+          ></form:errors>
           <!-- info link -->
           <div class="mb-3">
             <form:label path="infoLink" class="form-label"
@@ -115,14 +129,13 @@ pageEncoding="UTF-8"%>
               path="infoLink"
               name="infoLink"
             />
-            <form:errors path="infoLink"></form:errors>
           </div>
           <div class="d-flex justify-content-end">
             <a href="/trip/${tripId}/activity/list" class="btn me-2">Cancel</a>
             <button class="btn btn-primary px-4">Create Activity</button>
           </div>
-        </form:form>
-      </div>
+        </div>
+      </form:form>
     </div>
   </body>
 </html>

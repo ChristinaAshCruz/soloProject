@@ -29,7 +29,7 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
     <!-- main container -->
-    <div class="container px-4">
+    <div class="container">
       <!-- nav bar -->
       <div
         class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"
@@ -58,15 +58,33 @@ pageEncoding="UTF-8"%>
             </div>
 
             <div class="card-body">
-              <div class="d-flex justify-content-between align-items-end mb-0">
-                <h1 class="card-title">
-                  <c:out value="${trip.tripName}"></c:out> Trip
-                </h1>
+              <div
+                class="d-flex justify-content-between align-items-start mb-3"
+              >
+                <!-- TRIP NAME COL -->
+                <div class="flex-grow-1">
+                  <h1 class="card-title">
+                    <c:out value="${trip.tripName}"></c:out> Trip
+                  </h1>
+                  <p>
+                    <c:out value="${trip.summary}"></c:out>
+                  </p>
+                </div>
+                <!-- CREATOR + DESTINATION -->
                 <div>
                   <div class="d-flex align-items-center mb-3">
                     <img src="/images/creator.png" alt="" class="icons me-2" />
                     <h6 class="m-0">
-                      <c:out value="${trip.tripCreator.name}"></c:out>
+                      <c:if
+                        test="${trip.tripCreator.id == sessionScope.userId}"
+                      >
+                        You
+                      </c:if>
+                      <c:if
+                        test="${trip.tripCreator.id != sessionScope.userId}"
+                      >
+                        <c:out value="${trip.tripCreator.name}"></c:out>
+                      </c:if>
                     </h6>
                   </div>
                   <div class="d-flex align-items-center">
@@ -78,10 +96,8 @@ pageEncoding="UTF-8"%>
                   </div>
                 </div>
               </div>
-              <h4>Trip Summary</h4>
-              <p>
-                <c:out value="${trip.summary}"></c:out>
-              </p>
+              <!-- TRIP SUMMARY -->
+
               <!-- button row on main trip card -->
               <div class="d-flex flex-wrap justify-content-between">
                 <!-- edit button -->

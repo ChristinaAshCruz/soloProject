@@ -46,9 +46,7 @@ pageEncoding="UTF-8"%>
       </div>
       <hr />
       <!-- form heading -->
-      <h1 class="flex-grow-1">
-        Edit '<c:out value="${activityName}"></c:out>' Activity
-      </h1>
+      <h1 class="flex-grow-1">Edit: <c:out value="${activityName}"></c:out></h1>
       <!-- form card -->
       <form:form
         action="/trip/${tripId}/activity/${activityId}/edit"

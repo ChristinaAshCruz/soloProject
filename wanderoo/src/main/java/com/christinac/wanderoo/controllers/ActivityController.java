@@ -169,6 +169,9 @@ public class ActivityController {
 			model.addAttribute("activityName", activityName);
 			return "editActivity.jsp";
 		} else {
+			Activity originalActivity = activityServ.findById(activityId);
+			List<User> membersAttending = originalActivity.getMembersAttending();
+			activity.setMembersAttending(membersAttending);
 			// replacing current id with updated info
 			activity.setId(activityId);
 			// keep activity creator the same

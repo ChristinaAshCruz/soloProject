@@ -46,13 +46,12 @@ pageEncoding="UTF-8"%>
       <hr />
       <h1>Create a New Trip</h1>
       <form:form
-        action="/trip/${trip.id}/update"
+        action="/trip/new"
         class="mt-2"
         method="POST"
         modelAttribute="newTrip"
       >
         <div class="card p-3">
-          <input type="hidden" name="_method" value="PUT" />
           <!-- name -->
           <div class="mb-3">
             <form:label path="tripName" class="form-label">Name:</form:label>
@@ -108,7 +107,7 @@ pageEncoding="UTF-8"%>
           ></form:errors>
           <div class="d-flex justify-content-end">
             <a href="/dashboard" class="btn me-2">Cancel</a>
-            <button class="btn btn-primary px-4">Edit Trip</button>
+            <button class="btn btn-primary px-4">Create Trip</button>
           </div>
         </div>
       </form:form>

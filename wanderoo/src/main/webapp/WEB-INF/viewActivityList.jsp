@@ -28,7 +28,7 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <div class="container px-4">
+    <div class="container">
       <!-- nav bar -->
       <div
         class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"

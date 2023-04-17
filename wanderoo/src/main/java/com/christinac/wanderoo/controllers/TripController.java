@@ -116,11 +116,16 @@ public class TripController {
 			model.addAttribute("tripId", id);
 			return "editTrip.jsp";
 		} else {
+//			keep trip id the same
+			trip.setId(id);
 			// keep creator the same
 			Long userId = (Long) session.getAttribute("userId");
 			User user = userServ.findById(userId);
 			trip.setTripCreator(user);
-			// update table	
+//			keep same members for trip
+			Trip originalTrip = tripServ.findById(id);
+			List<User> tripMembers = originalTrip.getTripMembers();
+			trip.setTripMembers(tripMembers);
 			tripServ.update(trip);
 			return "redirect:/trip/" + id;
 		}

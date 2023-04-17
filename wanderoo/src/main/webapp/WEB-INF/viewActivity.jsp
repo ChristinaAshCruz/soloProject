@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
     <!-- main container -->
-    <div class="container px-4">
+    <div class="container">
       <!-- nav bar -->
       <div
         class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"
@@ -92,13 +92,6 @@ pageEncoding="UTF-8"%>
                 </p>
               </div>
               <div class="d-flex flex-column">
-                <!-- activity creator row -->
-                <!-- <div class="d-flex align-items-center mb-3">
-                  <img src="/images/creator.png" alt="" class="icons me-2" />
-                  <h6 class="m-0">
-                    <c:out value="${trip.tripCreator.name}"></c:out>
-                  </h6>
-                </div> -->
                 <div
                   class="d-flex align-items-center justify-content-around flex-fill"
                 >
@@ -172,24 +165,26 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
         <!-- this code block only appears if trip is a group trip -->
-        <div class="card p-3">
-          <c:if test="${activity.membersAttending.size() > 0}">
-            <c:forEach var="member" items="${activity.membersAttending}">
-              <h5>Members Attending this event:</h5>
-              <c:if test="${member.id == sessionScope.userId}">
-                <li>You</li>
-              </c:if>
-              <c:if test="${member.id != sessionScope.userId}">
-                <li>You</li>
-              </c:if>
-            </c:forEach>
-          </c:if>
-          <c:if test="${activity.membersAttending.size() == 0}">
-            <h6 class="text-center my-0">
-              No one is currently interested in this activity 😕
-            </h6>
-          </c:if>
-        </div>
+        <c:if test="${trip.tripMembers.size() > 1}">
+          <div class="card p-3">
+            <c:if test="${activity.membersAttending.size() > 0}">
+              <c:forEach var="member" items="${activity.membersAttending}">
+                <h5>Members Attending this event:</h5>
+                <c:if test="${member.id == sessionScope.userId}">
+                  <li>You</li>
+                </c:if>
+                <c:if test="${member.id != sessionScope.userId}">
+                  <li>You</li>
+                </c:if>
+              </c:forEach>
+            </c:if>
+            <c:if test="${activity.membersAttending.size() == 0}">
+              <h6 class="text-center my-0">
+                No one is currently interested in this activity 😕
+              </h6>
+            </c:if>
+          </div>
+        </c:if>
       </div>
     </div>
   </body>
