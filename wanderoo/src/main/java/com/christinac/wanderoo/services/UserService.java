@@ -27,7 +27,7 @@ public class UserService {
 		}
 		if(!u.getConfirmPass().equals(u.getPassword())) {
 			// add error to your confirPassword input in your jsp
-			result.rejectValue("confirPassword", null, "Passwords do not match!");
+			result.rejectValue("confirmPass", null, "Passwords do not match!");
 		}
 		if (result.hasErrors()) {
 			return null;

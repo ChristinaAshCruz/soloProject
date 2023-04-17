@@ -37,22 +37,27 @@ pageEncoding="UTF-8"%>
   <body>
     <!-- main container -->
     <div class="container px-4">
+      <!-- nav bar -->
       <div
-        class="d-flex justify-content-between align-items-end mb-3"
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"
         id="header"
       >
-        <h3 id="logo" class="my-0">Wanderoo.</h3>
-        <div class="d-flex flex-sm-row align-items-center">
-          <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/dashboard" class="me-2 btn">Back to Home</a>
+        <h3 id="logo" class="my-0 flex-grow-1 pt-2">Wanderoo.</h3>
+        <div class="d-flex flex-shrink-0">
+          <h4 class="my-0">Welcome, <c:out value="${user.name}" />!</h4>
+        </div>
+        <div class="nav-buttons flex-shrink-0">
+          <a href="/dashboard" class="me-1 btn">Back to Home</a>
           <a href="/logout" class="btn">Logout</a>
         </div>
       </div>
       <hr class="mb-3" />
       <!-- content container -->
       <div class="activity mx-3">
-        <!-- trip name -->
-        <div class="body-header d-flex align-items-baseline mb-2">
+        <!-- card header row -->
+        <div
+          class="body-header d-flex flex-wrap align-items-baseline mb-2 header_row"
+        >
           <div class="flex-grow-1">
             <!-- <h1 class="mb-0">Activities</h1> -->
             <h5 class="sub-title p-0 m-0">
@@ -68,7 +73,7 @@ pageEncoding="UTF-8"%>
         </div>
 
         <!-- activity card -->
-        <div class="card col-sm activity-detail-card mb-3 p-1">
+        <div class="card activity-detail-card mb-3 p-1">
           <div class="d-flex justify-content-end px-3 pt-3 mb-0">
             <!-- activity type tag -->
             <p class="list_tag">
@@ -76,14 +81,29 @@ pageEncoding="UTF-8"%>
             </p>
           </div>
           <div class="card-body">
-            <div class="d-flex justify-content-between align-items-end mb-0">
+            <div
+              class="d-flex flex-wrap justify-content-between align-items-center mb-3"
+            >
               <!-- activity name -->
-              <h1><c:out value="${activity.name}"></c:out></h1>
-              <div>
+              <div class="d-flex flex-column flex-fill">
+                <h1><c:out value="${activity.name}"></c:out></h1>
+                <p>
+                  <c:out value="${activity.summary}"></c:out>
+                </p>
+              </div>
+              <div class="d-flex flex-column">
                 <!-- activity creator row -->
-                <div class="d-flex align-items-center mb-3">
+                <!-- <div class="d-flex align-items-center mb-3">
                   <img src="/images/creator.png" alt="" class="icons me-2" />
                   <h6 class="m-0">
+                    <c:out value="${trip.tripCreator.name}"></c:out>
+                  </h6>
+                </div> -->
+                <div
+                  class="d-flex align-items-center justify-content-around flex-fill"
+                >
+                  <img src="/images/creator.png" alt="" class="icons me-2" />
+                  <h6 class="mb-2 flex-fill">
                     <c:if
                       test="${activity.activityCreator.id == sessionScope.userId}"
                     >
@@ -97,21 +117,18 @@ pageEncoding="UTF-8"%>
                   </h6>
                 </div>
                 <!-- distance from stay row -->
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center justify-content-around">
                   <img src="/images/marker.png" alt="" class="icons me-2" />
-                  <h6 class="m-0 me-2">
+                  <h6 class="flex-grow-1">
                     <c:out value="${activity.distanceFromStay}"></c:out> miles
                     away
                   </h6>
                 </div>
               </div>
             </div>
-            <h4>Activity Summary</h4>
-            <p>
-              <c:out value="${activity.summary}"></c:out>
-            </p>
+
             <!-- activity card: button row -->
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between flex-wrap button-row">
               <!-- left col -->
               <div class="flex-grow-1">
                 <c:if test="${ activity.infoLink == null}">

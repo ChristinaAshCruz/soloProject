@@ -34,7 +34,7 @@ public class HomeController {
 	public String register(@Valid @ModelAttribute("newUser") User newUser, BindingResult result, Model model, HttpSession session) {
 		User user = userServ.register(newUser, result);
 		if(user == null) {
-			model.addAttribute("loginUser", new LoginUser());
+			model.addAttribute("newLogin", new LoginUser());
 			return "index.jsp";
 		} else { 
 			session.setAttribute("userId", user.getId());
@@ -43,7 +43,7 @@ public class HomeController {
 	}
 	
 	@PostMapping("/login")
-	public String login(@Valid @ModelAttribute("loginUser") LoginUser loginUser, BindingResult result, Model model, HttpSession session) {
+	public String login(@Valid @ModelAttribute("newLogin") LoginUser loginUser, BindingResult result, Model model, HttpSession session) {
 		User user = userServ.login(loginUser, result);
 		if(user == null) {
 			model.addAttribute("newUser", new User());

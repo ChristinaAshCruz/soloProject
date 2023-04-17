@@ -30,23 +30,29 @@ pageEncoding="UTF-8"%>
   <body>
     <!-- main container -->
     <div class="container">
-      <!-- navbar -->
+      <!-- nav bar -->
       <div
-        class="d-flex justify-content-between align-items-end mb-3"
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"
         id="header"
       >
-        <h3 id="logo" class="my-0">Wanderoo.</h3>
-        <div class="d-flex flex-sm-row align-items-end">
-          <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/dashboard" class="btn btn-primary me-2">Back to Home</a>
-          <a href="/logout" class="btn btn-primary">Logout</a>
+        <h3 id="logo" class="my-0 flex-grow-1 pt-2">Wanderoo.</h3>
+        <div class="d-flex flex-shrink-0">
+          <h4 class="my-0">Welcome, <c:out value="${user.name}" />!</h4>
+        </div>
+        <div class="nav-buttons flex-shrink-0">
+          <a href="/dashboard" class="me-1 btn">Back to Home</a>
+          <a href="/logout" class="btn">Logout</a>
         </div>
       </div>
       <hr />
       <!-- trip name -->
-      <h5 class="sub-title"><c:out value="${tripName}"></c:out> Trip</h5>
+      <h5 class="sub-title">
+        <c:out value="${tripName}"></c:out> Trip > Restaurants
+      </h5>
       <!-- form heading -->
-      <h1 class="flex-grow-1">Create a New Restaurant</h1>
+      <h1 class="flex-grow-1">
+        Edit: <c:out value="${restaurantName}"></c:out>
+      </h1>
       <!-- form card -->
       <form:form
         action="/trip/${tripId}/restaurant/${restaurantId}/edit"
@@ -62,7 +68,7 @@ pageEncoding="UTF-8"%>
             <form:input type="text" class="form-control" path="name" />
           </div>
           <!-- error: name -->
-          <form:errors path="name" class="mb-3 alert alert-danger" />
+          <form:errors path="name" class="py-1 alert alert-danger" />
           <!-- distance from stay -->
           <div class="mb-3">
             <form:label path="distanceFromStay" class="form-label"
@@ -76,7 +82,7 @@ pageEncoding="UTF-8"%>
           </div>
           <form:errors
             path="distanceFromStay"
-            class="mb-3 alert alert-danger"
+            class="py-1 alert alert-danger"
           ></form:errors>
           <!-- cuisine type -->
           <div class="mb-3">
@@ -92,7 +98,7 @@ pageEncoding="UTF-8"%>
           </div>
           <form:errors
             path="cuisineType"
-            class="mb-3 alert alert-danger"
+            class="py-1 alert alert-danger"
           ></form:errors>
           <!-- summary -->
           <div class="mb-3">
@@ -109,7 +115,7 @@ pageEncoding="UTF-8"%>
           </div>
           <form:errors
             path="summary"
-            class="mb-3 alert alert-danger"
+            class="py-1 alert alert-danger"
           ></form:errors>
           <!-- info link -->
           <div class="mb-3">
@@ -125,11 +131,11 @@ pageEncoding="UTF-8"%>
           </div>
           <form:errors
             path="infoLink"
-            class="mb-3 alert alert-danger"
+            class="py-1 alert alert-danger"
           ></form:errors>
           <div class="d-flex justify-content-end">
             <a
-              href="/trip/${tripId}/restaurant/${restaurant.id}"
+              href="/trip/${tripId}/restaurant/${restaurantId}"
               class="btn me-2"
               >Cancel</a
             >

@@ -10,7 +10,6 @@ public class LoginUser {
 	@Email
 	private String email;
 	@NotEmpty
-	@Size(min=8)
 	private String password;
 	
 	// constructor

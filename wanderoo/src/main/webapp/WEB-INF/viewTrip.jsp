@@ -30,14 +30,17 @@ pageEncoding="UTF-8"%>
   <body>
     <!-- main container -->
     <div class="container px-4">
+      <!-- nav bar -->
       <div
-        class="d-flex justify-content-between align-items-end mb-3"
+        class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"
         id="header"
       >
-        <h3 id="logo" class="my-0">Wanderoo.</h3>
-        <div class="d-flex flex-sm-row align-items-center">
-          <h4 class="my-0 me-4">Welcome, <c:out value="${user.name}" />!</h4>
-          <a href="/dashboard" class="me-2 btn">Back to Home</a>
+        <h3 id="logo" class="my-0 flex-grow-1 pt-2">Wanderoo.</h3>
+        <div class="d-flex flex-shrink-0">
+          <h4 class="my-0">Welcome, <c:out value="${user.name}" />!</h4>
+        </div>
+        <div class="nav-buttons flex-shrink-0">
+          <a href="/dashboard" class="me-1 btn">Back to Home</a>
           <a href="/logout" class="btn">Logout</a>
         </div>
       </div>

@@ -34,7 +34,7 @@ public class Restaurant {
 	@NotNull(message="A distance from your stay is required!")
 	@Min(value=0)
 	private Double distanceFromStay;
-	@NotEmpty(message="An cuisine type is required!")
+	@NotEmpty(message="A cuisine type is required!")
 	private String cuisineType;
 	@NotEmpty(message="A short summary is required!")
 	private String summary;
