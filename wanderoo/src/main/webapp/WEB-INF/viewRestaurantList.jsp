@@ -16,6 +16,10 @@ pageEncoding="UTF-8"%>
       Wanderoo | <c:out value="${trip.tripName}"></c:out> Trip: Restaurants
     </title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
+    />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -37,12 +41,13 @@ pageEncoding="UTF-8"%>
         id="header"
       >
         <h3 id="logo" class="my-0 flex-grow-1 pt-2">Wanderoo.</h3>
-        <div class="d-flex flex-shrink-0">
-          <h4 class="my-0">Welcome, <c:out value="${user.name}" />!</h4>
-        </div>
-        <div class="nav-buttons flex-shrink-0">
-          <a href="/dashboard" class="me-1 btn">Back to Home</a>
-          <a href="/logout" class="btn">Logout</a>
+        <div class="d-flex trip_row flex-wrap">
+          <a href="/dashboard" class="nav-link">Back to Trips</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="#" class="nav-link">
+            <i class="bi bi-person-fill me-1"></i><c:out value="${user.name}"
+          /></a>
+          <a href="/logout" class="nav-link logout">Logout</a>
         </div>
       </div>
       <hr class="mb-3" />

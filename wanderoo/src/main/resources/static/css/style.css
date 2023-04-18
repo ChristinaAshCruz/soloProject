@@ -1,13 +1,34 @@
 @charset "UTF-8";
 
 body {
-	margin:40px;
 	font-family: 'Montserrat', sans-serif;
 	background-color: #fcf8f2;
+	margin:40px;
 }
-
 h1 {
 	font-family: 'Syne', sans-serif;
+}
+.navbar-brand {
+	font-size: 30px;
+}
+.navbar{
+	background-color: #fcf8f2;
+}
+.nav-link{
+	color:#DEA754;
+}
+.nav-link:hover {
+	color:#b76431;
+}
+.nav-item > .border {
+	color: black;
+}
+.profile {
+	height: 20px;
+	color:#DEA754;
+}
+.profile:hover {
+	color:#b76431;
 }
 .footer-btn {
 	text-decoration: none;
@@ -154,7 +175,9 @@ h1 {
 .sub-title {
 	font-family: 'Syne', sans-serif;
 }
-
+navbar-toggler-icon{
+	color: #DEA754;
+}
 
 .header_row{
 	gap:10px;
@@ -167,4 +190,14 @@ h1 {
 }
 .button-row{
 	gap:10px;
+}
+.logout:hover {
+	color: #d83e13;
+}
+.contact-button-row {
+	font-size: 30px;
+	gap:15px;
+}
+.contact-button-row:hover {
+	color:#b76431;
 }
