@@ -120,8 +120,8 @@ pageEncoding="UTF-8"%>
             <!-- restaurant card: button row -->
             <div class="d-flex justify-content-between">
               <!-- left col -->
-              <div class="d-flex flex-grow-1 align-items-baseline">
-                <c:if test="${ activity.infoLink == null}">
+              <div class="d-flex flex-grow-1 align-items-center">
+                <c:if test="${ restaurant.infoLink != null}">
                   <a href="${restaurant.infoLink}" class="btn info_link me-2">
                     <!-- Want more info? -->
                     <p class="p-0 m-0 me-2">

@@ -128,9 +128,9 @@ pageEncoding="UTF-8"%>
             <!-- activity card: button row -->
             <div class="d-flex justify-content-between flex-wrap button-row">
               <!-- left col -->
-              <div class="flex-grow-1">
-                <c:if test="${ activity.infoLink == null}">
-                  <a href="${activity.infoLink}" class="btn info_link me-1">
+              <div class="flex-grow-1 d-flex align-items-center">
+                <c:if test="${ activity.infoLink != null}">
+                  <a href="${activity.infoLink}" class="btn info_link me-2">
                     <!-- Want more info? -->
                     <p class="p-0 m-0 me-2">
                       <i class="fi fi-br-link-alt me-2 p-0 icon"></i>more info
@@ -145,7 +145,7 @@ pageEncoding="UTF-8"%>
                   >
                 </c:if>
                 <c:if test="${ attendStatus == true}">
-                  <p>You're attending this event! 😎</p>
+                  <p class="my-0">You're attending this event! 😎</p>
                 </c:if>
               </div>
               <!-- right col -->
