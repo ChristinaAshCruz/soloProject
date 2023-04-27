@@ -12,6 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <title><c:out value="${trip.tripName}"></c:out> Trip</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link
@@ -51,7 +52,7 @@ pageEncoding="UTF-8"%>
       </div>
       <hr class="mb-3 mt-3" />
       <!-- content container -->
-      <div class="main mx-4">
+      <div class="main mx-4 px-5">
         <div class="d-flex flex-wrap trip-detail-row mb-3">
           <!-- trip card -->
           <div class="card col-sm trip-detail-card p-1">

@@ -12,6 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <title>
       Wanderoo | <c:out value="${trip.tripName}"></c:out> Trip: Activities
     </title>
@@ -129,7 +130,7 @@ pageEncoding="UTF-8"%>
             <div class="d-flex justify-content-between flex-wrap button-row">
               <!-- left col -->
               <div class="flex-grow-1 d-flex align-items-center">
-                <c:if test="${ activity.infoLink != null}">
+                <c:if test="${ activity.infoLink != ''}">
                   <a href="${activity.infoLink}" class="btn info_link me-2">
                     <!-- Want more info? -->
                     <p class="p-0 m-0 me-2">
@@ -137,6 +138,7 @@ pageEncoding="UTF-8"%>
                     </p>
                   </a>
                 </c:if>
+                <c:if test="${ activity.infoLink == ''}"></c:if>
                 <c:if test="${ attendStatus == false}">
                   <a
                     href="/trip/${trip.id}/activity/${activity.id}/member-attend"

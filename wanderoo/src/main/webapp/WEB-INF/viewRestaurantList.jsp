@@ -12,6 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <title>
       Wanderoo | <c:out value="${trip.tripName}"></c:out> Trip: Restaurants
     </title>
