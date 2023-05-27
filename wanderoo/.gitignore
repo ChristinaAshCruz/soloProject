@@ -1,3 +1,6 @@
+application.properties
+secret_wanderoo.pem
+
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
