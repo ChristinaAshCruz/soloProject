@@ -75,6 +75,15 @@ public class HomeController {
 		return "about.jsp";
 	}
 	
+	
+	@GetMapping("/temp")
+	public String temp(Model model, HttpSession session, RedirectAttributes redirect) {
+		Long userId = (Long) session.getAttribute("userId");
+		User user = userServ.findById(userId);
+		model.addAttribute("user", user);
+		return "temp.jsp";
+	}
+	
 	@GetMapping("/logout")
 	public String logout(HttpSession session,  RedirectAttributes redirect) {
 		if(session.getAttribute("userId") == null) {

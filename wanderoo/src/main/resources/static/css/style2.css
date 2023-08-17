@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+:root { 
+	--main-background-color: #fcf8f2;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: #fcf8f2;
+	display: flex;
+	flex-direction: column;
+}
+
+.navbar {
+	background: var(--main-background-color) !important;
+}

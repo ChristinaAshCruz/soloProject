@@ -20,7 +20,7 @@ pageEncoding="UTF-8"%>
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="/css/style.css" />
-    <!-- change to match your file/naming structure -->
+    <!-- change to match your file /naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <!-- change to match your file/naming structure -->
@@ -44,7 +44,7 @@ pageEncoding="UTF-8"%>
         <div class="d-flex trip_row flex-wrap">
           <a href="/trip/new" class="nav-link">+ New Trip</a>
           <a href="/about" class="nav-link">About</a>
-          <a href="#" class="nav-link">
+          <a href="/temp" class="nav-link">
             <i class="bi bi-person-fill me-1"></i><c:out value="${user.name}"
           /></a>
           <a href="/logout" class="nav-link logout">Logout</a>
