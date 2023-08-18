@@ -55,8 +55,11 @@ pageEncoding="UTF-8"%>
       <section>
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-          <div class="container-fluid px-0">
-            <a class="navbar-brand fs-2 fw-bold" href="#">Wanderoo</a>
+          <div class="container-fluid px-0 d-flex justify-content-between">
+            <a class="navbar-brand fw-bold main-header-style" href="#"
+              >Wanderoo</a
+            >
+            <!-- toggle button that appears when window is small -->
             <button
               class="navbar-toggler"
               type="button"
@@ -68,37 +71,43 @@ pageEncoding="UTF-8"%>
             >
               <span class="navbar-toggler-icon"></span>
             </button>
+            <!-- menu that appears when toggle button is clicked -->
             <div
               class="collapse navbar-collapse my-auto"
               id="navbarTogglerDemo02"
             >
               <ul class="navbar-nav ms-auto my-auto mb-2 mb-lg-0 mt-1">
                 <li class="nav-item">
-                  <a class="nav-link my-auto" aria-current="page" href="#"
+                  <a
+                    class="nav-link my-auto"
+                    aria-current="page"
+                    href="/trip/new"
                     >+ New Trip</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Dashboard</a>
+                  <a class="nav-link active" href="/dashboard">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-danger" href="#">Logout</a>
+                  <a class="nav-link text-danger" href="/temp"
+                    >Profile Settings</a
+                  >
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </section>
-      <hr class="mt-0" />
-      <main class="container pb-4 mb-5">
-        <h1>Your Trips</h1>
+      <!-- <hr class="mt-0" /> -->
+      <main class="container p-0 pb-4 mb-5">
+        <h2 class="main-header-style p-0 mb-3">Your Trips</h2>
         <!-- TRIP ROW -->
         <div class="d-flex flex-column flex-md-row gap-4">
           <div class="card trip-card">
-            <img src="/images/soloTrip.png" alt="" class="card-img-top" />
+            <img src="/images/soloTrip.png" ++ alt="" class="card-img-top" />
             <p class="m-0 p-0">Hello there!</p>
           </div>
         </div>

@@ -1,16 +1,21 @@
 @charset "UTF-8";
 
-:root { 
-	--main-background-color: #fcf8f2;
+:root {
+  --main-background-color: #fcf8f2;
 }
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	background-color: #fcf8f2;
-	display: flex;
-	flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fcf8f2;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar {
-	background: var(--main-background-color) !important;
+  background: var(--main-background-color) !important;
+}
+
+/* STYLING */
+.main-header-style {
+  font-family: "Syne", sans-serif;
 }
