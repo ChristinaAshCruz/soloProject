@@ -25,17 +25,22 @@ pageEncoding="UTF-8"%>
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="/css/style2.css" />
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- BOOTSTRAP -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class="p-0 mx-auto d-flex flex-column min-vh-100">
     <div class="container p-4">
@@ -57,6 +62,10 @@ pageEncoding="UTF-8"%>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
           <div class="container-fluid px-0 d-flex justify-content-between">
             <a class="navbar-brand fw-bold main-header-style" href="#"
+              ><i
+                class="fa-solid fa-suitcase-rolling pe-2"
+                style="color: #262626"
+              ></i
               >Wanderoo</a
             >
             <!-- toggle button that appears when window is small -->
@@ -102,15 +111,57 @@ pageEncoding="UTF-8"%>
         </nav>
       </section>
       <!-- <hr class="mt-0" /> -->
-      <main class="container p-0 pb-4 mb-5">
-        <h2 class="main-header-style p-0 mb-3">Your Trips</h2>
-        <!-- TRIP ROW -->
-        <div class="d-flex flex-column flex-md-row gap-4">
-          <div class="card trip-card">
-            <img src="/images/soloTrip.png" ++ alt="" class="card-img-top" />
-            <p class="m-0 p-0">Hello there!</p>
+      <main class="container mt-3 p-0 pb-4 mb-5">
+        <!-- TRIP SECTION -->
+        <section id="trips" class="d-flex flex-column align-items-center gap-3">
+          <h2 class="main-header-style p-0 m-0">Your Trips</h2>
+          <!-- TRIP ROW -->
+          <div class="d-flex flex-column flex-md-row gap-4">
+            <!-- place trip view link here -->
+            <div class="card trip-card">
+              <a href="#">
+                <img
+                  src="/images/soloTrip.png"
+                  ++
+                  alt=""
+                  class="card-img-top"
+                />
+                <div class="card-body d-flex flex-column gap-3">
+                  <!-- TRIP CARD HEADER -->
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <h3 class="p-0 m-0 main-header-style">Trip Name</h3>
+                    <p class="travel-size-tag m-0 fw-semibold">GROUP</p>
+                  </div>
+                  <!-- TRIP MAIN DETAILS -->
+                  <div class="d-flex align-items-center gap-3 fs-6">
+                    <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
+                    <p class="p-0 m-0 fw-medium">Creator Name</p>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 fs-6">
+                    <i
+                      class="fa-solid fa-location-dot secondary-color p-0 m-0"
+                    ></i>
+                    <p class="p-0 m-0 fw-medium">Location</p>
+                  </div>
+                  <div class="d-flex align-items-center gap-3 fs-6">
+                    <i class="fa-solid fa-calendar secondary-color p-0 m-0"></i>
+                    <p class="p-0 m-0 fw-medium">Trip Date</p>
+                  </div>
+                  <!-- TRIP BIO -->
+                  <p class="m-0 p-0 card-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+                    voluptatem libero quam optio quo ex exercitationem
+                    laudantium reprehenderit, fugiat earum odio nulla tenetur ab
+                    quaerat assumenda dolore accusantium non id!
+                  </p>
+                </div>
+                <a href="" class="btn mx-3 mb-3 fw-semibold">View Trip</a>
+              </a>
+            </div>
           </div>
-        </div>
+        </section>
       </main>
     </div>
     <footer class="footer mt-auto py-4">
