@@ -44,19 +44,6 @@ pageEncoding="UTF-8"%>
   </head>
   <body class="p-0 mx-auto d-flex flex-column min-vh-100">
     <div class="container p-4">
-      <!-- <div
-        class="border border-danger d-flex flex-column flex-md-row gap-4 justify-content-between align-items-center"
-      >
-        <h3 id="logo" class="p-0 m-0 fs-2 fw-bold">Wanderoo.</h3>
-        <div class="d-flex gap-3">
-          <a href="/trip/new" class="nav-link">+ New Trip</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="/temp" class="nav-link">
-            <i class="bi bi-person-fill me-1"></i><c:out value="${user.name}"
-          /></a>
-          <a href="/logout" class="nav-link logout">Logout</a>
-        </div>
-      </div> -->
       <section>
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -113,53 +100,92 @@ pageEncoding="UTF-8"%>
       <!-- <hr class="mt-0" /> -->
       <main class="container mt-3 p-0 pb-4 mb-5">
         <!-- TRIP SECTION -->
-        <section id="trips" class="d-flex flex-column align-items-center gap-3">
-          <h2 class="main-header-style p-0 m-0">Your Trips</h2>
+        <section id="trips" class="d-flex flex-column align-items-center gap-4">
+          <h2 class="main-header-style p-0 m-0 mb-2">Your Trips</h2>
           <!-- TRIP ROW -->
-          <div class="d-flex flex-column flex-md-row gap-4">
-            <!-- place trip view link here -->
-            <div class="card trip-card">
-              <a href="#">
-                <img
-                  src="/images/soloTrip.png"
-                  ++
-                  alt=""
-                  class="card-img-top"
-                />
-                <div class="card-body d-flex flex-column gap-3">
-                  <!-- TRIP CARD HEADER -->
-                  <div
-                    class="d-flex justify-content-between align-items-center"
-                  >
-                    <h3 class="p-0 m-0 main-header-style">Trip Name</h3>
-                    <p class="travel-size-tag m-0 fw-semibold">GROUP</p>
+          <div class="d-flex flex-column flex-lg-row gap-4">
+            <c:forEach var="trip" items="${user.tripsAttending}">
+              <!-- place trip view link here -->
+              <div class="card trip-card">
+                <a href="/trip/${trip.id}">
+                  <c:if test="${trip.tripMembers.size() == 1}">
+                    <img
+                      src="/images/soloTrip.png"
+                      ++
+                      alt=""
+                      class="card-img-top"
+                    />
+                  </c:if>
+                  <c:if test="${trip.tripMembers.size() != 1}">
+                    <img
+                      src="/images/groupTrip.png"
+                      ++
+                      alt=""
+                      class="card-img-top"
+                    />
+                  </c:if>
+                  <div class="card-body d-flex flex-column gap-3">
+                    <!-- TRIP CARD HEADER -->
+                    <div
+                      class="d-flex justify-content-between align-items-center"
+                    >
+                      <h3 class="p-0 m-0 main-header-style">
+                        <c:out value="${trip.tripName}"></c:out>
+                      </h3>
+                      <c:if test="${trip.tripMembers.size() != 1}">
+                        <p class="travel-size-tag m-0 fw-semibold">GROUP</p>
+                      </c:if>
+                      <c:if test="${trip.tripMembers.size() == 1}">
+                        <p class="travel-size-tag m-0 fw-semibold">SOLO</p>
+                      </c:if>
+                    </div>
+                    <!-- TRIP MAIN DETAILS -->
+                    <div class="d-flex align-items-center gap-3 fs-6">
+                      <!-- TRIP: creator -->
+                      <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
+                      <p class="p-0 m-0 fw-medium">
+                        <c:out value="${trip.tripCreator.name}"></c:out>
+                      </p>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 fs-6">
+                      <!-- TRIP: destination -->
+                      <i
+                        class="fa-solid fa-location-dot secondary-color p-0 m-0"
+                      ></i>
+                      <p class="p-0 m-0 fw-medium">
+                        <c:out value="${trip.destination}"></c:out>
+                      </p>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 fs-6">
+                      <i
+                        class="fa-solid fa-calendar secondary-color p-0 m-0"
+                      ></i>
+                      <p class="p-0 m-0 fw-medium">Trip Dates</p>
+                    </div>
+                    <!-- TRIP: summary -->
+                    <p class="m-0 p-0 card-text">
+                      <c:out value="${trip.summary}"></c:out>
+                    </p>
                   </div>
-                  <!-- TRIP MAIN DETAILS -->
-                  <div class="d-flex align-items-center gap-3 fs-6">
-                    <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
-                    <p class="p-0 m-0 fw-medium">Creator Name</p>
-                  </div>
-                  <div class="d-flex align-items-center gap-3 fs-6">
-                    <i
-                      class="fa-solid fa-location-dot secondary-color p-0 m-0"
-                    ></i>
-                    <p class="p-0 m-0 fw-medium">Location</p>
-                  </div>
-                  <div class="d-flex align-items-center gap-3 fs-6">
-                    <i class="fa-solid fa-calendar secondary-color p-0 m-0"></i>
-                    <p class="p-0 m-0 fw-medium">Trip Date</p>
-                  </div>
-                  <!-- TRIP BIO -->
-                  <p class="m-0 p-0 card-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                    voluptatem libero quam optio quo ex exercitationem
-                    laudantium reprehenderit, fugiat earum odio nulla tenetur ab
-                    quaerat assumenda dolore accusantium non id!
-                  </p>
-                </div>
-                <a href="" class="btn mx-3 mb-3 fw-semibold">View Trip</a>
-              </a>
-            </div>
+                  <c:if test="${trip.tripCreator.id != sessionScope.userId}">
+                    <a
+                      href="/trip/${trip.id}"
+                      class="btn mx-3 mb-3 fs-5 fw-medium"
+                      >View Trip</a
+                    >
+                  </c:if>
+                  <c:if test="${trip.tripCreator.id == sessionScope.userId}">
+                    <a href="/trip/${trip.id}" class="btn mt-auto m-3 my-0"
+                      >View Trip</a
+                    >
+                    <div class="d-flex flex-wrap m-3 mt-2">
+                      <a href="/trip/${trip.id}/edit" class="btn me-2">Edit</a>
+                      <a href="/trip/${trip.id}/delete" class="btn">Delete</a>
+                    </div>
+                  </c:if>
+                </a>
+              </div>
+            </c:forEach>
           </div>
         </section>
       </main>

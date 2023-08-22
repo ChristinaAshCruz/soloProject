@@ -4,6 +4,7 @@
 :root {
   --main-background-color: #fcf8f2;
   --secondary-color: #dea754;
+  --lightest-color: #fbfaf9;
   --darkest-color: #282828;
 
   --border-radius: 1rem !important;
@@ -26,13 +27,13 @@ body {
 .card {
   border: 3px solid var(--secondary-color);
   border-radius: 1rem;
-  background-color: #fbfaf9;
+  background-color: var(--lightest-color);
   color: var(--darkest-color);
   transition: all 200ms ease-in-out;
 }
 
 .trip-card {
-  max-width: 25rem;
+  width: 23rem !important;
   > a {
     color: var(--darkest-color) !important;
     text-decoration: none !important;
@@ -40,7 +41,7 @@ body {
   > .btn {
     border-color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
-    color: var(--main-background-color) !important;
+    color: var(--lightest-color) !important;
   }
   > .btn:hover {
     border-color: var(--secondary-color);
@@ -64,7 +65,7 @@ body {
   border-radius: var(--border-radius);
   border: 2px solid var(--secondary-color);
   background: var(--secondary-color);
-  color: var(--main-background-color);
+  color: var(--lightest-color);
   padding: 5px 10px !important;
 }
 

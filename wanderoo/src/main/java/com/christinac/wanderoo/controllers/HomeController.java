@@ -78,10 +78,15 @@ public class HomeController {
 	
 	@GetMapping("/temp")
 	public String temp(Model model, HttpSession session, RedirectAttributes redirect) {
-		Long userId = (Long) session.getAttribute("userId");
-		User user = userServ.findById(userId);
-		model.addAttribute("user", user);
-		return "temp.jsp";
+		if(session.getAttribute("userId") == null) {
+			redirect.addFlashAttribute("error", "You must be logged in to access Wanderoo 😢");
+			return "redirect:/";
+		} else {
+			Long userId = (Long) session.getAttribute("userId");
+			User loggedUser = userServ.findById(userId);
+			model.addAttribute("user", loggedUser);
+			return "temp.jsp";
+		}
 	}
 	
 	@GetMapping("/logout")
