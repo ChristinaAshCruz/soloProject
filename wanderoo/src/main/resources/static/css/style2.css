@@ -34,11 +34,12 @@ body {
 
 .trip-card {
   width: 23rem !important;
+  color: var(--darkest-color) !important;
   > a {
-    color: var(--darkest-color) !important;
+    color: var(--darkest-color);
     text-decoration: none !important;
   }
-  > .btn {
+  /* > .btn {
     border-color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
     color: var(--lightest-color) !important;
@@ -47,12 +48,30 @@ body {
     border-color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
     color: var(--darkest-color) !important;
-  }
+  } */
 }
 
 .btn {
   background: var(--secondary-color);
   border-radius: 0.5rem;
+  border: 2px solid var(--secondary-color);
+  color: var(--lightest-color) !important;
+}
+
+.btn:hover {
+  border-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--darkest-color) !important;
+}
+.danger:hover {
+  background: var(--main-background-color) !important;
+  border: 2px solid #b2391a !important;
+  color: #b2391a !important;
+}
+.danger {
+  background: #b2391a !important;
+  border: 2px solid #b2391a !important;
+  color: var(--lightest-color) !important;
 }
 
 .card:hover {

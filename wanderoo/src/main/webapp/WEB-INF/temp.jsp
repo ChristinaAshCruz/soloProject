@@ -106,7 +106,9 @@ pageEncoding="UTF-8"%>
           <div class="d-flex flex-column flex-lg-row gap-4">
             <c:forEach var="trip" items="${user.tripsAttending}">
               <!-- place trip view link here -->
-              <div class="card trip-card">
+              <div
+                class="card trip-card d-flex flex-column justify-content-between"
+              >
                 <a href="/trip/${trip.id}">
                   <c:if test="${trip.tripMembers.size() == 1}">
                     <img
@@ -124,14 +126,17 @@ pageEncoding="UTF-8"%>
                       class="card-img-top"
                     />
                   </c:if>
-                  <div class="card-body d-flex flex-column gap-3">
+                  <!-- card body -->
+                  <div
+                    class="card-body d-flex flex-column justify-content-between gap-3"
+                  >
                     <!-- TRIP CARD HEADER -->
                     <div
-                      class="d-flex justify-content-between align-items-center"
+                      class="d-flex justify-content-between align-items-center gap-1"
                     >
-                      <h3 class="p-0 m-0 main-header-style">
+                      <h4 class="p-0 m-0 main-header-style">
                         <c:out value="${trip.tripName}"></c:out>
-                      </h3>
+                      </h4>
                       <c:if test="${trip.tripMembers.size() != 1}">
                         <p class="travel-size-tag m-0 fw-semibold">GROUP</p>
                       </c:if>
@@ -168,19 +173,35 @@ pageEncoding="UTF-8"%>
                     </p>
                   </div>
                   <c:if test="${trip.tripCreator.id != sessionScope.userId}">
-                    <a
+                    <!-- <a
                       href="/trip/${trip.id}"
                       class="btn mx-3 mb-3 fs-5 fw-medium"
                       >View Trip</a
+                    > -->
+                    <a
+                      href="/trip/${trip.id}"
+                      class="btn mx-3 mb-3 fs-6 fw-medium"
+                      title="view trip"
+                      ><i class="fa-solid fa-eye me-2"></i> View Trip</a
                     >
                   </c:if>
                   <c:if test="${trip.tripCreator.id == sessionScope.userId}">
-                    <a href="/trip/${trip.id}" class="btn mt-auto m-3 my-0"
-                      >View Trip</a
+                    <a
+                      href="/trip/${trip.id}"
+                      class="btn mt-auto mx-3 mb-1 fs-6 fw-medium"
+                      ><i class="fa-solid fa-eye me-2"></i> View Trip</a
                     >
-                    <div class="d-flex flex-wrap m-3 mt-2">
-                      <a href="/trip/${trip.id}/edit" class="btn me-2">Edit</a>
-                      <a href="/trip/${trip.id}/delete" class="btn">Delete</a>
+                    <div class="d-flex m-3 mt-2 gap-3">
+                      <a
+                        href="/trip/${trip.id}/edit"
+                        class="btn col fs-6 fw-medium"
+                        ><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a
+                      >
+                      <a
+                        href="/trip/${trip.id}/delete"
+                        class="btn col danger fs-6 fw-medium"
+                        ><i class="fa-solid fa-trash me-2"></i> Delete</a
+                      >
                     </div>
                   </c:if>
                 </a>
