@@ -33,7 +33,7 @@ body {
 }
 
 .trip-card {
-  width: 23rem !important;
+  width: 21rem !important;
   color: var(--darkest-color) !important;
   > a {
     color: var(--darkest-color);

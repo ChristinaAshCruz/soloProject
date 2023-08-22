@@ -134,9 +134,9 @@ pageEncoding="UTF-8"%>
                     <div
                       class="d-flex justify-content-between align-items-center gap-1"
                     >
-                      <h4 class="p-0 m-0 main-header-style">
+                      <h5 class="p-0 m-0 main-header-style">
                         <c:out value="${trip.tripName}"></c:out>
-                      </h4>
+                      </h5>
                       <c:if test="${trip.tripMembers.size() != 1}">
                         <p class="travel-size-tag m-0 fw-semibold">GROUP</p>
                       </c:if>
