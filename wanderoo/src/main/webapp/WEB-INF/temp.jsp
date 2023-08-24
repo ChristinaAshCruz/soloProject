@@ -89,8 +89,8 @@ pageEncoding="UTF-8"%>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-danger" href="/temp"
-                    >Profile Settings</a
-                  >
+                    ><c:out value="${user.name}"
+                  /></a>
                 </li>
               </ul>
             </div>
