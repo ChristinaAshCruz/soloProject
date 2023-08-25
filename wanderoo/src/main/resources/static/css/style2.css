@@ -51,6 +51,17 @@ body {
   } */
 }
 
+.card-img-top:not(:hover) {
+  filter: opacity(70%) !important;
+  transition: 100ms ease-in-out;
+}
+
+.card:hover {
+  text-decoration: none;
+  color: var(--darkest-color);
+  box-shadow: 16px 16px 17px rgba(175, 126, 67, 0.14);
+}
+
 .btn {
   background: var(--secondary-color);
   border-radius: 0.5rem;
@@ -72,12 +83,6 @@ body {
   background: #b2391a !important;
   border: 2px solid #b2391a !important;
   color: var(--lightest-color) !important;
-}
-
-.card:hover {
-  text-decoration: none;
-  color: var(--darkest-color);
-  box-shadow: 16px 16px 17px rgba(175, 126, 67, 0.14);
 }
 
 .travel-size-tag {
