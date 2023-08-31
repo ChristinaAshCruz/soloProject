@@ -17,6 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--darkest-color);
+  font-size: 13px;
 }
 
 .navbar {

@@ -207,32 +207,19 @@ pageEncoding="UTF-8"%>
                 </a>
               </div>
             </c:forEach>
+            <!-- CREATE NEW TRIP -->
+            <!-- default card -->
             <div
               class="card trip-card d-flex flex-column justify-content-between"
             >
-              <a href="/trip/${trip.id}">
-                <c:if test="${trip.tripMembers.size() == 1}">
-                  <img
-                    src="/images/soloTrip.png"
-                    ++
-                    alt=""
-                    class="card-img-top"
-                  />
-                </c:if>
-                <c:if test="${trip.tripMembers.size() != 1}">
-                  <img
-                    src="/images/groupTrip.png"
-                    ++
-                    alt=""
-                    class="card-img-top"
-                  />
-                </c:if>
+              <a href="/trip/new">
                 <!-- card body -->
                 <div
                   class="card-body d-flex flex-column justify-content-between gap-3"
                 >
+                  <h4>Create New Trip</h4>
                   <!-- TRIP CARD HEADER -->
-                  <div
+                  <!-- <div
                     class="d-flex justify-content-between align-items-center gap-1"
                   >
                     <h5 class="p-0 m-0 main-header-style">
@@ -244,65 +231,33 @@ pageEncoding="UTF-8"%>
                     <c:if test="${trip.tripMembers.size() == 1}">
                       <p class="travel-size-tag m-0 fw-semibold">SOLO</p>
                     </c:if>
-                  </div>
+                  </div> -->
                   <!-- TRIP MAIN DETAILS -->
-                  <div class="d-flex align-items-center gap-3 fs-6">
-                    <!-- TRIP: creator -->
-                    <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
+                  <!-- <div class="d-flex align-items-center gap-3 fs-6"> -->
+                  <!-- TRIP: creator -->
+                  <!-- <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
                     <p class="p-0 m-0 fw-medium">
                       <c:out value="${trip.tripCreator.name}"></c:out>
                     </p>
                   </div>
-                  <div class="d-flex align-items-center gap-3 fs-6">
-                    <!-- TRIP: destination -->
-                    <i
+                  <div class="d-flex align-items-center gap-3 fs-6"> -->
+                  <!-- TRIP: destination -->
+                  <!-- <i
                       class="fa-solid fa-location-dot secondary-color p-0 m-0"
                     ></i>
                     <p class="p-0 m-0 fw-medium">
                       <c:out value="${trip.destination}"></c:out>
                     </p>
-                  </div>
-                  <div class="d-flex align-items-center gap-3 fs-6">
+                  </div> -->
+                  <!-- <div class="d-flex align-items-center gap-3 fs-6">
                     <i class="fa-solid fa-calendar secondary-color p-0 m-0"></i>
                     <p class="p-0 m-0 fw-medium">Trip Dates</p>
-                  </div>
+                  </div> -->
                   <!-- TRIP: summary -->
-                  <p class="m-0 p-0 card-text">
+                  <!-- <p class="m-0 p-0 card-text">
                     <c:out value="${trip.summary}"></c:out>
-                  </p>
+                  </p> -->
                 </div>
-                <c:if test="${trip.tripCreator.id != sessionScope.userId}">
-                  <!-- <a
-                      href="/trip/${trip.id}"
-                      class="btn mx-3 mb-3 fs-5 fw-medium"
-                      >View Trip</a
-                    > -->
-                  <a
-                    href="/trip/${trip.id}"
-                    class="btn mx-3 mb-3 fs-6 fw-medium"
-                    title="view trip"
-                    ><i class="fa-solid fa-eye me-2"></i> View Trip</a
-                  >
-                </c:if>
-                <c:if test="${trip.tripCreator.id == sessionScope.userId}">
-                  <a
-                    href="/trip/${trip.id}"
-                    class="btn mt-auto mx-3 mb-1 fs-6 fw-medium"
-                    ><i class="fa-solid fa-eye me-2"></i> View Trip</a
-                  >
-                  <div class="d-flex m-3 mt-2 gap-3">
-                    <a
-                      href="/trip/${trip.id}/edit"
-                      class="btn col fs-6 fw-medium"
-                      ><i class="fa-solid fa-pen-to-square me-2"></i> Edit</a
-                    >
-                    <a
-                      href="/trip/${trip.id}/delete"
-                      class="btn col danger fs-6 fw-medium"
-                      ><i class="fa-solid fa-trash me-2"></i> Delete</a
-                    >
-                  </div>
-                </c:if>
               </a>
             </div>
           </div>

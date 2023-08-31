@@ -15,7 +15,7 @@ pageEncoding="UTF-8"%>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <title>Wanderoo</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style2.css" />
     <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
@@ -29,145 +29,158 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <h5 class="mb-0">Welcome to...</h5>
-    <h1 id="main">Wanderoo</h1>
-    <hr />
-    <h3 class="text-danger mb-3"><c:out value="${error}" /></h3>
-    <div class="row gx-4" id="main-body">
-      <div class="col">
-        <form:form
-          action="/register"
-          class="mt-2"
-          method="POST"
-          modelAttribute="newUser"
-        >
-          <div class="card p-3">
-            <h1 class="mb-0">Register</h1>
-            <hr />
-            <div class="d-flex mb-3 align-items-center">
-              <form:label for="name" path="name" class="form-label col-2"
-                >Name:</form:label
-              >
-              <input type="text" class="form-control" path="name" name="name" />
-            </div>
-            <form:errors
-              path="name"
-              class="py-1 alert alert-danger"
-            ></form:errors>
-            <div class="py-1"></div>
-            <div class="d-flex mb-3 align-items-center">
-              <form:label for="email" path="email" class="form-label col-2"
-                >Email:</form:label
-              >
-              <form:input
-                type="text"
-                class="form-control"
-                path="email"
-                name="email"
-              />
-            </div>
-            <!-- error: register email -->
-            <form:errors
-              path="email"
-              class="py-1 alert alert-danger"
-            ></form:errors>
-            <div class="d-flex mb-3 align-items-center">
-              <form:label
-                for="password"
-                path="password"
-                class="form-label col-2"
-                >Password:</form:label
-              >
-              <form:input
-                type="password"
-                class="form-control"
-                path="password"
-                name="password"
-              />
-            </div>
-            <!-- error: register pw -->
-            <form:errors
-              path="password"
-              class="py-1 alert alert-danger"
-            ></form:errors>
-            <div class="d-flex mb-3 align-items-center">
-              <form:label
-                for="confirmPass"
-                path="confirmPass"
-                class="form-label col-2"
-                >Confirm Password:</form:label
-              >
-              <form:input
-                type="password"
-                class="form-control"
-                path="confirmPass"
-                name="confirmPass"
-              />
-            </div>
-            <!-- error: register pw -->
-            <form:errors
-              path="confirmPass"
-              class="py-1 alert alert-danger"
-            ></form:errors>
-            <div class="d-flex justify-content-end">
-              <button class="btn px-4">Register</button>
-            </div>
+    <div class="container pt-4">
+      <h5 class="mb-0">Welcome to...</h5>
+      <h1 id="main">Wanderoo</h1>
+      <hr />
+      <main>
+        <!-- Register/login errors -->
+        <h3 class="text-danger mb-3"><c:out value="${error}" /></h3>
+        <!-- ROW: REGISTER/LOGIN -->
+        <div class="row g-3 justify-content-md-center">
+          <!-- REGISTER -->
+          <div class="col-lg-6">
+            <form:form
+              action="/register"
+              class="mt-2"
+              method="POST"
+              modelAttribute="newUser"
+            >
+              <div class="card p-3">
+                <h3 class="mb-0">Register</h3>
+                <hr />
+                <div class="d-flex mb-3 align-items-center">
+                  <form:label for="name" path="name" class="form-label col-2"
+                    >Name:</form:label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    path="name"
+                    name="name"
+                  />
+                </div>
+                <form:errors
+                  path="name"
+                  class="py-1 alert alert-danger"
+                ></form:errors>
+                <div class="py-1"></div>
+                <div class="d-flex mb-3 align-items-center">
+                  <form:label for="email" path="email" class="form-label col-2"
+                    >Email:</form:label
+                  >
+                  <form:input
+                    type="text"
+                    class="form-control"
+                    path="email"
+                    name="email"
+                  />
+                </div>
+                <!-- error: register email -->
+                <form:errors
+                  path="email"
+                  class="py-1 alert alert-danger"
+                ></form:errors>
+                <div class="d-flex mb-3 align-items-center">
+                  <form:label
+                    for="password"
+                    path="password"
+                    class="form-label col-2"
+                    >Password:</form:label
+                  >
+                  <form:input
+                    type="password"
+                    class="form-control"
+                    path="password"
+                    name="password"
+                  />
+                </div>
+                <!-- error: register pw -->
+                <form:errors
+                  path="password"
+                  class="py-1 alert alert-danger"
+                ></form:errors>
+                <div class="d-flex mb-3 align-items-center">
+                  <form:label
+                    for="confirmPass"
+                    path="confirmPass"
+                    class="form-label col-2"
+                    >Confirm Password:</form:label
+                  >
+                  <form:input
+                    type="password"
+                    class="form-control"
+                    path="confirmPass"
+                    name="confirmPass"
+                  />
+                </div>
+                <!-- error: register pw -->
+                <form:errors
+                  path="confirmPass"
+                  class="py-1 alert alert-danger"
+                ></form:errors>
+                <div class="d-flex justify-content-end">
+                  <button class="btn px-4">Register</button>
+                </div>
+              </div>
+            </form:form>
           </div>
-        </form:form>
-      </div>
 
-      <!-- LOGIN FORM -->
-      <div class="col">
-        <form:form
-          action="/login"
-          method="POST"
-          modelAttribute="newLogin"
-          class="mt-2"
-        >
-          <div class="card p-3">
-            <h1 class="mb-0">Login</h1>
-            <hr />
-            <div class="d-flex mb-3 align-items-center">
-              <label for="email" path="email" class="form-label col-2"
-                >Email:</label
-              >
-              <form:input
-                type="text"
-                class="form-control"
-                path="email"
-                name="email"
-              />
-            </div>
-            <!-- error: login email -->
-            <form:errors
-              path="email"
-              class="py-1 alert alert-danger"
-            ></form:errors>
-            <div class="d-flex mb-3 align-items-center">
-              <form:label
-                for="password"
-                path="password"
-                class="form-label col-2"
-                >Password:</form:label
-              >
-              <form:input
-                type="password"
-                class="form-control"
-                path="password"
-                name="password"
-              />
-            </div>
-            <!-- error: login pw -->
-            <form:errors
-              path="password"
-              class="py-1 alert alert-danger"
-            ></form:errors>
-            <div class="d-flex justify-content-end">
-              <button class="btn px-4">Login</button>
-            </div>
+          <!-- LOGIN FORM -->
+          <div class="col-lg-6">
+            <form:form
+              action="/login"
+              method="POST"
+              modelAttribute="newLogin"
+              class="mt-2"
+            >
+              <div class="card p-3">
+                <h3 class="mb-0">Login</h3>
+                <hr />
+                <div class="d-flex mb-3 align-items-center">
+                  <label for="email" path="email" class="form-label col-2"
+                    >Email:</label
+                  >
+                  <form:input
+                    type="text"
+                    class="form-control"
+                    path="email"
+                    name="email"
+                  />
+                </div>
+                <!-- error: login email -->
+                <form:errors
+                  path="email"
+                  class="py-1 alert alert-danger"
+                ></form:errors>
+                <div class="d-flex mb-3 align-items-center">
+                  <form:label
+                    for="password"
+                    path="password"
+                    class="form-label col-2"
+                    >Password:</form:label
+                  >
+                  <form:input
+                    type="password"
+                    class="form-control"
+                    path="password"
+                    name="password"
+                  />
+                </div>
+                <!-- error: login pw -->
+                <form:errors
+                  path="password"
+                  class="py-1 alert alert-danger"
+                ></form:errors>
+                <div class="d-flex justify-content-end">
+                  <button class="btn px-4">Login</button>
+                </div>
+              </div>
+            </form:form>
           </div>
-        </form:form>
-      </div>
+        </div>
+      </main>
     </div>
+    <!-- MAIN HEADER -->
   </body>
 </html>
