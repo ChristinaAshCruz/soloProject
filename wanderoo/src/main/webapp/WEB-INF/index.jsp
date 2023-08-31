@@ -28,8 +28,8 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="container pt-4">
+  <body class="p-0 mx-auto d-flex flex-column min-vh-100">
+    <div class="container py-4 mb-5">
       <h5 class="mb-0">Welcome to...</h5>
       <h1 id="main">Wanderoo</h1>
       <hr />
@@ -181,6 +181,34 @@ pageEncoding="UTF-8"%>
         </div>
       </main>
     </div>
-    <!-- MAIN HEADER -->
+    <footer class="footer mt-auto py-4">
+      <div
+        class="container d-flex justify-content-between align-items-end flex-column gap-1 text-md-none"
+      >
+        <div>
+          <p class="p-0 m-0">© 2023 Christina Ashley Cruz</p>
+        </div>
+        <div>
+          Icons made by
+          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+            Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon"
+            >www.flaticon.com</a
+          >
+        </div>
+        <div>
+          <a target="_blank" href="https://icons8.com/icon/90519/spring-boot"
+            >Spring Boot</a
+          >
+          and
+          <a target="_blank" href="https://icons8.com/icon/3764/sql">SQL</a>
+          icon by
+          <a target="_blank" href="https://icons8.com">Icons8</a> icon by
+          <a target="_blank" href="https://icons8.com">Icons8</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

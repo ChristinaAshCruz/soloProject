@@ -20,8 +20,20 @@ body {
   font-size: 13px;
 }
 
+footer {
+  background-color: rgba(222, 167, 84, 0.4);
+  & a {
+    text-decoration: none;
+    color: #b77b21;
+  }
+}
+
 .navbar {
   background: var(--main-background-color) !important;
+}
+
+.nav-link:hover {
+  color: var(--secondary-color) !important;
 }
 
 /* COMPONENTS */
