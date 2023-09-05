@@ -16,30 +16,37 @@ pageEncoding="UTF-8"%>
     <title>Wanderoo</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style2.css" />
-    <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
-    <!-- change to match your file/naming structure -->
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- BOOTSTRAP -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body class="p-0 mx-auto d-flex flex-column min-vh-100">
     <div class="container py-4 mb-5">
-      <h5 class="mb-0">Welcome to...</h5>
-      <h1 id="main">Wanderoo</h1>
+      <h4 class="mb-0 main-header-style">Welcome to...</h4>
+      <h1 id="main" class="main-header-style">Wanderoo</h1>
       <hr />
       <main>
         <!-- Register/login errors -->
         <h3 class="text-danger mb-3"><c:out value="${error}" /></h3>
         <!-- ROW: REGISTER/LOGIN -->
-        <div class="row g-3 justify-content-md-center">
+        <div
+          class="d-flex flex-column flex-xl-row gap-3 justify-content-center"
+        >
           <!-- REGISTER -->
-          <div class="col-lg-6">
+          <div class="col">
             <form:form
               action="/register"
               class="mt-2"
@@ -127,7 +134,7 @@ pageEncoding="UTF-8"%>
           </div>
 
           <!-- LOGIN FORM -->
-          <div class="col-lg-6">
+          <div class="col">
             <form:form
               action="/login"
               method="POST"

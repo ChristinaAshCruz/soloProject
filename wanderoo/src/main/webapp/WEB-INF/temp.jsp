@@ -261,30 +261,26 @@ pageEncoding="UTF-8"%>
     </div>
     <footer class="footer mt-auto py-4">
       <div
-        class="container d-flex justify-content-between align-items-end flex-column gap-1 text-md-none"
+        class="container d-flex justify-content-between flex-column flex-md-row gap-2 text-md-none"
       >
-        <div>
-          <p class="p-0 m-0">© 2023 Christina Ashley Cruz</p>
+        <!-- ICON LINKS -->
+        <div
+          class="icon-links text-center d-flex justify-content-center mx-0 gap-3 justify-content-lg-start"
+        >
+          <a href="#" title="Github" class="text-decoration-none w-auto">
+            <i class="fa-brands fa-github fs-2"></i>
+          </a>
         </div>
-        <div>
-          Icons made by
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-            Freepik</a
-          >
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon"
-            >www.flaticon.com</a
-          >
-        </div>
-        <div>
-          <a target="_blank" href="https://icons8.com/icon/90519/spring-boot"
-            >Spring Boot</a
-          >
-          and
-          <a target="_blank" href="https://icons8.com/icon/3764/sql">SQL</a>
-          icon by
-          <a target="_blank" href="https://icons8.com">Icons8</a> icon by
-          <a target="_blank" href="https://icons8.com">Icons8</a>
+        <div class="icon-credit text-center text-md-start text-lg-end">
+          <div>
+            <p class="p-0 m-0">© 2023 Christina Ashley Cruz</p>
+          </div>
+          <div>
+            Icons resourced from
+            <a href="https://fontawesome.com/" title="FontAwesome">
+              FontAwesome</a
+            >
+          </div>
         </div>
       </div>
     </footer>

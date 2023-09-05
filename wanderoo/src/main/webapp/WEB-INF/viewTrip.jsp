@@ -13,49 +13,87 @@ pageEncoding="UTF-8"%>
   <head>
     <meta charset="UTF-8" />
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <title><c:out value="${trip.tripName}"></c:out> Trip</title>
+    <title>Wanderoo</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css"
-    />
-    <link rel="stylesheet" href="/css/style.css" />
-    <!-- change to match your file/naming structure -->
+    <link rel="stylesheet" href="/css/style2.css" />
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
-    <!-- change to match your file/naming structure -->
+    <!-- FONT AWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- BOOTSTRAP -->
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Syne:wght@700;800&display=swap"
-      rel="stylesheet"
-    />
   </head>
-  <body>
-    <!-- main container -->
-    <div class="container">
-      <!-- nav bar -->
-      <div
-        class="d-flex flex-wrap justify-content-between align-items-center mb-3 header_row"
-        id="header"
-      >
-        <h3 id="logo" class="my-0 flex-grow-1 pt-2">Wanderoo.</h3>
-        <div class="d-flex trip_row flex-wrap">
-          <a href="/dashboard" class="nav-link">Back to Trips</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="#" class="nav-link">
-            <i class="bi bi-person-fill me-1"></i><c:out value="${user.name}"
-          /></a>
-          <a href="/logout" class="nav-link logout">Logout</a>
-        </div>
-      </div>
-      <hr class="mb-3 mt-3" />
-      <!-- content container -->
-      <div class="main mx-4 px-5">
-        <div class="d-flex flex-wrap trip-detail-row mb-3">
+  <body class="p-0 mx-auto d-flex flex-column min-vh-100">
+    <div class="container p-4">
+      <!-- NAVBAR -->
+      <section>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid px-0 d-flex justify-content-between">
+            <a class="navbar-brand fw-bold main-header-style" href="#"
+              ><i
+                class="fa-solid fa-suitcase-rolling pe-2"
+                style="color: #262626"
+              ></i
+              >Wanderoo</a
+            >
+            <!-- toggle button that appears when window is small -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- menu that appears when toggle button is clicked -->
+            <div
+              class="collapse navbar-collapse my-auto"
+              id="navbarTogglerDemo02"
+            >
+              <ul class="navbar-nav ms-auto my-auto mb-2 mb-lg-0 mt-1">
+                <li class="nav-item">
+                  <a
+                    class="nav-link my-auto"
+                    aria-current="page"
+                    href="/trip/new"
+                    >+ New Trip</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-danger" href="/temp"
+                    ><c:out value="${user.name}"
+                  /></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </section>
+      <!-- MAIN CONTAINER -->
+      <main class="container mt-5 p-0 pb-4 mb-5">
+        <!-- <div class="d-flex flex-wrap trip-details mb-3"> -->
+        <div class="trip-details">
           <!-- trip card -->
-          <div class="card col-sm trip-detail-card p-1">
+          <div class="card trip-main-details p-1">
             <div class="d-flex justify-content-end px-3 pt-3 mb-0">
               <p class="travel-tag">
                 <c:if test="${tripMemberSize > 1}"> GROUP </c:if>
@@ -155,80 +193,81 @@ pageEncoding="UTF-8"%>
           <!-- Members card -->
           <!-- will only show if: trip.tripMembers.size() != 1 -->
           <c:if test="${trip.tripMembers.size() != 1}">
-            <div class="card p-3">
+            <div class="card p-3 trip-members">
               <h5 class="card-title">Trip Members:</h5>
               <c:forEach var="member" items="${trip.tripMembers}">
                 <li><c:out value="${member.name}"></c:out></li>
               </c:forEach>
             </div>
           </c:if>
-        </div>
-        <!-- list row -->
-        <div class="row gx-3">
+          <!-- </div> -->
+          <!-- list row -->
+          <!-- <div class="row gx-3"> -->
           <!-- column -->
-          <div class="col-md-6 mb-3 d-flex align-items-stretch">
-            <!-- activity list -->
-            <div class="card trip_card">
-              <a
-                href="/trip/${trip.id}/activity/list"
-                class="text-decoration-none"
-              >
-                <img
-                  src="/images/activityImg.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-end">
-                    <h1 class="card-title">Activities</h1>
-                    <p class="amount-tag p-0">
-                      <c:out value="${trip.tripActivities.size()}"></c:out>
-                    </p>
-                  </div>
-                  <p class="card-text mb-3">
-                    A collection of activities and places to see during your
-                    trip
+          <!-- <div class="col-md-6 mb-3 d-flex align-items-stretch"> -->
+          <!-- activity list -->
+          <div class="card trip-activities">
+            <a
+              href="/trip/${trip.id}/activity/list"
+              class="text-decoration-none"
+            >
+              <img
+                src="/images/activityImg.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-end">
+                  <h1 class="card-title">Activities</h1>
+                  <p class="amount-tag p-0">
+                    <c:out value="${trip.tripActivities.size()}"></c:out>
                   </p>
-                  <a href="/trip/${trip.id}/activity/list" class="btn"
-                    >View List</a
-                  >
                 </div>
-              </a>
-            </div>
+                <p class="card-text mb-3">
+                  A collection of activities and places to see during your trip
+                </p>
+                <a href="/trip/${trip.id}/activity/list" class="btn"
+                  >View List</a
+                >
+              </div>
+            </a>
           </div>
+          <!-- </div> -->
           <!-- column -->
-          <div class="col-md-6 mb-3 d-flex align-items-stretch">
-            <!-- restaurant list -->
-            <div class="card trip_card">
-              <a
-                href="/trip/${trip.id}/restaurant/list"
-                class="text-decoration-none"
+          <!-- <div class="col-md-6 mb-3 d-flex align-items-stretch"> -->
+          <!-- restaurant list -->
+          <div class="card trip-restaurants">
+            <a
+              href="/trip/${trip.id}/restaurant/list"
+              class="text-decoration-none"
+            >
+              <img
+                src="/images/restaurantImg.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div
+                class="card-body d-flex flex-column justify-content-between align-items-between"
               >
-                <img
-                  src="/images/restaurantImg.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <div class="d-flex justify-content-between align-items-end">
-                    <h2 class="card-title">Restaurants</h2>
-                    <p class="amount-tag p-0">
-                      <c:out value="${trip.tripRestaurants.size()}"></c:out>
-                    </p>
-                  </div>
-                  <p class="card-text mb-3">
-                    A collection of restaurants and cafés to visit during your
-                    trip
+                <div class="d-flex justify-content-between align-items-end">
+                  <h2 class="card-title">Restaurants</h2>
+                  <p class="amount-tag p-0">
+                    <c:out value="${trip.tripRestaurants.size()}"></c:out>
                   </p>
-                  <a href="/trip/${trip.id}/restaurant/list" class="btn"
-                    >View List</a
-                  >
                 </div>
-              </a>
-            </div>
+                <p class="card-text mb-3">
+                  A collection of restaurants and cafés to visit during your
+                  trip
+                </p>
+                <a href="/trip/${trip.id}/restaurant/list" class="btn"
+                  >View List</a
+                >
+              </div>
+            </a>
           </div>
+          <!-- </div> -->
         </div>
-      </div>
+      </main>
     </div>
   </body>
 </html>
