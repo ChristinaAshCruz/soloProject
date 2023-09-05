@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   color: var(--darkest-color);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 footer {
@@ -28,6 +28,7 @@ footer {
   }
 }
 
+/* TRIP ROW */
 .navbar {
   background: var(--main-background-color) !important;
 }
@@ -46,22 +47,12 @@ footer {
 }
 
 .trip-card {
-  width: 21rem !important;
+  width: 20rem !important;
   color: var(--darkest-color) !important;
   > a {
     color: var(--darkest-color);
     text-decoration: none !important;
   }
-  /* > .btn {
-    border-color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
-    color: var(--lightest-color) !important;
-  }
-  > .btn:hover {
-    border-color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
-    color: var(--darkest-color) !important;
-  } */
 }
 
 .card-img-top:not(:hover) {
@@ -104,6 +95,26 @@ footer {
   background: var(--secondary-color);
   color: var(--lightest-color);
   padding: 5px 10px !important;
+}
+
+.new-trip {
+  & h4 {
+    color: var(--darkest-color);
+    opacity: 50%;
+    transition-duration: 0.3s;
+  }
+  & i {
+    opacity: 50%;
+  }
+}
+.new-trip:hover {
+  & h4 {
+    color: var(--darkest-color);
+    opacity: 100%;
+  }
+  & i {
+    opacity: 100%;
+  }
 }
 
 /* STYLING */

@@ -97,13 +97,14 @@ pageEncoding="UTF-8"%>
           </div>
         </nav>
       </section>
-      <!-- <hr class="mt-0" /> -->
       <main class="container mt-3 p-0 pb-4 mb-5">
         <!-- TRIP SECTION -->
         <section id="trips" class="d-flex flex-column align-items-center gap-4">
           <h2 class="main-header-style p-0 m-0 mb-2">Your Trips</h2>
           <!-- TRIP ROW -->
-          <div class="d-flex flex-column flex-lg-row flex-wrap gap-4">
+          <div
+            class="d-flex flex-column flex-lg-row flex-wrap gap-3 justify-content-center"
+          >
             <c:forEach var="trip" items="${user.tripsAttending}">
               <!-- place trip view link here -->
               <div
@@ -126,7 +127,7 @@ pageEncoding="UTF-8"%>
                       class="card-img-top"
                     />
                   </c:if>
-                  <!-- card body -->
+                  <!-- TRIP CARD BODY -->
                   <div
                     class="card-body d-flex flex-column justify-content-between gap-3"
                   >
@@ -173,11 +174,6 @@ pageEncoding="UTF-8"%>
                     </p>
                   </div>
                   <c:if test="${trip.tripCreator.id != sessionScope.userId}">
-                    <!-- <a
-                      href="/trip/${trip.id}"
-                      class="btn mx-3 mb-3 fs-5 fw-medium"
-                      >View Trip</a
-                    > -->
                     <a
                       href="/trip/${trip.id}"
                       class="btn mx-3 mb-3 fs-6 fw-medium"
@@ -207,19 +203,19 @@ pageEncoding="UTF-8"%>
                 </a>
               </div>
             </c:forEach>
+
             <!-- CREATE NEW TRIP -->
             <!-- default card -->
-            <div
-              class="card trip-card d-flex flex-column justify-content-between"
-            >
-              <a href="/trip/new">
+            <div class="card trip-card new-trip py-4">
+              <a href="/trip/new" class="d-flex flex-column m-auto text-center">
                 <!-- card body -->
-                <div
-                  class="card-body d-flex flex-column justify-content-between gap-3"
-                >
-                  <h4>Create New Trip</h4>
-                  <!-- TRIP CARD HEADER -->
-                  <!-- <div
+                <i
+                  class="fa-solid fa-circle-plus fs-4 mb-3"
+                  style="color: #dea754"
+                ></i>
+                <h4 class="main-header-style p-0 m-0">Create New Trip</h4>
+                <!-- TRIP CARD HEADER -->
+                <!-- <div
                     class="d-flex justify-content-between align-items-center gap-1"
                   >
                     <h5 class="p-0 m-0 main-header-style">
@@ -232,32 +228,31 @@ pageEncoding="UTF-8"%>
                       <p class="travel-size-tag m-0 fw-semibold">SOLO</p>
                     </c:if>
                   </div> -->
-                  <!-- TRIP MAIN DETAILS -->
-                  <!-- <div class="d-flex align-items-center gap-3 fs-6"> -->
-                  <!-- TRIP: creator -->
-                  <!-- <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
+                <!-- TRIP MAIN DETAILS -->
+                <!-- <div class="d-flex align-items-center gap-3 fs-6"> -->
+                <!-- TRIP: creator -->
+                <!-- <i class="fa-solid fa-user secondary-color p-0 m-0"></i>
                     <p class="p-0 m-0 fw-medium">
                       <c:out value="${trip.tripCreator.name}"></c:out>
                     </p>
                   </div>
                   <div class="d-flex align-items-center gap-3 fs-6"> -->
-                  <!-- TRIP: destination -->
-                  <!-- <i
+                <!-- TRIP: destination -->
+                <!-- <i
                       class="fa-solid fa-location-dot secondary-color p-0 m-0"
                     ></i>
                     <p class="p-0 m-0 fw-medium">
                       <c:out value="${trip.destination}"></c:out>
                     </p>
                   </div> -->
-                  <!-- <div class="d-flex align-items-center gap-3 fs-6">
+                <!-- <div class="d-flex align-items-center gap-3 fs-6">
                     <i class="fa-solid fa-calendar secondary-color p-0 m-0"></i>
                     <p class="p-0 m-0 fw-medium">Trip Dates</p>
                   </div> -->
-                  <!-- TRIP: summary -->
-                  <!-- <p class="m-0 p-0 card-text">
+                <!-- TRIP: summary -->
+                <!-- <p class="m-0 p-0 card-text">
                     <c:out value="${trip.summary}"></c:out>
                   </p> -->
-                </div>
               </a>
             </div>
           </div>
