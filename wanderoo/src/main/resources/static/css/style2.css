@@ -31,7 +31,7 @@ footer {
   }
 }
 
-/* TRIP ROW */
+/* PAGE STYLING */
 .navbar {
   background: var(--main-background-color) !important;
 }
@@ -39,28 +39,29 @@ footer {
 .nav-link:hover {
   color: var(--secondary-color) !important;
 }
+.new-trip {
+  & h4 {
+    color: var(--darkest-color);
+    opacity: 50%;
+    transition-duration: 0.3s;
+  }
+  & i {
+    opacity: 50%;
+  }
+}
+.new-trip:hover {
+  & h4 {
+    color: var(--darkest-color);
+    opacity: 100%;
+  }
+  & i {
+    opacity: 100%;
+  }
+}
 
-/* VIEW TRIP */
-/* .trip-details {
-  display: grid !important;
-  grid-template-areas:
-    "main main main members"
-    "activities activities restaurants restaurants";
-
-  gap: 1rem !important;
+.trip-details a {
+  color: var(--darkest-color);
 }
-.trip-main-details {
-  grid-area: main;
-}
-.trip-members {
-  grid-area: members;
-}
-.trip-activities {
-  grid-area: activities;
-}
-.trip-restaurants {
-  grid-area: restaurants;
-} */
 /* COMPONENTS */
 .card {
   border: 3px solid var(--secondary-color);
@@ -119,26 +120,6 @@ footer {
   background: var(--secondary-color);
   color: var(--lightest-color);
   padding: 5px 10px !important;
-}
-
-.new-trip {
-  & h4 {
-    color: var(--darkest-color);
-    opacity: 50%;
-    transition-duration: 0.3s;
-  }
-  & i {
-    opacity: 50%;
-  }
-}
-.new-trip:hover {
-  & h4 {
-    color: var(--darkest-color);
-    opacity: 100%;
-  }
-  & i {
-    opacity: 100%;
-  }
 }
 
 /* STYLING */

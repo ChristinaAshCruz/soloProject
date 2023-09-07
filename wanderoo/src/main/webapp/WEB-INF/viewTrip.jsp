@@ -96,7 +96,7 @@ pageEncoding="UTF-8"%>
           <div class="row gap-3 mb-3">
             <div class="col-md-8 card trip-main-details p-1">
               <div class="d-flex justify-content-end px-3 pt-3 mb-0">
-                <p class="travel-tag">
+                <p class="travel-size-tag">
                   <c:if test="${tripMemberSize > 1}"> GROUP </c:if>
                   <c:if test="${tripMemberSize == 1}"> SOLO </c:if>
                 </p>
@@ -207,14 +207,14 @@ pageEncoding="UTF-8"%>
             </c:if>
           </div>
           <div class="row gap-3">
-            <div class="col-md card trip-activities">
+            <div class="col-md p-0 card trip-activities">
               <a
                 href="/trip/${trip.id}/activity/list"
                 class="text-decoration-none"
               >
                 <img
                   src="/images/activityImg.png"
-                  class="card-img-top"
+                  class="card-img-top object-fit-cover"
                   alt="..."
                 />
                 <div class="card-body">
@@ -233,7 +233,7 @@ pageEncoding="UTF-8"%>
                 </div>
               </a>
             </div>
-            <div class="col-md card trip-restaurants">
+            <div class="col-md p-0 card trip-restaurants">
               <a
                 href="/trip/${trip.id}/restaurant/list"
                 class="text-decoration-none"
