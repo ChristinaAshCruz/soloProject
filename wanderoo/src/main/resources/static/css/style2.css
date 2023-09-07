@@ -41,7 +41,7 @@ footer {
 }
 
 /* VIEW TRIP */
-.trip-details {
+/* .trip-details {
   display: grid !important;
   grid-template-areas:
     "main main main members"
@@ -60,7 +60,7 @@ footer {
 }
 .trip-restaurants {
   grid-area: restaurants;
-}
+} */
 /* COMPONENTS */
 .card {
   border: 3px solid var(--secondary-color);
