@@ -100,8 +100,9 @@ pageEncoding="UTF-8"%>
       <!-- MAIN CONTAINER -->
       <main class="container mt-5 p-0 pb-4 mb-5">
         <div class="trip-details">
-          <!-- TRIP CARD -->
-          <div class="row gap-3 mb-3">
+          <!-- <div class="col-md-8 d-flex flex-column flex-lg-row justify-content-between gap-3 mb-3 "> -->
+                      <div class="row gap-3 mb-3">
+            <!-- TRIP CARD -->
             <div class="col-md-8 card trip-main-details trip-detail-img p-1">
               <div class="d-flex justify-content-end px-3 pt-3 mb-0">
                 <p class="travel-size-tag">
@@ -111,9 +112,9 @@ pageEncoding="UTF-8"%>
               </div>
 
               <div class="card-body d-flex flex-column gap-4">
-                <div class="d-flex flex-column flex-md-row justify-content-md-between gap-2">
+                <div class="d-flex flex-column flex-md-row justify-content-md-between align-content-md-center gap-2">
                  <!-- TRIP NAME + SUMMARY + MAIN DETAILS -->
-                <div class="col">
+                <div >
                   <div class="d-flex flex-column gap-1">
                     <h3 class="card-title main-header-style p-0 m-0">
                       <c:out value="${trip.tripName}"></c:out> Trip
@@ -124,7 +125,7 @@ pageEncoding="UTF-8"%>
                   </div>
                 </div> 
                 <!-- CREATOR + DESTINATION -->
-                <div class="col">
+                <div >
                   <div class="d-flex flex-column gap-2">
                     <div class="d-flex align-items-center gap-2">
                       <i class="fa-solid fa-user fs-6" style="color: #dea754;"></i>
@@ -209,6 +210,7 @@ pageEncoding="UTF-8"%>
                 </c:forEach>
               </div>
             </c:if>
+            </div>
           </div>
           <div class="row gap-3">
             <div class="col-md p-0 card trip-activities">
