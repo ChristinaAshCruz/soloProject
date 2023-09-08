@@ -72,7 +72,7 @@ footer {
 }
 
 .trip-card {
-  width: 20rem !important;
+  width: 18rem !important;
   color: var(--darkest-color) !important;
   > a {
     color: var(--darkest-color);
@@ -120,6 +120,18 @@ footer {
   background: var(--secondary-color);
   color: var(--lightest-color);
   padding: 5px 10px !important;
+}
+
+.amount-tag {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #dea754;
+  color: #fcf8f2;
+  text-align: center;
+  display: block;
 }
 
 /* STYLING */

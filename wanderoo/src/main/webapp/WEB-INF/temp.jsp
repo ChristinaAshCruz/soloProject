@@ -103,7 +103,7 @@ pageEncoding="UTF-8"%>
           <h2 class="main-header-style p-0 m-0 mb-2">Your Trips</h2>
           <!-- TRIP ROW -->
           <div
-            class="d-flex flex-column flex-lg-row flex-wrap gap-3 justify-content-center"
+            class="d-flex flex-column flex-md-row flex-wrap gap-3 justify-content-center"
           >
             <c:forEach var="trip" items="${user.tripsAttending}">
               <!-- place trip view link here -->

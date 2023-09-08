@@ -117,7 +117,7 @@ pageEncoding="UTF-8"%>
                 >
                   <!-- TRIP NAME COL -->
                   <div class="flex-grow-1">
-                    <h1 class="card-title">
+                    <h1 class="card-title main-header-style">
                       <c:out value="${trip.tripName}"></c:out> Trip
                     </h1>
                     <p>
@@ -208,7 +208,7 @@ pageEncoding="UTF-8"%>
             <!-- will only show if: trip.tripMembers.size() != 1 -->
             <c:if test="${trip.tripMembers.size() != 1}">
               <div class="col-md card p-3 trip-members">
-                <h5 class="card-title">Trip Members:</h5>
+                <h5 class="card-title main-header-style">Trip Members:</h5>
                 <c:forEach var="member" items="${trip.tripMembers}">
                   <li><c:out value="${member.name}"></c:out></li>
                 </c:forEach>
@@ -228,7 +228,7 @@ pageEncoding="UTF-8"%>
                 />
                 <div class="card-body">
                   <div class="d-flex justify-content-between align-items-end">
-                    <h1 class="card-title">Activities</h1>
+                    <h1 class="card-title main-header-style">Activities</h1>
                     <p class="amount-tag p-0">
                       <c:out value="${trip.tripActivities.size()}"></c:out>
                     </p>
@@ -256,7 +256,7 @@ pageEncoding="UTF-8"%>
                   class="card-body d-flex flex-column justify-content-between align-items-between"
                 >
                   <div class="d-flex justify-content-between align-items-end">
-                    <h2 class="card-title">Restaurants</h2>
+                    <h2 class="card-title main-header-style">Restaurants</h2>
                     <p class="amount-tag p-0">
                       <c:out value="${trip.tripRestaurants.size()}"></c:out>
                     </p>
