@@ -99,11 +99,10 @@ pageEncoding="UTF-8"%>
       </section>
       <!-- MAIN CONTAINER -->
       <main class="container mt-5 p-0 pb-4 mb-5">
-        <!-- <div class="d-flex flex-wrap trip-details mb-3"> -->
         <div class="trip-details">
-          <!-- trip card -->
+          <!-- TRIP CARD -->
           <div class="row gap-3 mb-3">
-            <div class="col-md-8 card trip-main-details p-1">
+            <div class="col-md-8 card trip-main-details trip-detail-img p-1">
               <div class="d-flex justify-content-end px-3 pt-3 mb-0">
                 <p class="travel-size-tag">
                   <c:if test="${tripMemberSize > 1}"> GROUP </c:if>
@@ -111,27 +110,24 @@ pageEncoding="UTF-8"%>
                 </p>
               </div>
 
-              <div class="card-body">
-                <div
-                  class="d-flex justify-content-between align-items-start mb-3"
-                >
-                  <!-- TRIP NAME COL -->
-                  <div class="flex-grow-1">
-                    <h1 class="card-title main-header-style">
+              <div class="card-body d-flex flex-column gap-4">
+                <div class="d-flex flex-column flex-md-row justify-content-md-between gap-2">
+                 <!-- TRIP NAME + SUMMARY + MAIN DETAILS -->
+                <div class="col">
+                  <div class="d-flex flex-column gap-1">
+                    <h3 class="card-title main-header-style p-0 m-0">
                       <c:out value="${trip.tripName}"></c:out> Trip
-                    </h1>
-                    <p>
+                    </h3>
+                    <p class="p-0 m-0 fst-italic">
                       <c:out value="${trip.summary}"></c:out>
                     </p>
                   </div>
-                  <!-- CREATOR + DESTINATION -->
-                  <div>
-                    <div class="d-flex align-items-center mb-3">
-                      <img
-                        src="/images/creator.png"
-                        alt=""
-                        class="icons me-2"
-                      />
+                </div> 
+                <!-- CREATOR + DESTINATION -->
+                <div class="col">
+                  <div class="d-flex flex-column gap-2">
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-user fs-6" style="color: #dea754;"></i>
                       <h6 class="m-0">
                         <c:if
                           test="${trip.tripCreator.id == sessionScope.userId}"
@@ -145,8 +141,8 @@ pageEncoding="UTF-8"%>
                         </c:if>
                       </h6>
                     </div>
-                    <div class="d-flex align-items-center">
-                      <img src="/images/marker.png" alt="" class="icons me-2" />
+                    <div class="d-flex align-items-center gap-2">
+                      <i class="fa-solid fa-location-dot fs-5" style="color: #dea754;"></i>
                       <h6 class="m-0 me-2">Destination:</h6>
                       <h6 class="m-0 fst-italic">
                         <c:out value="${trip.destination}"></c:out>
@@ -154,8 +150,7 @@ pageEncoding="UTF-8"%>
                     </div>
                   </div>
                 </div>
-                <!-- TRIP SUMMARY -->
-
+              </div>
                 <!-- button row on main trip card -->
                 <div class="d-flex flex-wrap justify-content-between">
                   <!-- edit button -->
@@ -226,7 +221,9 @@ pageEncoding="UTF-8"%>
                   class="card-img-top object-fit-cover"
                   alt="..."
                 />
-                <div class="card-body">
+                <div
+                  class="card-body d-flex flex-column justify-content-between align-items-between"
+                >
                   <div class="d-flex justify-content-between align-items-end">
                     <h1 class="card-title main-header-style">Activities</h1>
                     <p class="amount-tag p-0">

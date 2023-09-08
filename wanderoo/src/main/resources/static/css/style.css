@@ -1,203 +1,198 @@
 @charset "UTF-8";
 
 body {
-	font-family: 'Montserrat', sans-serif;
-	background-color: #fcf8f2;
-	margin:40px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #fcf8f2;
+  margin: 40px;
 }
 h1 {
-	font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
 }
 .navbar-brand {
-	font-size: 30px;
+  font-size: 30px;
 }
-.navbar{
-	background-color: #fcf8f2;
+.navbar {
+  background-color: #fcf8f2;
 }
-.nav-link{
-	color:#DEA754;
+.nav-link {
+  color: #dea754;
 }
 .nav-link:hover {
-	color:#b76431;
+  color: #b76431;
 }
 .nav-item > .border {
-	color: black;
+  color: black;
 }
 .profile {
-	height: 20px;
-	color:#DEA754;
+  height: 20px;
+  color: #dea754;
 }
 .profile:hover {
-	color:#b76431;
+  color: #b76431;
 }
 .footer-btn {
-	text-decoration: none;
-	color:#AF7E43;
-	font-weight: 700;
-	transition: all 200ms ease;
-	
+  text-decoration: none;
+  color: #af7e43;
+  font-weight: 700;
+  transition: all 200ms ease;
 }
 .footer-btn:hover {
-	text-decoration: none;
-	color:#212529;
+  text-decoration: none;
+  color: #212529;
 }
-#logo{
-	font-family: 'Syne', sans-serif;
+#logo {
+  font-family: "Syne", sans-serif;
 }
-.card-title{
-	font-family: 'Syne', sans-serif;
+.card-title {
+  font-family: "Syne", sans-serif;
 }
 .btn {
-	background-color: #DEA754;
-	border:2px solid#DEA754;
-	border-radius: 15px;
-	transition: all 200ms ease;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	color: #fcf8f2;
+  background-color: #dea754;
+  border: 2px solid#DEA754;
+  border-radius: 15px;
+  transition: all 200ms ease;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #fcf8f2;
 }
 .btn:hover {
-	background-color:#fcf8f2;
-	color:black;
-	border:2px solid#DEA754;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 400;
-	
+  background-color: #fcf8f2;
+  color: black;
+  border: 2px solid#DEA754;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
 }
-.info_link{
-	background-color: #AF7E43;
-	border: 2px solid #AF7E43;
+.info_link {
+  background-color: #af7e43;
+  border: 2px solid #af7e43;
 }
-.delete{
-	background-color: #b76431;
-	border: 2px solid #b76431;
+.delete {
+  background-color: #b76431;
+  border: 2px solid #b76431;
 }
-.img-fluid{
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
+.img-fluid {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 .card {
-	border: 3px solid #DEA754;
-	border-radius: 15px;
-	background-color: #fcf8f2;
-	transition: all 200ms ease;
-	color:black;
-	
+  border: 3px solid #dea754;
+  border-radius: 15px;
+  background-color: #fcf8f2;
+  transition: all 200ms ease;
+  color: black;
 }
 .trip_card a {
-	color:black;
-	text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 .trip_card .btn {
-	color:#fcf8f2;
+  color: #fcf8f2;
 }
 .trip_card .btn:hover {
-	color:black;
+  color: black;
 }
 .card:hover {
-	text-decoration: none;
-	color:black;
-	box-shadow: 16px 16px 17px rgba(175, 126, 67, 0.1);
+  text-decoration: none;
+  color: black;
+  box-shadow: 16px 16px 17px rgba(175, 126, 67, 0.1);
 }
-.travel-tag{
-	border: 2px solid #DEA754;
-	border-radius: 28px;
-	padding:5px 10px;
-	background-color: #DEA754;
-	color: #fcf8f2;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
+.travel-tag {
+  border: 2px solid #dea754;
+  border-radius: 28px;
+  padding: 5px 10px;
+  background-color: #dea754;
+  color: #fcf8f2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
 }
-.list_tag{
-	border: 3px solid #DEA754;
-	border-radius: 28px;
-	padding:5px 10px;
-	background-color: #fcf8f2;
-	color: #DEA754;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
+.list_tag {
+  border: 3px solid #dea754;
+  border-radius: 28px;
+  padding: 5px 10px;
+  background-color: #fcf8f2;
+  color: #dea754;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
 .amount-tag {
- 	width: 34px;
-    height: 34px;
-    line-height: 34px;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
-    background-color: #DEA754;
-    color: #fcf8f2;
-    text-align: center;
-    display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #dea754;
+  color: #fcf8f2;
+  text-align: center;
+  display: block;
 }
-.travel-tag-trip-detail{
-	border: 2px solid #DEA754;
-	border-radius: 28px; 
-	background-color: #DEA754;
-	color: #fcf8f2;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 500;
-	
+.travel-tag-trip-detail {
+  border: 2px solid #dea754;
+  border-radius: 28px;
+  background-color: #dea754;
+  color: #fcf8f2;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
 }
-.trip-detail-card{
-	background-image: url(/images/cardBackground.png);
-	display:block;
-	background-repeat: no-repeat;
-	background-size: 420px;
-	background-position: top left;
+.trip-detail-img {
+  background-image: url(/images/cardBackground.png);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 420px;
+  background-position: top left;
 }
-.activity-detail-card{
-	background-image: url(/images/cardBackground_activity.png);
-	display:block;
-	background-repeat: no-repeat;
-	background-size: 450px;
-	background-position: top left;
+.activity-detail-card {
+  background-image: url(/images/cardBackground_activity.png);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 450px;
+  background-position: top left;
 }
-.restaurant-detail-card{
-	background-image: url(/images/cardBackground_restaurant.png);
-	display:block;
-	background-repeat: no-repeat;
-	background-size: 420px;
-	background-position: top left;
+.restaurant-detail-card {
+  background-image: url(/images/cardBackground_restaurant.png);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 420px;
+  background-position: top left;
 }
-.list_card{
-	background-image: url(/images/cardBackground_list.png);
-	display:block;
-	background-repeat: no-repeat;
-	background-size: 420px;
-	background-position: top left;
-
+.list_card {
+  background-image: url(/images/cardBackground_list.png);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 420px;
+  background-position: top left;
 }
 .trip_name {
-	font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
 }
 .icons {
-	height: 24px;
+  height: 24px;
 }
 .sub-title {
-	font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
 }
-navbar-toggler-icon{
-	color: #DEA754;
+navbar-toggler-icon {
+  color: #dea754;
 }
 
-.header_row{
-	gap:10px;
+.header_row {
+  gap: 10px;
 }
-.trip_row{
-	gap:18px;
+.trip_row {
+  gap: 18px;
 }
-.trip-detail-row{
-	gap:18px;
+.trip-detail-row {
+  gap: 18px;
 }
-.button-row{
-	gap:10px;
+.button-row {
+  gap: 10px;
 }
 .logout:hover {
-	color: #d83e13;
+  color: #d83e13;
 }
 .contact-button-row {
-	font-size: 30px;
-	gap:15px;
+  font-size: 30px;
+  gap: 15px;
 }
 .contact-button-row:hover {
-	color:#b76431;
+  color: #b76431;
 }

@@ -91,11 +91,20 @@ footer {
   box-shadow: 16px 16px 17px rgba(175, 126, 67, 0.14);
 }
 
+.trip-detail-img {
+  background-image: url(/images/cardBackground.png);
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 420px;
+  background-position: top left;
+}
+
 .btn {
   background: var(--secondary-color);
   border-radius: 0.5rem;
   border: 2px solid var(--secondary-color);
   color: var(--lightest-color) !important;
+  /* font-size: 0.9rem !important ; */
 }
 
 .btn:hover {
