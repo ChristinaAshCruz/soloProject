@@ -100,8 +100,7 @@ pageEncoding="UTF-8"%>
       <!-- MAIN CONTAINER -->
       <main class="container mt-5 p-0 pb-4 mb-5">
         <div class="trip-details">
-          <!-- <div class="col-md-8 d-flex flex-column flex-lg-row justify-content-between gap-3 mb-3 "> -->
-                      <div class="row gap-3 mb-3">
+          <div class="row gap-3 mb-3">
             <!-- TRIP CARD -->
             <div class="col-md-8 card trip-main-details trip-detail-img p-1">
               <div class="d-flex justify-content-end px-3 pt-3 mb-0">
@@ -112,46 +111,54 @@ pageEncoding="UTF-8"%>
               </div>
 
               <div class="card-body d-flex flex-column gap-4">
-                <div class="d-flex flex-column flex-md-row justify-content-md-between align-content-md-center gap-2">
-                 <!-- TRIP NAME + SUMMARY + MAIN DETAILS -->
-                <div >
-                  <div class="d-flex flex-column gap-1">
-                    <h3 class="card-title main-header-style p-0 m-0">
-                      <c:out value="${trip.tripName}"></c:out> Trip
-                    </h3>
-                    <p class="p-0 m-0 fst-italic">
-                      <c:out value="${trip.summary}"></c:out>
-                    </p>
-                  </div>
-                </div> 
-                <!-- CREATOR + DESTINATION -->
-                <div >
-                  <div class="d-flex flex-column gap-2">
-                    <div class="d-flex align-items-center gap-2">
-                      <i class="fa-solid fa-user fs-6" style="color: #dea754;"></i>
-                      <h6 class="m-0">
-                        <c:if
-                          test="${trip.tripCreator.id == sessionScope.userId}"
-                        >
-                          You
-                        </c:if>
-                        <c:if
-                          test="${trip.tripCreator.id != sessionScope.userId}"
-                        >
-                          <c:out value="${trip.tripCreator.name}"></c:out>
-                        </c:if>
-                      </h6>
+                <div
+                  class="d-flex flex-column flex-md-row justify-content-md-between align-content-md-center gap-2"
+                >
+                  <!-- TRIP NAME + SUMMARY + MAIN DETAILS -->
+                  <div>
+                    <div class="d-flex flex-column gap-1">
+                      <h3 class="card-title main-header-style p-0 m-0">
+                        <c:out value="${trip.tripName}"></c:out> Trip
+                      </h3>
+                      <p class="p-0 m-0 fst-italic">
+                        <c:out value="${trip.summary}"></c:out>
+                      </p>
                     </div>
-                    <div class="d-flex align-items-center gap-2">
-                      <i class="fa-solid fa-location-dot fs-5" style="color: #dea754;"></i>
-                      <h6 class="m-0 me-2">Destination:</h6>
-                      <h6 class="m-0 fst-italic">
-                        <c:out value="${trip.destination}"></c:out>
-                      </h6>
+                  </div>
+                  <!-- CREATOR + DESTINATION -->
+                  <div>
+                    <div class="d-flex flex-column gap-2">
+                      <div class="d-flex align-items-center gap-2">
+                        <i
+                          class="fa-solid fa-user fs-6"
+                          style="color: #dea754"
+                        ></i>
+                        <h6 class="m-0">
+                          <c:if
+                            test="${trip.tripCreator.id == sessionScope.userId}"
+                          >
+                            You
+                          </c:if>
+                          <c:if
+                            test="${trip.tripCreator.id != sessionScope.userId}"
+                          >
+                            <c:out value="${trip.tripCreator.name}"></c:out>
+                          </c:if>
+                        </h6>
+                      </div>
+                      <div class="d-flex align-items-center gap-2">
+                        <i
+                          class="fa-solid fa-location-dot fs-5"
+                          style="color: #dea754"
+                        ></i>
+                        <h6 class="m-0 me-2">Destination:</h6>
+                        <h6 class="m-0 fst-italic">
+                          <c:out value="${trip.destination}"></c:out>
+                        </h6>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
                 <!-- button row on main trip card -->
                 <div class="d-flex flex-wrap justify-content-between">
                   <!-- edit button -->
@@ -210,70 +217,94 @@ pageEncoding="UTF-8"%>
                 </c:forEach>
               </div>
             </c:if>
-            </div>
           </div>
-          <div class="row gap-3">
-            <div class="col-md p-0 card trip-activities">
-              <a
-                href="/trip/${trip.id}/activity/list"
-                class="text-decoration-none"
+        </div>
+        <!-- ACTIVITIES + RESTAURANTS -->
+        <div class="row gap-3">
+          <div class="col-md p-0 card trip-activities">
+            <a
+              href="/trip/${trip.id}/activity/list"
+              class="text-decoration-none"
+            >
+              <img
+                src="/images/activityImg.png"
+                class="card-img-top object-fit-cover"
+                alt="..."
+              />
+              <div
+                class="card-body d-flex flex-column justify-content-between align-items-between"
               >
-                <img
-                  src="/images/activityImg.png"
-                  class="card-img-top object-fit-cover"
-                  alt="..."
-                />
-                <div
-                  class="card-body d-flex flex-column justify-content-between align-items-between"
-                >
-                  <div class="d-flex justify-content-between align-items-end">
-                    <h1 class="card-title main-header-style">Activities</h1>
-                    <p class="amount-tag p-0">
-                      <c:out value="${trip.tripActivities.size()}"></c:out>
-                    </p>
-                  </div>
-                  <p class="card-text mb-3">
-                    A collection of activities and places to see during your trip
+                <div class="d-flex justify-content-between align-items-end">
+                  <h1 class="card-title main-header-style">Activities</h1>
+                  <p class="amount-tag p-0">
+                    <c:out value="${trip.tripActivities.size()}"></c:out>
                   </p>
-                  <a href="/trip/${trip.id}/activity/list" class="btn"
-                    >View List</a
-                  >
                 </div>
-              </a>
-            </div>
-            <div class="col-md p-0 card trip-restaurants">
-              <a
-                href="/trip/${trip.id}/restaurant/list"
-                class="text-decoration-none"
-              >
-                <img
-                  src="/images/restaurantImg.png"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div
-                  class="card-body d-flex flex-column justify-content-between align-items-between"
+                <p class="card-text mb-3">
+                  A collection of activities and places to see during your trip
+                </p>
+                <a href="/trip/${trip.id}/activity/list" class="btn"
+                  >View List</a
                 >
-                  <div class="d-flex justify-content-between align-items-end">
-                    <h2 class="card-title main-header-style">Restaurants</h2>
-                    <p class="amount-tag p-0">
-                      <c:out value="${trip.tripRestaurants.size()}"></c:out>
-                    </p>
-                  </div>
-                  <p class="card-text mb-3">
-                    A collection of restaurants and cafés to visit during your
-                    trip
-                  </p>
-                  <a href="/trip/${trip.id}/restaurant/list" class="btn"
-                    >View List</a
-                  >
-                </div>
-              </a>
-            </div>
+              </div>
+            </a>
           </div>
+          <div class="col-md p-0 card trip-restaurants">
+            <a
+              href="/trip/${trip.id}/restaurant/list"
+              class="text-decoration-none"
+            >
+              <img
+                src="/images/restaurantImg.png"
+                class="card-img-top"
+                alt="..."
+              />
+              <div
+                class="card-body d-flex flex-column justify-content-between align-items-between"
+              >
+                <div class="d-flex justify-content-between align-items-end">
+                  <h2 class="card-title main-header-style">Restaurants</h2>
+                  <p class="amount-tag p-0">
+                    <c:out value="${trip.tripRestaurants.size()}"></c:out>
+                  </p>
+                </div>
+                <p class="card-text mb-3">
+                  A collection of restaurants and cafés to visit during your
+                  trip
+                </p>
+                <a href="/trip/${trip.id}/restaurant/list" class="btn"
+                  >View List</a
+                >
+              </div>
+            </a>
           </div>
         </div>
       </main>
     </div>
+    <footer class="footer mt-auto py-4">
+      <div
+        class="container d-flex justify-content-between flex-column flex-md-row gap-2 text-md-none"
+      >
+        <!-- ICON LINKS -->
+        <div
+          class="icon-links text-center d-flex justify-content-center mx-0 gap-3 justify-content-lg-start"
+        >
+          <a href="#" title="Github" class="text-decoration-none w-auto">
+            <i class="fa-brands fa-github fs-2"></i>
+          </a>
+        </div>
+        <div class="icon-credit text-center text-md-start text-lg-end">
+          <div>
+            <p class="p-0 m-0">© 2023 Christina Ashley Cruz</p>
+          </div>
+          <div>
+            Icons resourced from
+            <a href="https://fontawesome.com/" title="FontAwesome">
+              FontAwesome</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
