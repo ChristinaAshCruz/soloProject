@@ -103,11 +103,13 @@ footer {
   border: 2px solid var(--secondary-color);
   color: var(--darkest-color) !important;
 }
+
 .danger:hover {
   background: var(--main-background-color) !important;
   border: 2px solid #b2391a !important;
   color: #b2391a !important;
 }
+
 .danger {
   background: #b2391a !important;
   border: 2px solid #b2391a !important;
