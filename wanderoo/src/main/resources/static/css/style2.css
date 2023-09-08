@@ -71,6 +71,11 @@ footer {
   transition: all 200ms ease-in-out;
 }
 
+.card-title,
+.card-text:last-child {
+  color: var(--darkest-color);
+}
+
 .trip-card {
   width: 18rem !important;
   color: var(--darkest-color) !important;
